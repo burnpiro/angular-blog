@@ -1,6 +1,11 @@
-angular.module('user.home', []).
-    controller('HomeController', HomeController);
+'use strict';
+
+angular.module('app.home', []).
+    controller('HomeController', [HomeController]);
 
 function HomeController() {
     this.heading = 'Works !!!';
+    this.gridData = [];
+
+
 }

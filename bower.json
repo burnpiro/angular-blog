@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "authors": "Kemal Erdem",
   "dependencies": {
-    "foundation": "~5.5.1"
+    "foundation": "~5.5.1",
+    "restangular": "~1.5.1",
+    "angular-animate": "~1.4.0"
   },
   "overrides": {
     "foundation": {
