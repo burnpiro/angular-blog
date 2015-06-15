@@ -2,6 +2,7 @@
 @import "fonts";
 @import "menu";
 @import "grid";
+@import "article";
 
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 body, html { font-size: 100%; padding: 0; margin: 0;}
@@ -12,7 +13,9 @@ body, html { font-size: 100%; padding: 0; margin: 0;}
 
 body {
     font-family: Calibri, Arial, sans-serif;
-    color: #47a3da;
+    color: $primary-color-text;
+
+    height: 100%;
 }
 
 a {

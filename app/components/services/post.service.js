@@ -8,8 +8,11 @@ function PostService(Restangular) {
         return Restangular.one('posts').get();
     };
 
+    this.getOneById = function(id) {
+        return Restangular.one('posts', id).get();
+    };
 
-    this.getAllByCategoryId = function(parent) {
-        return Restangular.one('posts').post('search', {_category: parent});
+    this.getAllByCategoryId = function(category) {
+        return Restangular.one('posts').post('search', {_category: category});
     };
 }

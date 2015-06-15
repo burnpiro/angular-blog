@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('app.article', []).
-    controller('ArticleController', ['$routeParams', ArticleController]);
+    controller('ArticleController', ['$routeParams', 'PostService', ArticleController]);
 
-function ArticleController($routeParams) {
+function ArticleController($routeParams, PostService) {
     var self = this;
-    self.article = {};
+    self.articleData = {};
 
-    //CategoryService.getAllByParentId($routeParams.categoryId)
-    //    .then(function(response) {
-    //        self.gridData = response.data;
-    //    });
+    PostService.getOneById($routeParams.postId)
+        .then(function(response) {
+            self.articleData = response.data;
+        });
 }
