@@ -18,7 +18,6 @@ function articleDirective() {
                 notrans: false,
                 modify: false
             };
-            console.log($scope.status);
 
             self.preventDefault = function(e) {
                 e = e || window.event;
@@ -61,7 +60,6 @@ function articleDirective() {
             };
 
             self.scrollPage = function() {
-                console.log($scope.status, 'scroll');
                 scrollVal = self.scrollY();
 
                 if( noscroll ) {
@@ -89,7 +87,6 @@ function articleDirective() {
             };
 
             self.toggle = function( reveal ) {
-                console.log($scope.status, 'toggle');
                 isAnimating = true;
 
                 if( reveal ) {
@@ -124,10 +121,8 @@ function articleDirective() {
                 $scope.status.modify = true;
             }
 
-            console.log($(document).data('events'));
-            document.removeEventListener( 'scroll', self.scrollPage );
-            document.addEventListener( 'scroll', self.scrollPage );
-            console.log($(document).data('events'));
+            $(document).off( "scroll" );
+            $(document).scroll(self.scrollPage);
 //				trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
         }
     };
