@@ -24,6 +24,7 @@ function AppController($router) {
         [
             {path: '/', component: 'home' },
             {path: '/category/:categoryId', component: 'grid', as: 'category' },
+            {path: '/category', component: 'grid', as: 'categoryTop' },
             {path: '/post/:postId', component: 'article', as: 'post' }
         ]
     );

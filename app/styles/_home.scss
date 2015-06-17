@@ -1,0 +1,30 @@
+@import 'settings';
+.home {
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    .profile-image {
+        text-align: center;
+        img {
+            border-radius: 50%;
+        }
+        .txt-top {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            vertical-align: middle;
+            color: $primary-color;
+            font-weight: 100;
+            .profile-name {
+                color: $primary-color-dark;
+                font-weight: 800;
+            }
+        }
+        .txt-bottom {
+            margin-top: 1rem;
+            color: $primary-color-dark
+        }
+    }
+
+
+}

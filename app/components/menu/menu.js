@@ -1,11 +1,11 @@
 angular.module('app.menu', []).
-    directive('menuDirective', ['CategoryService', menuDirective]);
+    directive('menuDirective', [menuDirective]);
 
 function menuDirective() {
     return {
         templateUrl: 'components/menu/menu.html',
         controllerAs: 'menuCtrl',
-        controller: function(CategoryService) {
+        controller: function() {
             this.open = false;
             var options= [];
             this.options = options;
@@ -15,9 +15,6 @@ function menuDirective() {
                 this.options = options;
             };
 
-            CategoryService.getTopCategories().then(function(response) {
-                options = response.data;
-            });
         }
     };
 }

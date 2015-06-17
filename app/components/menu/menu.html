@@ -1,8 +1,14 @@
 <nav id="bt-menu" class="bt-menu" ng-class="{'bt-menu-open': menuCtrl.open, 'bt-menu-close': !menuCtrl.open}">
     <a class="bt-menu-trigger" ng-click="menuCtrl.toogleMenu()"><span>Menu</span></a>
     <ul>
-        <li ng-repeat="menuItem in menuCtrl.options track by $index">
-            <a ng-link="category({categoryId: menuItem._id})">{{::menuItem.name}}</a>
+        <li>
+            <a ng-link="home">About</a>
+        </li>
+        <li>
+            <a ng-link="categoryTop">Blog</a>
+        </li>
+        <li>
+            <a ng-link="categoryTop">Contact</a>
         </li>
     </ul>
     <ul>
