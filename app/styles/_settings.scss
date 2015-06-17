@@ -9,6 +9,10 @@ $secondary-text-color: #727272;
 $divider-color:        #B6B6B6;
 $primary-color-light-gray: #FAFAFA;
 
+//    Sample usage
+//    @include keyframes(animationName) {
+//        @include transform( translate(0px, 100px))
+//    }
 @mixin keyframes($animationName)
 {
     @-webkit-keyframes #{$animationName} {
@@ -23,4 +27,95 @@ $primary-color-light-gray: #FAFAFA;
     @keyframes #{$animationName} {
         @content;
     }
+}
+
+//    Sample usage
+//    @include animation(slide-down 5s 3);
+//    (name, duration, timing-function, delay, direction, iteration-count, fill-mode, play-state)
+@mixin animation($str) {
+  -webkit-animation: $str;
+  -moz-animation: $str;
+  -ms-animation: $str;
+  -o-animation: $str;
+  animation: $str;
+}
+
+@mixin transform($transforms) {
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
+}
+
+@mixin transform-origin($val) {
+    -webkit-transform-origin: $val;
+    -moz-transform-origin: $val;
+    -ms-transform-origin: $val;
+    transform-origin: $val;
+}
+
+@mixin transform-style($val) {
+    -webkit-transform-style: $val;
+    -moz-transform-style: $val;
+    -ms-transform-style: $val;
+    transform-style: $val;
+}
+
+@mixin perspective($val) {
+    -webkit-perspective: $val;
+    -moz-perspective: $val;
+    -ms-perspective: $val;
+    perspective: $val;
+}
+
+@mixin perspective-origin($val){
+    -webkit-perspective-origin: $val;
+    -moz-perspective-origin: $val;
+    -ms-perspective-origin: $val;
+    perspective-origin: $val;
+}
+
+//    Sample usage
+//    @include transition(color .3s ease);
+@mixin transition( $val : ease 0.5s ) {
+    -webkit-transition: $val;
+    -moz-transition:$val;
+    -o-transition:$val;
+    -ms-transition:$val;
+    transition:$val;
+}
+
+@mixin text-shadow( $top: 3px, $left: 3px, $blur: 3px , $colour: #333 ) {
+    -webkit-text-shadow:$top $left $blur $colour;
+    -moz-text-shadow:$top $left $blur $colour;
+    -o-text-shadow:$top $left $blur $colour;
+    text-shadow:$top $left $blur $colour;
+}
+
+@mixin box-shadow($top: 3px, $left: 3px, $blur: 4px, $colour: #444, $inset:"") {
+    -webkit-box-shadow: #{$inset} $top $left $blur $colour;
+    -moz-box-shadow:  #{$inset} $top $left $blur $colour;
+    box-shadow: #{$inset} $top $left $blur $colour;
+}
+
+@mixin rotate( $val: -2deg ) {
+    -webkit-transform: rotate($val);
+    -moz-transform: rotate($val);
+    -ms-transform: rotate($val);
+    -o-transform: rotate($val);
+    transform: rotate($val);
+}
+
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+}
+
+//    Sample usage
+//    @include font-size(12px);
+//    This will set font size in rem if browser can use it
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
 }

@@ -7,7 +7,9 @@
     .profile-image {
         text-align: center;
         img {
+
             border-radius: 50%;
+            @include animation(profileImage 3.5s)
         }
         .txt-top {
             margin-top: 1rem;
@@ -19,12 +21,25 @@
                 color: $primary-color-dark;
                 font-weight: 800;
             }
+            @include animation(profileTopText 2.5)
         }
         .txt-bottom {
             margin-top: 1rem;
             color: $primary-color-dark
         }
     }
+}
+
+@include keyframes(profileImage) {
+    0% {@include transform(translate(0px, 200%))};
+    25% {@include transform(translate(0px, 0px))};
+    50% {@include transform(translate(0px, 0px))};
+    100% {@include transform(translate(0px, -200%))};
+    100% {@include transform(opacity(0))};
+}
 
 
+@include keyframes(profileTopText) {
+    0% {@include transform(opacity(0))};
+    100% {@include transform(opacity(1))};
 }
