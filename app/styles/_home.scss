@@ -4,12 +4,12 @@
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow: hidden;
     .profile-image {
         text-align: center;
         img {
-
+            opacity: 1;
             border-radius: 50%;
-            @include animation(profileImage 3.5s)
         }
         .txt-top {
             margin-top: 1rem;
@@ -21,25 +21,98 @@
                 color: $primary-color-dark;
                 font-weight: 800;
             }
-            @include animation(profileTopText 2.5)
+            @include animation(profileTopText, 3.5s, 1.3s, '', '', 1, both)
         }
         .txt-bottom {
             margin-top: 1rem;
-            color: $primary-color-dark
+            color: $primary-color-dark;
+            overflow: hidden;
+            @include animation(profileTopText, 3.5s, 1.3s, '', '', 1, both)
         }
+        .circle {
+            width: 320px; height: 320px; border-radius:50%;
+            padding: 10px; margin-top: calc(-300px - 12px);
+            position: absolute; margin-left: -12px;
+            border-top:3px solid $primary-color-light-gray;
+            border-right:3px solid $primary-color-light-gray;
+            border-bottom:3px solid $primary-color-light-gray;
+            border-left:3px solid $primary-color;
+            @include animation(profileCircle, 1.8s, '', linear, '', infinite)
+        }
+        @include animation(profileImage, 2.8s, '', '', '', 1, both)
+    }
+
+    .technologies {
+        opacity: 0;
+        img {
+            width: 128;
+        }
+        .imageAngular {
+
+        }
+
+        .imageCss {
+
+        }
+
+        .imageHtml {
+
+        }
+
+        .imageNode {
+
+        }
+
+        .imageHapi {
+
+        }
+
+        .imageMongo {
+
+        }
+    }
+
+    &.animate {
+        img {
+            @include animation(profileImg, 1s, '', '', '', 1, both)
+        }
+        .circle {
+            @include animation(profileCircleScale, 1s, '', '', '', 1, both)
+        }
+        @include animation(profileImageStep2, 2.8s, '', '', '', 1, both)
     }
 }
 
 @include keyframes(profileImage) {
-    0% {@include transform(translate(0px, 200%))};
-    25% {@include transform(translate(0px, 0px))};
-    50% {@include transform(translate(0px, 0px))};
-    100% {@include transform(translate(0px, -200%))};
-    100% {@include transform(opacity(0))};
+    0% {@include transform(translate(000px,100vh))}
+    60% {@include transform(translate(000px,000px))}
+    100% {@include transform(translate(000px,20px))}
+}
+
+@include keyframes(profileImageStep2) {
+    0% {@include transform(translate(000px,20px))}
+    100% {@include transform(translate(calc(50vw - 100px),calc(-50vh + 150px)))}
 }
 
 
 @include keyframes(profileTopText) {
-    0% {@include transform(opacity(0))};
-    100% {@include transform(opacity(1))};
+    0% {opacity:0;}
+    30% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@include keyframes(profileImg) {
+    0% {@include transform(scale(1))}
+    100% {@include transform(scale(0.5))}
+}
+
+@include keyframes(profileCircleScale) {
+    0% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@include keyframes(profileCircle) {
+    0%{@include transform(rotate(0deg))}
+    50%{@include transform(rotate(360deg))}
+    100%{@include transform(rotate(720deg))}
 }

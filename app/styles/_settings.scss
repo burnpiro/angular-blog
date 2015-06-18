@@ -21,23 +21,62 @@ $primary-color-light-gray: #FAFAFA;
     @-moz-keyframes #{$animationName}  {
         @content;
     }
-    @-o-keyframes #{$animationName} {
-        @content;
-    }
     @keyframes #{$animationName} {
         @content;
     }
 }
 
 //    Sample usage
-//    @include animation(slide-down 5s 3);
-//    (name, duration, timing-function, delay, direction, iteration-count, fill-mode, play-state)
-@mixin animation($str) {
-  -webkit-animation: $str;
-  -moz-animation: $str;
-  -ms-animation: $str;
-  -o-animation: $str;
-  animation: $str;
+//    @include animation(slide-down, 5s);
+//    (name, duration, delay, timing-function, direction, iteration-count, fill-mode, play-state)
+@mixin animation($name:'', $duration:'', $delay:'', $timingF:'', $direction:'', $iteration:'', $fillMode:'', $playState:'') {
+    @if($name != '') {
+        -webkit-animation-name: $name;
+        -moz-animation-name: $name;
+        animation-name: $name;
+    }
+
+    @if($duration != '') {
+        -webkit-animation-duration: $duration;
+        -moz-animation-duration: $duration;
+        animation-duration: $duration;
+    }
+
+    @if($timingF != '') {
+        -webkit-animation-timing-function: $timingF;
+        -moz-animation-timing-function: $timingF;
+        animation-timing-function: $timingF;
+    }
+
+    @if($delay != '') {
+        -webkit-animation-delay: $delay;
+        -moz-animation-delay: $delay;
+        animation-delay: $delay;
+    }
+
+    @if($direction != '') {
+        -webkit-animation-direction: $direction;
+        -moz-animation-direction: $direction;
+        animation-direction: $direction;
+    }
+
+    @if($iteration != '') {
+        -webkit-animation-iteration-count: $iteration;
+        -moz-animation-iteration-count: $iteration;
+        animation-iteration-count: $iteration;
+    }
+
+    @if($fillMode != '') {
+        -webkit-animation-fill-mode: $fillMode;
+        -moz-animation-fill-mode: $fillMode;
+        animation-fill-mode: $fillMode;
+    }
+
+    @if($playState != '') {
+        -webkit-animation-play-state: $playState;
+        -moz-animation-play-state: $playState;
+        animation-play-state: $playState;
+    }
 }
 
 @mixin transform($transforms) {

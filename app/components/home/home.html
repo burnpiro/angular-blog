@@ -1,11 +1,20 @@
-<section class="home">
-    <div class="profile-image">
+<section class="home" ng-class="{'animate' : home.startAnimate}">
+    <div class="profile-image" ng-click="home.startAnimate = true">
         <img src="images/profilePic.jpg">
+        <div class="circle"></div>
         <div class="txt-top">
             HI, MY NAME IS <span class="profile-name">KEMAL ERDEM</span>
         </div>
         <div class="txt-bottom">
             Front End Developer
         </div>
+    </div>
+    <div class="technologies">
+        <img src="images/logo-angular.png" class="imageAngular">
+        <img src="images/logo-css3.png" class="imageCss">
+        <img src="images/logo-html5.png" class="imageHtml">
+        <img src="images/logo-node.png" class="imageNode">
+        <img src="images/logo-hapi.svg" class="imageHapi">
+        <img src="images/logo-mongo.svg" class="imageMongo">
     </div>
 </section>

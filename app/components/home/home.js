@@ -4,8 +4,5 @@ angular.module('app.home', []).
     controller('HomeController', [HomeController]);
 
 function HomeController() {
-    this.heading = 'Works !!!';
-    this.gridData = [];
-
-
+    this.startAnimate = false;
 }
