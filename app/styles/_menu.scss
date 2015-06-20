@@ -25,6 +25,10 @@ body  {
     -webkit-backface-visibility: hidden;
     -webkit-transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
     transition: border-width 0.3s, background-color 0.3s, height 0s 0.3s;
+
+    &.bt-menu-close ul {
+        display: none;
+    }
 }
 
 .bt-menu.bt-menu-open {
