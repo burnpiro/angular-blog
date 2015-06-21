@@ -36,7 +36,7 @@ function articleDirective() {
             };
 
             self.touchmove = function(e) {
-                preventDefault(e);
+                //preventDefault(e);
             };
 
             self.disable_scroll = function() {
@@ -53,7 +53,7 @@ function articleDirective() {
                 isRevealed,
                 noscroll,
                 isAnimating,
-                container = document.getElementById( 'article-container' );
+                container = document.getElementById( 'article-container');
 
             self.scrollY = function() {
                 return window.pageYOffset || docElem.scrollTop;
@@ -86,7 +86,7 @@ function articleDirective() {
                 $scope.$apply();
             };
 
-            self.toggle = function( reveal ) {
+            $scope.toggle = self.toggle = function( reveal ) {
                 isAnimating = true;
 
                 if( reveal ) {
@@ -121,9 +121,15 @@ function articleDirective() {
                 $scope.status.modify = true;
             }
 
-            $(document).off( "scroll" );
+            $(document).scrollTop(0);
+            $(document).off( 'scroll' );
+            $(document).off( 'touchmove' );
             $(document).scroll(self.scrollPage);
-//				trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+            //document.addEventListener('touchmove', function(e) {
+            //    if(scrollVal === 0 || _.isUndefined(scrollVal)) {
+            //        $scope.toggle(1);
+            //    }
+            //});
         }
     };
 }

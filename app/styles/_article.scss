@@ -33,7 +33,7 @@
     .bg-img::after {
         content: '';
         position: absolute;
-        z-index: 100;
+        z-index: 1;
     }
 
     .bg-img::after {
@@ -62,7 +62,7 @@
     }
 
     .title {
-        z-index: 1000;
+        z-index: 0;
         margin: 0 auto;
         padding: 0 1.25em;
         width: 100%;
@@ -72,6 +72,11 @@
         left: auto;
         -webkit-transform: translateY(200px);
         transform: translateY(200px);
+
+        a {
+            font-weight: bold;
+            color: $primary-color-dark;
+        }
     }
 
     &.modify .title {
@@ -258,7 +263,7 @@
     @media screen and (max-width: 27em) {
 
         .title, .content {
-            font-size: 100%;
+            font-size: 80%;
         }
 
         button.trigger::before {

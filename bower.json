@@ -10,6 +10,9 @@
   "overrides": {
     "foundation": {
       "main": "js/foundation.js"
+    },
+    "angular": {
+      "ignore": true
     }
   }
 }
