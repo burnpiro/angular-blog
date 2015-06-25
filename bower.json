@@ -5,7 +5,8 @@
   "dependencies": {
     "foundation": "~5.5.1",
     "restangular": "~1.5.1",
-    "angular-animate": "~1.4.0"
+    "angular-animate": "~1.4.0",
+    "angular-material": "~0.10.0"
   },
   "overrides": {
     "foundation": {
