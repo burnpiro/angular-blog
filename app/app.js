@@ -15,7 +15,7 @@ angular.module('app', [
     'app.services'
 ])
     .config(function(RestangularProvider) {
-        RestangularProvider.setBaseUrl('http://localhost:8080');
+        RestangularProvider.setBaseUrl(config.host);
     })
     .controller('AppController', ['$router', AppController]);
 
