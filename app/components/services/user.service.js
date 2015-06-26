@@ -9,6 +9,6 @@ function UserService(Restangular) {
     };
 
     this.login = function(login, password) {
-        return Restangular.one('login').post('', {userName: login, password: password});
+        return Restangular.one('').post('login', {userName: login, password: password});
     };
 }

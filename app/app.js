@@ -4,6 +4,7 @@ angular.module('app', [
     'ngNewRouter',
     'ngAnimate',
     'restangular',
+    'ngMaterial',
 
     //components
     'app.home',
@@ -17,10 +18,15 @@ angular.module('app', [
 ])
     .config(function(RestangularProvider) {
         RestangularProvider.setBaseUrl(config.host);
-        RestangularProvider.setRequestInterceptor(authInterceptor.request);
+        RestangularProvider.addFullRequestInterceptor(authInterceptor);
+    })
+    .config(function($mdThemingProvider) {
+        $mdThemingProvider.theme('default')
+            .primaryPalette('light-green')
+            .accentPalette('orange');
     })
     .controller('AppController', ['$router', AppController])
-    .factory('authInterceptor', authInterceptor);
+    .factory('authInterceptor', ['$window', authInterceptor]);
 
 function AppController($router) {
     $router.config(
@@ -35,12 +41,20 @@ function AppController($router) {
 }
 
 function authInterceptor($window) {
+    //console.log('aaaa');
     return {
-        request: function(config) {
+        request: function(element, operation, route, url, headers, params, httpConfig) {
+            console.log('aaaa');
             if ($window.localStorage.token) {
-                config.headers.Authorization = 'Bearer ' + $window.localStorage.token;
+                headers.Authorization = 'Bearer ' + $window.localStorage.token;
+                console.log(headers.Authorization);
             }
-            return config;
+            return {
+                element: element,
+                headers: headers,
+                params: params,
+                httpConfig: httpConfig
+            };
         }
     }
 }

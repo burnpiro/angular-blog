@@ -1,7 +1,7 @@
 <section class="login">
     <form name="signInForm" ng-submit="login.loginAction()">
         <div layout="row" layout-align="center center" class="loginForm">
-            <md-content layout-padding class="loginForm" flex="33" flex-md="66" flex-sm="80">
+            <md-content layout-padding class="md-whiteframe-z2" flex="33" flex-md="66" flex-sm="80">
                 <md-input-container flex>
                     <label>Email</label>
                     <input type="email" ng-model="login.login" ng-required="true">
@@ -10,6 +10,7 @@
                     <label>Password</label>
                     <input ng-model="login.password" type="password" ng-required="true">
                 </md-input-container>
+                <md-button class="md-raised md-primary">Login</md-button>
             </md-content>
         </div>
     </form>
