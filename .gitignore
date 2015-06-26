@@ -45,3 +45,6 @@ dist.dev
 
 # Production dist
 dist.prod
+
+# Config file
+app/config.js
