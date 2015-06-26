@@ -16,9 +16,10 @@ angular.module('app', [
     //services
     'app.services'
 ])
-    .config(function(RestangularProvider) {
+    .config(function(RestangularProvider, $windowProvider) {
         RestangularProvider.setBaseUrl(config.host);
-        RestangularProvider.addFullRequestInterceptor(authInterceptor);
+        var interceptor = authInterceptor($windowProvider.$get());
+        RestangularProvider.addFullRequestInterceptor(interceptor.request);
     })
     .config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
@@ -26,7 +27,6 @@ angular.module('app', [
             .accentPalette('orange');
     })
     .controller('AppController', ['$router', AppController])
-    .factory('authInterceptor', ['$window', authInterceptor]);
 
 function AppController($router) {
     $router.config(
