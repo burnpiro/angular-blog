@@ -1,6 +1,6 @@
 # Angular Blog
 
-Blog based on Angular 1.4 with new router. Project has his own gulp build tasks which creates dev dist and prod dist. In contains also browser-sync live reload and own server to serve files without any external server.
+Blog based on Angular 1.4 with ui router. Project has his own gulp build tasks which creates dev dist and prod dist. In contains also browser-sync live reload and own server to serve files without any external server.
 
 ## How to install?
 

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.admin', ['ui.router'])
+angular.module('app.admin', ['ui.router', 'aloha-editor'])
     .config(function($stateProvider){
 
         $stateProvider
@@ -63,6 +63,10 @@ angular.module('app.admin', ['ui.router'])
                             post: ['$stateParams', 'PostService',
                                 function($stateParams, PostService) {
                                     return PostService.getOneById($stateParams.postId);
+                                }],
+                            categories: ['CategoryService',
+                                function(CategoryService) {
+                                    return CategoryService.getCategories();
                                 }]
                         },
                         controller: 'AdminArticleController',
