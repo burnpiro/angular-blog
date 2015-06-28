@@ -60,7 +60,6 @@ function articleDirective() {
             };
 
             self.scrollPage = function() {
-                console.log('aaaa');
                 scrollVal = self.scrollY();
 
                 if( noscroll ) {
@@ -89,7 +88,6 @@ function articleDirective() {
 
             $scope.toggle = self.toggle = function( reveal ) {
                 isAnimating = true;
-                console.log('aaaa');
 
                 if( reveal ) {
                     $scope.status.modify = true;

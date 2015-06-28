@@ -4,8 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "angular": "^1.4.0",
-    "angular-new-router": "^*"
+    "angular": "^1.4.*"
   },
   "devDependencies": {
     "body-parser": "^1.5.2",

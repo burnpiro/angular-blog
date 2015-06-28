@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('app.login', []).
-    controller('LoginController', ['$window', 'UserService', LoginController]);
+angular.module('app.login')
+    .controller('LoginController', ['$window', '$state', 'UserService', LoginController]);
 
-function LoginController($window, UserService) {
+function LoginController($window, $state, UserService) {
     var self = this;
     self.login = '';
     self.password = '';
@@ -11,6 +11,9 @@ function LoginController($window, UserService) {
         UserService.login(self.login, self.password)
             .then(function(response) {
                 $window.localStorage.token = response.token;
+                if(UserService.isUserLoggedIn() && UserService.isAdmin()) {
+                    $state.go('admin');
+                }
             }, function(err) {
             });
     }

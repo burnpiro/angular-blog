@@ -3,7 +3,7 @@ angular.module('app.menu', []).
 
 function menuDirective() {
     return {
-        templateUrl: 'components/menu/menu.html',
+        templateUrl: 'components/menu/menu.directive.html',
         controllerAs: 'menuCtrl',
         controller: function() {
             this.open = false;

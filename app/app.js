@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app', [
-    'ngNewRouter',
+    'ui.router',
     'ngAnimate',
     'restangular',
     'ngMaterial',
@@ -12,6 +12,7 @@ angular.module('app', [
     'app.grid',
     'app.article',
     'app.login',
+    'app.admin',
 
     //services
     'app.services'
@@ -21,33 +22,40 @@ angular.module('app', [
         var interceptor = authInterceptor($windowProvider.$get());
         RestangularProvider.addFullRequestInterceptor(interceptor.request);
     })
+    //.config(["$locationProvider", function($locationProvider) {
+    //    $locationProvider.html5Mode(true);
+    //}])
     .config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
             .primaryPalette('light-green')
             .accentPalette('orange');
     })
-    .controller('AppController', ['$router', AppController])
+    .config(function($stateProvider, $urlRouterProvider){
 
-function AppController($router) {
-    $router.config(
-        [
-            {path: '/', component: 'home' },
-            {path: '/category/:categoryId', component: 'grid', as: 'category' },
-            {path: '/category', component: 'grid', as: 'categoryTop' },
-            {path: '/post/:postId', component: 'article', as: 'post' },
-            {path: '/login', component: 'login', as: 'login' }
-        ]
-    );
-}
+    // For any unmatched url, send to /
+    //$urlRouterProvider.otherwise("/");
+
+    $stateProvider
+        .state('home', {
+            url: "/",
+            views: {
+                "" :{
+                    templateUrl: "components/home/home.html",
+                    controller: 'HomeController',
+                    controllerAs: 'home'
+                },
+                "bottomMenu": {
+                    templateUrl: "components/menu/menu.html"
+                }
+            }
+        })
+    });
 
 function authInterceptor($window) {
-    //console.log('aaaa');
     return {
         request: function(element, operation, route, url, headers, params, httpConfig) {
-            console.log('aaaa');
             if ($window.localStorage.token) {
                 headers.Authorization = 'Bearer ' + $window.localStorage.token;
-                console.log(headers.Authorization);
             }
             return {
                 element: element,

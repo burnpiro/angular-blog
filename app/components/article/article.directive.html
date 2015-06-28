@@ -6,7 +6,7 @@
         <div class="title">
             <h1>{{::articleData.name}}</h1>
             <p class="subline">Some short description if possible</p>
-            <p>by <strong>Kemal Erdem</strong> &#8212; Posted in <a ng-link="category({categoryId: articleData._category._id})">{{::articleData._category.name}}</a> on <strong>Jun 15, 2015</strong></p>
+            <p>by <strong>Kemal Erdem</strong> &#8212; Posted in <a ui-sref="category({categoryId: articleData._category._id})">{{::articleData._category.name}}</a> on <strong>Jun 15, 2015</strong></p>
         </div>
         <div>
             {{::articleData.content}}
