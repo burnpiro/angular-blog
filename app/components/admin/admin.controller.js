@@ -40,11 +40,10 @@ function BottomGridController($mdBottomSheet) {
         $mdBottomSheet.hide(clickedItem);
     };
     self.items = [
-        { name: 'Hangout', icon: 'fa-bed' },
-        { name: 'Mail', icon: 'fa-subway' },
-        { name: 'Message', icon: 'fa-shirtsinbulk' },
-        { name: 'Copy', icon: 'fa-pinterest-p' },
-        { name: 'Facebook', icon: 'fa-medium' },
+        { name: 'Add post', icon: 'fa-plus', link: 'admin.addArticle' },
+        { name: 'Posts', icon: 'fa-list-alt', link: 'admin.articles' },
+        { name: 'Categories', icon: 'fa-code-fork' },
+        { name: 'Users', icon: 'fa-users' },
         { name: 'Logout', icon: 'fa-sign-out', click: 'logout' }
     ];
 }

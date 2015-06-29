@@ -1,11 +1,11 @@
-<section class="adminArticle" layout="column" layout-fill>
+<section class="adminArticlesList" layout="column" layout-fill>
     <md-grid-list
             md-cols-sm="2" md-cols-md="6" md-cols-gt-md="12"
             md-row-height-gt-md="3:4" md-row-height="3:4"
             md-gutter="8px" md-gutter-gt-sm="4px" >
         <md-grid-tile ng-repeat="post in listCtrl.posts" md-colspan="2" md-colspan-sm="1" md-colspan-md="1"
                       md-colspan-gt-md="2" ng-class="post.background" ui-sref="admin.article({postId: post._id})">
-            <md-icon md-svg-icon="{{post.icon}}"></md-icon>
+            <icon class="fa {{post.icon}}"></icon>
             <md-grid-tile-footer><h3>{{post.name}}</h3></md-grid-tile-footer>
         </md-grid-tile>
     </md-grid-list>

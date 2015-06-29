@@ -7,3 +7,10 @@
 .editor {
     min-height: 20rem !important;
 }
+
+.adminArticlesList {
+    icon {
+        @include font-size(48px);
+        color: $primary-color-light-gray;
+    }
+}

@@ -48,6 +48,41 @@ angular.module('app.admin', ['ui.router', 'aloha-editor'])
                     }
                 }
             })
+            .state('admin.addArticle', {
+                url: "/posts/add",
+                onEnter: ['$stateParams', '$state', 'UserService',
+                    function($stateParams, $state, UserService) {
+                        if(!UserService.isUserLoggedIn() || !UserService.isAdmin()) {
+                            $state.go('login');
+                        }
+                    }],
+                views: {
+                    "adminContent" :{
+                        templateUrl: "components/admin-article/admin-article.html",
+                        resolve: {
+                            post: [function() {
+                                return false;
+                            }],
+                            categories: ['CategoryService',
+                                function(CategoryService) {
+                                    return CategoryService.getCategories();
+                                }]
+                        },
+                        data: {
+                            post: {
+                                _category: {},
+                                name: '',
+                                content: '',
+                                icon: 'fa-bicycle',
+                                shortText: '',
+                                author: 'Kemal Erdem'
+                            }
+                        },
+                        controller: 'AdminArticleController',
+                        controllerAs: 'articleCtrl'
+                    }
+                }
+            })
             .state('admin.article', {
                 url: "/posts/:postId",
                 onEnter: ['$stateParams', '$state', 'UserService',

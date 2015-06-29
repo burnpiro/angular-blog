@@ -5,6 +5,7 @@ angular.module('app', [
     'ngAnimate',
     'restangular',
     'ngMaterial',
+    'toastr',
 
     //components
     'app.home',
@@ -49,6 +50,39 @@ angular.module('app', [
                 }
             }
         })
+    })
+    .config(function(toastrConfig) {
+        angular.extend(toastrConfig, {
+            timeOut: 1000
+        });
+    })
+    .run(function(Restangular, toastr) {
+        Restangular.setErrorInterceptor(
+            function(response) {
+                var message = response.message;
+                if(_.isUndefined(message)){
+                    switch(response.status) {
+                        case 400:
+                            message = 'Bad request';
+                            break;
+                        case 401:
+                            message = 'Unauthorized';
+                            break;
+                        case 403:
+                            message = 'You have no access to this area';
+                            break;
+                        case 404:
+                            message = 'Resource not found';
+                            break;
+                        case 500:
+                            message = 'Internal server error';
+                            break;
+                    }
+                }
+                toastr.error(message, 'Error');
+                return response;
+            }
+        )
     });
 
 function authInterceptor($window) {

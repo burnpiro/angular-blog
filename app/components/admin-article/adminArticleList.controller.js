@@ -7,7 +7,6 @@ function AdminArticleListController($window, UserService, PostService, posts) {
     var self = this;
     self.userData = UserService.getUserData();
     self.posts = posts;
-    console.log(self.posts.length);
     var saturation = 600;
     var classes = [
         'bg-color-red-'+saturation, 'bg-color-pink-'+saturation, 'bg-color-purple-'+saturation, 'bg-color-deep-purple-'+saturation, 'bg-color-indigo-'+saturation,
