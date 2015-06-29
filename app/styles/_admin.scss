@@ -3,3 +3,7 @@
 .md-grid icon {
     @include font-size(32px);
 }
+
+.editor {
+    min-height: 20rem !important;
+}

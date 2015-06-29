@@ -1,3 +1,3 @@
 var config = {
-    host: 'http://192.168.1.1:8080'
+    host: 'http://localhost:8080'
 };

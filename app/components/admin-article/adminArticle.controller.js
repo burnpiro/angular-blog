@@ -5,17 +5,28 @@ angular.module('app.admin').
 
 function AdminArticleController(PostService, alohaEditorFactory, post, categories) {
     var self = this;
+    self.buttons = [
+        {id: 'editorClear', type: 'unformat', label: 'Clear', icon: 'fa-times'},
+        {id: 'editorBold', type: 'bold', label: 'Bold', icon: 'fa-bold'},
+        {id: 'editorItalic', type: 'italic', label: 'Italic', icon: 'fa-italic'},
+        {id: 'editorUl', type: 'ul', label: 'Unordered list', icon: 'fa-list-ul'},
+        {id: 'editorOl', type: 'ol', label: 'Ordered list', icon: 'fa-list-ol'},
+        {id: 'editorH2', type: 'h2', label: 'Headline 2', text: 'H2'},
+        {id: 'editorH3', type: 'h3', label: 'Headline 3', text: 'H3'},
+        {id: 'editorH4', type: 'h4', label: 'Headline 4', text: 'H4'},
+        {id: 'editorP', type: 'p', label: 'Paragraph', icon: 'fa-paragraph'},
+        {id: 'editorPre', type: 'pre', label: 'Preformatted', icon: 'fa-code'}
+    ];
     alohaEditorFactory.initEditor('editor');
-    alohaEditorFactory.addButton({id: 'editorBold', type: 'bold'});
-    alohaEditorFactory.addButton({id: 'editorItalic', type: 'italic'});
-    alohaEditorFactory.addButton({id: 'editorUl', type: 'ul'});
-    alohaEditorFactory.addButton({id: 'editorOl', type: 'ol'});
-    alohaEditorFactory.addButton({id: 'editorH2', type: 'h2'});
-    alohaEditorFactory.addButton({id: 'editorH3', type: 'h3'});
-    alohaEditorFactory.addButton({id: 'editorH4', type: 'h4'});
-    alohaEditorFactory.addButton({id: 'editorP', type: 'p'});
-    alohaEditorFactory.addButton({id: 'editorPre', type: 'pre'});
-    alohaEditorFactory.addButton({id: 'editorClear', type: 'unformat'});
+    _.forEach(self.buttons, function(button) {
+        alohaEditorFactory.addButton(button);
+    });
     self.post = post.data;
     self.categories = categories;
+
+    self.savePost = function() {
+        PostService.savePost(self.post).then(function(response) {
+            console.log(response.message);
+        });
+    }
 }

@@ -1,13 +1,26 @@
 <section class="adminArticle" layout="column">
     <md-toolbar class="md-warn">
         <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
-            <md-input-container md-no-float layout-padding>
-                <input ng-model="articleCtrl.post.name" placeholder="Post name" class="md-warn">
-            </md-input-container>
+            <div layout="row" layout-align="space-between center">
+                Editing:
+                <md-input-container md-no-float layout-padding>
+                    <input required ng-model="articleCtrl.post.name" placeholder="Post name" class="color-grey-200">
+                </md-input-container>
+                Author:
+                <md-input-container md-no-float layout-padding>
+                    <input required ng-model="articleCtrl.post.author" placeholder="Author" class="md-primary">
+                </md-input-container>
+                Icon:
+                <md-input-container md-no-float layout-padding>
+                    <input required ng-model="articleCtrl.post.icon" placeholder="Fa icon class" class="md-primary">
+                </md-input-container>
+            </div>
             <div class="buttons">
-                <md-button id="editorClear" class="md-icon-button md-primary" aria-label="Bold">
-                    <icon class="fa fa-times color-grey-200"></icon>
-                </md-button>
+                <!--<md-button ng-repeat="button in ::articleCtrl.buttons" id="{{::button.id}}" class="md-icon-button md-primary" aria-label="{{button.label}}">-->
+                    <!--<icon ng-if="button.icon !== undefined" class="fa color-grey-200" ng-class="button.icon"></icon>-->
+                    <!--<span ng-if="button.text !== undefined" class="color-grey-200">{{button.text}}</span>-->
+                <!--</md-button>-->
+
                 <md-button id="editorBold" class="md-icon-button md-primary" aria-label="Bold">
                     <icon class="fa fa-bold color-grey-200"></icon>
                 </md-button>
@@ -41,8 +54,14 @@
             </div>
         </div>
     </md-toolbar>
-    <md-content layout-padding>
-        <div id="editor">asdsad</div>
+    <md-content  layout-padding>
+        <md-content  layout-padding>
+            <div class="editor" id="editor">{{articleCtrl.post.content}}</div>
+        </md-content>
+        <md-input-container flex>
+            <label>Short Description</label>
+            <textarea ng-model="articleCtrl.post.shortText" columns="1" md-maxlength="160"></textarea>
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="articleCtrl.savePost()">Save</md-button>
     </md-content>
-
 </section>
