@@ -109,4 +109,26 @@ angular.module('app.admin', ['ui.router', 'aloha-editor'])
                     }
                 }
             })
+            .state('admin.categories', {
+                url: "/categories",
+                onEnter: ['$stateParams', '$state', 'UserService',
+                    function($stateParams, $state, UserService) {
+                        if(!UserService.isUserLoggedIn() || !UserService.isAdmin()) {
+                            $state.go('login');
+                        }
+                    }],
+                views: {
+                    "adminContent" :{
+                        templateUrl: "components/admin-category/admin-category-list.html",
+                        resolve: {
+                            categories: ['$stateParams', 'CategoryService',
+                                function($stateParams, CategoryService) {
+                                    return CategoryService.getCategories();
+                                }]
+                        },
+                        controller: 'AdminCategoryListController',
+                        controllerAs: 'categoryCtrl'
+                    }
+                }
+            })
     });

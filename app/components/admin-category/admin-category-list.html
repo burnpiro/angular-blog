@@ -1,0 +1,7 @@
+<md-list>
+    <md-list-item ng-repeat="category in categoryCtrl.categories">
+        <md-checkbox ng-model="category.selected"></md-checkbox>
+        <p>{{category.name}}</p>
+        <icon ng-click="doSecondaryAction($event)" aria-label="Edit" class="fa fa-pencil-square-o"></icon>
+    </md-list-item>
+</md-list>
