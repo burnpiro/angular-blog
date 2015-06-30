@@ -42,7 +42,7 @@ function BottomGridController($mdBottomSheet) {
     self.items = [
         { name: 'Add post', icon: 'fa-plus', link: 'admin.addArticle' },
         { name: 'Posts', icon: 'fa-list-alt', link: 'admin.articles' },
-        { name: 'Categories', icon: 'fa-code-fork' },
+        { name: 'Categories', icon: 'fa-code-fork', link: 'admin.categories'},
         { name: 'Users', icon: 'fa-users' },
         { name: 'Logout', icon: 'fa-sign-out', click: 'logout' }
     ];

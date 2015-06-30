@@ -1,7 +1,12 @@
-<md-list>
-    <md-list-item ng-repeat="category in categoryCtrl.categories">
-        <md-checkbox ng-model="category.selected"></md-checkbox>
-        <p>{{category.name}}</p>
-        <icon ng-click="doSecondaryAction($event)" aria-label="Edit" class="fa fa-pencil-square-o"></icon>
-    </md-list-item>
-</md-list>
+<div class="adminCategoriesList">
+    <md-list>
+        <md-list-item ng-repeat="category in categoryCtrl.categories">
+            <md-checkbox ng-model="category.selected"></md-checkbox>
+            <p>{{category.name}}<icon ng-if="category.icon" class="fa {{category.icon}}"></icon></p>
+            <icon ng-click="categoryCtrl.openModal($event, category)" aria-label="Edit" class="fa fa-pencil-square-o"></icon>
+        </md-list-item>
+        <md-button layoutlayout-align="center center" class="md-primary md-fab md-fab-bottom-right fa fa-plus"
+                   ng-click="categoryCtrl.openModal($event, null)">
+        </md-button>
+    </md-list>
+</div>

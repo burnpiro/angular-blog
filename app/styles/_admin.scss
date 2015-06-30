@@ -14,3 +14,9 @@
         color: $primary-color-light-gray;
     }
 }
+
+.adminCategoriesList {
+    .fa {
+        @include font-size(24px);
+    }
+}
