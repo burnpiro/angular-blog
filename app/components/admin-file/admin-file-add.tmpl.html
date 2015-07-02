@@ -1,0 +1,29 @@
+<md-dialog aria-label="New File">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Upload File</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="modalCtrl.cancel()">
+                    <icon class="fa fa-times" aria-label="Close dialog"></icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div>
+                <md-input-container md-no-float>
+                    <input ng-model="modalCtrl.file" placeholder="Choose file" type="file">
+                </md-input-container>
+            </div>
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+            <span flex></span>
+            <md-button ng-click="modalCtrl.cancel()" class="md-primary">
+                Cancel
+            </md-button>
+            <md-button ng-click="modalCtrl.answer('Save')" class="md-primary">
+                Save
+            </md-button>
+        </div>
+    </form>
+</md-dialog>

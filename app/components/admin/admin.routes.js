@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.admin', ['ui.router', 'aloha-editor'])
+angular.module('app.admin', ['ui.router', 'aloha-editor', 'angularFileUpload'])
     .config(function($stateProvider){
 
         $stateProvider
@@ -128,6 +128,28 @@ angular.module('app.admin', ['ui.router', 'aloha-editor'])
                         },
                         controller: 'AdminCategoryListController',
                         controllerAs: 'categoryCtrl'
+                    }
+                }
+            })
+            .state('admin.files', {
+                url: "/files",
+                onEnter: ['$stateParams', '$state', 'UserService',
+                    function($stateParams, $state, UserService) {
+                        if(!UserService.isUserLoggedIn() || !UserService.isAdmin()) {
+                            $state.go('login');
+                        }
+                    }],
+                views: {
+                    "adminContent" :{
+                        templateUrl: "components/admin-file/admin-file.html",
+                        resolve: {
+                            files: ['$stateParams', 'FileService',
+                                function($stateParams, FileService) {
+                                    return FileService.getAll();
+                                }]
+                        },
+                        controller: 'AdminFileController',
+                        controllerAs: 'fileCtrl'
                     }
                 }
             })
