@@ -66,6 +66,10 @@ angular.module('app.admin', ['ui.router', 'aloha-editor', 'angularFileUpload'])
                             categories: ['CategoryService',
                                 function(CategoryService) {
                                     return CategoryService.getCategories();
+                                }],
+                            files: ['$stateParams', 'FileService',
+                                function($stateParams, FileService) {
+                                    return FileService.getAll();
                                 }]
                         },
                         data: {
@@ -102,6 +106,10 @@ angular.module('app.admin', ['ui.router', 'aloha-editor', 'angularFileUpload'])
                             categories: ['CategoryService',
                                 function(CategoryService) {
                                     return CategoryService.getCategories();
+                                }],
+                            files: ['$stateParams', 'FileService',
+                                function($stateParams, FileService) {
+                                    return FileService.getAll();
                                 }]
                         },
                         controller: 'AdminArticleController',

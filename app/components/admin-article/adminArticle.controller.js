@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('app.admin').
-    controller('AdminArticleController', ['PostService', 'alohaEditorFactory', 'post', 'categories', 'toastr',
+    controller('AdminArticleController', ['PostService', 'alohaEditorFactory', 'post', 'categories', 'files', 'toastr',
         AdminArticleController]);
 
-function AdminArticleController(PostService, alohaEditorFactory, post, categories, toastr) {
+function AdminArticleController(PostService, alohaEditorFactory, post, categories, files, toastr) {
     var self = this;
     self.buttons = [
         {id: 'editorClear', type: 'unformat'},
@@ -31,10 +31,12 @@ function AdminArticleController(PostService, alohaEditorFactory, post, categorie
             content: 'Write your text here',
             icon: 'fa-bicycle',
             shortText: '',
+            image: '',
             author: 'Kemal Erdem'
         };
     }
     self.categories = categories.data;
+    self.files = files.data;
 
     self.savePost = function() {
         PostService.savePost(self.post).then(function(response) {

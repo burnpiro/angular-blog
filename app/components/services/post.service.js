@@ -22,6 +22,7 @@ function PostService(Restangular) {
             name: post.name,
             icon: post.icon,
             shortText: post.shortText,
+            image: post.image,
             content: post.content
         };
         if(_.isObject(post._category)) {

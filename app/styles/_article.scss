@@ -20,6 +20,7 @@
     }
 
     .bg-img img {
+        width: 100vh;
         position: absolute;
         top: 0;
         left: auto;
@@ -86,7 +87,7 @@
 
     .title h1 {
         padding: 0 0 0.5em 0;
-        color: $divider-color;
+        color: $primary-color-light-gray;
         font-family: 'Playfair Display', serif;
         font-weight: 700;
         font-size: 3.25em;

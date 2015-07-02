@@ -49,6 +49,15 @@
             </md-button>
         </div>
     </div>
+
+    <div layout="row" layout-sm="column" layout-align="center center" flex>
+        <span>Post image:</span>
+        <md-input-container layout-padding>
+            <md-select ng-model="articleCtrl.post.image" placeholder="Image">
+                <md-option ng-repeat="file in articleCtrl.files" value="{{file}}">{{file}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
     <md-content  layout-padding>
         <md-content layout-padding hide show-gt-sm>
             <div class="editor" id="editor">{{articleCtrl.post.content}}</div>
