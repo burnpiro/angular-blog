@@ -15,6 +15,10 @@ function menuDirective() {
                 this.options = options;
             };
 
+            this.closeMenu = function() {
+                this.open = false;
+            }
+
         }
     };
 }

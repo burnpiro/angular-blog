@@ -27,3 +27,54 @@ body {
 a {
     text-decoration: none;
 }
+
+.loader {
+    z-index: -1;
+    display: none;
+    position: fixed;
+    .circle {
+        width: 100vh;
+        height: 100vh;
+        background-color: white;
+        border: solid 1px black;
+        border-radius: 100vh;
+        z-index: 1;
+        position: relative;
+        margin-left: calc(50vw - 50vh);
+        top: 0;
+        opacity: 0;
+    }
+
+    .preloader {
+        z-index: 2;
+        position: fixed;
+        left: calc(50vw - 64px);
+        top: calc(50vh - 64px);
+        opacity: 0;
+    }
+
+    &.active {
+        z-index: 1;
+        display: block;
+        .circle {
+            @include animation(fadeInHolder, 3.5s, '', '', '', 1, both);
+        }
+        .preloader {
+            @include animation(fadeInPreloader, 3.5s, '', '', '', 1, both);
+        }
+    }
+}
+
+@include keyframes(fadeInHolder) {
+    0% {@include transform(scale(0.01)); opacity: 1;}
+    40% {@include transform(scale(10))}
+    50% {opacity: 1;}
+    70%, 99% {@include transform(scale(0.01))}
+    100% {opacity: 0;}
+}
+@include keyframes(fadeInPreloader) {
+    0%,15% {opacity: 0;}
+    20% {opacity: 1;}
+    60% {opacity: 1;}
+    61%, 100% {opacity: 0;}
+}

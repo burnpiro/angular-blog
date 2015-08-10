@@ -83,6 +83,31 @@ angular.module('app', [
                 return response;
             }
         )
+    })
+    .run(function($rootScope, $timeout, $state){
+        $rootScope
+            .$on('$stateChangeStart',
+            function(event, toState){
+                $(".mainContent").html("");
+                console.log(toState);
+                $(".loader").removeClass("active");
+                if(!$rootScope.loadingStart) {
+                    $(".loader").addClass("active");
+                    $rootScope.loadingStart = true;
+                    console.log('przed');
+                    $timeout(function() {
+                        $(".loader").removeClass("active");
+                        console.log('po');
+                    }, 2500);
+                }
+            });
+
+        $rootScope
+            .$on('$stateChangeSuccess',
+            function(){
+                $rootScope.loadingStart = false;
+            });
+
     });
 
 function authInterceptor($window) {

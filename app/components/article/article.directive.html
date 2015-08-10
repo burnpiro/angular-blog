@@ -1,6 +1,6 @@
 <div id="article-container" class="container article intro-effect-sidefixed" ng-class="{'notrans': status.notrans, 'modify': status.modify}">
     <header class="header" ng-click="toggle(1)">
-        <div class="bg-img"><img src="http://192.168.1.1:8080/files/{{::articleData.image}}" alt="Background Image" /></div>
+        <div class="bg-img"><img src="{{getImageLink(articleData.image)}}" alt="Background Image" /></div>
     </header>
     <article class="content">
         <div class="title">

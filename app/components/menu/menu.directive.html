@@ -2,13 +2,13 @@
     <a class="bt-menu-trigger" ng-click="menuCtrl.toogleMenu()"><span>Menu</span></a>
     <ul>
         <li>
-            <a ui-sref="home">About</a>
+            <a ui-sref="home" ng-click="menuCtrl.closeMenu()">About</a>
         </li>
         <li>
-            <a ui-sref="categories">Blog</a>
+            <a ui-sref="categories" ng-click="menuCtrl.closeMenu()">Blog</a>
         </li>
         <li>
-            <a ui-sref="categories">Contact</a>
+            <a ui-sref="categories" ng-click="menuCtrl.closeMenu()">Contact</a>
         </li>
     </ul>
     <ul>

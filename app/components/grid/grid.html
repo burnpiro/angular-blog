@@ -4,12 +4,12 @@
             <ul class="cbp-ig-grid">
                 <li ng-repeat="gridElement in grid.gridData" class="grid-animate">
                     <a ui-sref="category({categoryId: gridElement._id})" ng-if="gridElement._category === undefined">
-                        <span class="cbp-ig-icon" ng-class="{true: 'cbp-ig-icon-shoe', false: gridElement.icon}[gridElement.icon === undefined]"></span>
+                        <span class="" ng-class="{true: 'cbp-ig-icon cbp-ig-icon-shoe', false: 'fa '+gridElement.icon}[gridElement.icon === undefined]"></span>
                         <h3 class="cbp-ig-title">{{::gridElement.name}}</h3>
                         <span class="cbp-ig-category" ng-if="gridElement.type">{{::gridElement.type}}</span>
                     </a>
                     <a ui-sref="post({postId: gridElement._id})" ng-if="gridElement._category !== undefined">
-                        <span class="cbp-ig-icon" ng-class="{true: 'cbp-ig-icon-shoe', false: gridElement.icon}[gridElement.icon === undefined]"></span>
+                        <span class="" ng-class="{true: 'cbp-ig-icon cbp-ig-icon-shoe', false: 'fa '+gridElement.icon}[gridElement.icon === undefined]"></span>
                         <h3 class="cbp-ig-title">{{::gridElement.name}}</h3>
                         <span class="cbp-ig-category" ng-if="gridElement.shortText">{{::gridElement.shortText}}</span>
                     </a>
