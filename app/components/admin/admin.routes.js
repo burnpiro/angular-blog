@@ -19,10 +19,10 @@ angular.module('app.admin', ['ui.router', 'aloha-editor', 'angularFileUpload'])
                         controllerAs: 'admin'
                     },
                     "topMenu": {
-                        templateUrl: ""
+                        template: ""
                     },
                     "bottomMenu": {
-                        templateUrl: ""
+                        template: ""
                     }
                 }
             })

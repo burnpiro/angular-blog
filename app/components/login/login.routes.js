@@ -19,7 +19,7 @@ angular.module('app.login', ['ui.router'])
                         controllerAs: 'login'
                     },
                     "menu": {
-                        templateUrl: ""
+                        template: ""
                     }
                 }
             })

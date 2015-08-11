@@ -84,20 +84,21 @@ angular.module('app', [
             }
         )
     })
-    .run(function($rootScope, $timeout, $state){
+    .run(function($rootScope, $timeout){
         $rootScope
             .$on('$stateChangeStart',
-            function(event, toState){
-                $(".mainContent").html("");
-                console.log(toState);
-                $(".loader").removeClass("active");
+            function(){
                 if(!$rootScope.loadingStart) {
-                    $(".loader").addClass("active");
+                    var loader = $(".loader");
+                    if(loader.hasClass('active')) {
+                        $(".loader").removeClass("active");
+                    }
+                    if(!loader.hasClass('active')) {
+                        $(".loader").addClass("active");
+                    }
                     $rootScope.loadingStart = true;
-                    console.log('przed');
                     $timeout(function() {
                         $(".loader").removeClass("active");
-                        console.log('po');
                     }, 2500);
                 }
             });
