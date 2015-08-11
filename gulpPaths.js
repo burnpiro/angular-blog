@@ -1,8 +1,9 @@
 module.exports  = {
-    scripts: 'app/**/*.js',
+    scripts: ['app/**/*.js'],
     styles: ['./app/**/*.css', './app/**/*.scss'],
     images: './app/images/**/*',
     index: './app/index.html',
+    folders: [],
     partials: ['app/**/*.html', '!app/index.html'],
     distDev: './dist.dev',
     distProd: './dist.prod',

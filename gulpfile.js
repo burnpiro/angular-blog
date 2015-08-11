@@ -131,6 +131,16 @@ pipes.processedImagesProd = function() {
         .pipe(gulp.dest(paths.distProd + '/images/'));
 };
 
+pipes.processedFoldersDev = function() {
+    return gulp.src(paths.folders)
+        .pipe(gulp.dest(paths.distDev + '/js/'));
+};
+
+pipes.processedFoldersProd = function() {
+    return gulp.src(paths.folders)
+        .pipe(gulp.dest(paths.distProd + '/js/'));
+};
+
 pipes.processedFontsDev = function() {
     return gulp.src(paths.fonts)
         .pipe(gulp.dest(paths.distDev + '/fonts/'));
@@ -187,11 +197,11 @@ pipes.builtIndexProd = function() {
 };
 
 pipes.builtAppDev = function() {
-    return es.merge(pipes.builtIndexDev(), pipes.builtPartialsDev(), pipes.processedImagesDev(), pipes.processedFontsDev());
+    return es.merge(pipes.builtIndexDev(), pipes.builtPartialsDev(), pipes.processedImagesDev(), pipes.processedFoldersDev(), pipes.processedFontsDev());
 };
 
 pipes.builtAppProd = function() {
-    return es.merge(pipes.builtIndexProd(), pipes.processedImagesProd(), pipes.processedFontsProd());
+    return es.merge(pipes.builtIndexProd(), pipes.processedImagesProd(), pipes.processedFoldersProd(), pipes.processedFontsProd());
 };
 
 // == TASKS ========

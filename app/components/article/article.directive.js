@@ -16,6 +16,8 @@ function articleDirective() {
 
             $scope.getImageLink = FileService.getImageLink;
 
+            $('#articleContent').html($scope.articleData.content);
+
             $scope.status = {
                 notrans: false,
                 modify: false

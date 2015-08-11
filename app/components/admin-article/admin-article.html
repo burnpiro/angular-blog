@@ -8,7 +8,8 @@
             <md-input-container md-no-float layout-padding>
                 <input required ng-model="articleCtrl.post.author" placeholder="Author" class="md-primary">
             </md-input-container>
-            <md-input-container md-no-float layout-padding>
+            <md-input-container md-no-float layout-padding layout="row" layout-align="space-between center">
+                <span class="fa" ng-class="articleCtrl.post.icon"></span>
                 <input required ng-model="articleCtrl.post.icon" placeholder="Fa icon class" class="md-primary">
             </md-input-container>
             <md-input-container layout-padding>
@@ -63,10 +64,10 @@
     </div>
 
     <md-content layout-padding class="articleContent">
-        <md-content layout-margin hide show-gt-sm class="textContainer">
-            <div class="editor" id="editor">{{articleCtrl.post.content}}</div>
+        <md-content layout-margin hide show-gt-sm class="textContainer" id="alohaEditor">
+            <div class="editor" id="editor"></div>
         </md-content>
-        <md-input-container flex hide-gt-sm class="textContainer">
+        <md-input-container flex hide-gt-sm class="textContainer" id="mobileEditor">
             <label>Content</label>
             <textarea ng-model="articleCtrl.post.content" columns="1"></textarea>
         </md-input-container>

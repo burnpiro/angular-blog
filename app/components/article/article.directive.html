@@ -10,8 +10,6 @@
                 <a ui-sref="category({categoryId: articleData._category._id})">{{::articleData._category.name}}</a>
                 on <strong>{{::articleData.createdAt | date : mediumDate}}</strong></p>
         </div>
-        <div>
-            {{::articleData.content}}
-        </div>
+        <div id="articleContent"></div>
     </article>
 </div>
