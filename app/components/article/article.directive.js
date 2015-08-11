@@ -1,5 +1,5 @@
 angular.module('app.article').
-    directive('articleDirective', [articleDirective]);
+    directive('articleDirective', ['FileService', articleDirective]);
 
 function articleDirective() {
     return {
@@ -8,15 +8,13 @@ function articleDirective() {
         scope: {
             articleData: '=articleData'
         },
-        controller: function($scope) {
+        controller: function($scope, FileService) {
             // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
             // left: 37, up: 38, right: 39, down: 40,
             // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
             var keys = [32, 37, 38, 39, 40], wheelIter = 0;
 
-            $scope.getImageLink = function(imageName) {
-                return config.host+config.filePath+'/'+imageName;
-            };
+            $scope.getImageLink = FileService.getImageLink;
 
             $scope.status = {
                 notrans: false,

@@ -20,5 +20,9 @@ function FileService(Restangular) {
         return Restangular.one('files')
             .withHttpConfig({transformRequest: angular.identity})
             .customPOST(request);
-    }
+    };
+
+    this.getImageLink = function(imageName) {
+        return config.host+config.filePath+'/'+imageName;
+    };
 }

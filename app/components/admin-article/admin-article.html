@@ -1,4 +1,5 @@
 <section class="adminArticle">
+    <div class="bg-img"><img class="postImagePreview" ng-if="articleCtrl.post.image !== null" src="{{articleCtrl.getImageLink(articleCtrl.post.image)}}"/></div>
     <div layout-gt-lg="row" layout="column" layout-align="space-between center">
         <div layout="row" layout-sm="column" layout-align="space-between center" flex>
             <md-input-container md-no-float layout-padding>
@@ -16,57 +17,60 @@
                 </md-select>
             </md-input-container>
         </div>
-        <div class="buttons" flex hide show-gt-sm>
-            <md-button id="editorBold" class="md-icon-button md-primary" aria-label="Bold">
-                <icon class="fa fa-bold color-grey-800"></icon>
-            </md-button>
-            <md-button id="editorItalic" class="md-icon-button md-primary" aria-label="Italic">
-                <icon class="fa fa-italic color-grey-800"></icon>
-            </md-button>
-            <md-button id="editorLink" class="md-icon-button md-primary" aria-label="Link">
-                <icon class="fa fa-chain color-grey-800"></icon>
-            </md-button>
-            <md-button id="editorUl" class="md-icon-button md-primary" aria-label="Unordered list">
-                <icon class="fa fa-list-ul color-grey-800"></icon>
-            </md-button>
-            <md-button id="editorOl" class="md-icon-button md-primary" aria-label="Ordered list">
-                <icon class="fa fa-list-ol color-grey-800"></icon>
-            </md-button>
-            <md-button id="editorP" class="md-icon-button md-primary" aria-label="Paragraph">
-                <icon class="fa fa-paragraph color-grey-800"></icon>
-            </md-button>
-            <md-button id="editorH2" class="md-icon-button md-primary" aria-label="Headline 2">
-                <span class="color-grey-800">H2</span>
-            </md-button>
-            <md-button id="editorH3" class="md-icon-button md-primary" aria-label="Headline 3">
-                <span class="color-grey-800">H3</span>
-            </md-button>
-            <md-button id="editorH4" class="md-icon-button md-primary" aria-label="Headline 4">
-                <span class="color-grey-800">H4</span>
-            </md-button>
-            <md-button id="editorPre" class="md-icon-button md-primary" aria-label="Preformatted">
-                <icon class="fa fa-code color-grey-800"></icon>
-            </md-button>
+
+        <div layout="row" layout-sm="column" layout-align="center center" flex>
+
+            <span>Post image:</span>
+            <md-input-container layout-padding>
+                <md-select ng-model="articleCtrl.post.image" placeholder="Image">
+                    <md-option ng-repeat="file in articleCtrl.files" value="{{file}}">{{file}}</md-option>
+                </md-select>
+            </md-input-container>
         </div>
     </div>
 
-    <div layout="row" layout-sm="column" layout-align="center center" flex>
-        <span>Post image:</span>
-        <md-input-container layout-padding>
-            <md-select ng-model="articleCtrl.post.image" placeholder="Image">
-                <md-option ng-repeat="file in articleCtrl.files" value="{{file}}">{{file}}</md-option>
-            </md-select>
-        </md-input-container>
+    <div class="buttons" flex hide show-gt-sm>
+        <md-button id="editorBold" class="md-icon-button md-primary" aria-label="Bold">
+            <icon class="fa fa-bold color-grey-800"></icon>
+        </md-button>
+        <md-button id="editorItalic" class="md-icon-button md-primary" aria-label="Italic">
+            <icon class="fa fa-italic color-grey-800"></icon>
+        </md-button>
+        <md-button id="editorLink" class="md-icon-button md-primary" aria-label="Link">
+            <icon class="fa fa-chain color-grey-800"></icon>
+        </md-button>
+        <md-button id="editorUl" class="md-icon-button md-primary" aria-label="Unordered list">
+            <icon class="fa fa-list-ul color-grey-800"></icon>
+        </md-button>
+        <md-button id="editorOl" class="md-icon-button md-primary" aria-label="Ordered list">
+            <icon class="fa fa-list-ol color-grey-800"></icon>
+        </md-button>
+        <md-button id="editorP" class="md-icon-button md-primary" aria-label="Paragraph">
+            <icon class="fa fa-paragraph color-grey-800"></icon>
+        </md-button>
+        <md-button id="editorH2" class="md-icon-button md-primary" aria-label="Headline 2">
+            <span class="color-grey-800">H2</span>
+        </md-button>
+        <md-button id="editorH3" class="md-icon-button md-primary" aria-label="Headline 3">
+            <span class="color-grey-800">H3</span>
+        </md-button>
+        <md-button id="editorH4" class="md-icon-button md-primary" aria-label="Headline 4">
+            <span class="color-grey-800">H4</span>
+        </md-button>
+        <md-button id="editorPre" class="md-icon-button md-primary" aria-label="Preformatted">
+            <icon class="fa fa-code color-grey-800"></icon>
+        </md-button>
     </div>
-    <md-content  layout-padding>
-        <md-content layout-padding hide show-gt-sm>
+
+    <md-content layout-padding class="articleContent">
+        <md-content layout-margin hide show-gt-sm class="textContainer">
             <div class="editor" id="editor">{{articleCtrl.post.content}}</div>
         </md-content>
-        <md-input-container flex hide-gt-sm>
+        <md-input-container flex hide-gt-sm class="textContainer">
             <label>Content</label>
             <textarea ng-model="articleCtrl.post.content" columns="1"></textarea>
         </md-input-container>
-        <md-input-container flex>
+        <md-input-container layout-margin flex class="textContainer">
             <label>Short Description</label>
             <textarea ng-model="articleCtrl.post.shortText" columns="1" md-maxlength="160"></textarea>
         </md-input-container>
