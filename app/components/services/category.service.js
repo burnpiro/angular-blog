@@ -16,6 +16,10 @@ function CategoryService(Restangular) {
         return Restangular.one('categories').post('search', {parent: parent});
     };
 
+    this.getAllByName = function(name) {
+        return Restangular.one('categories').post('search', {name: name});
+    };
+
     this.saveCategory = function(category) {
         var request = {
             name: category.name,

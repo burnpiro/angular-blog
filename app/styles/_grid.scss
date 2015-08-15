@@ -42,6 +42,17 @@
             width: 50%;
             height: 100%;
             opacity: 0.6;
+            overflow: hidden;
+
+            h3 {
+                width: 100%;
+                text-align: center;
+            }
+
+            .postDescription {
+                width: 100%;
+                padding: 0 10%;
+            }
         }
 
         &:hover {

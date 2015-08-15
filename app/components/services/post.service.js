@@ -16,6 +16,10 @@ function PostService(Restangular) {
         return Restangular.one('posts').post('search', {_category: category});
     };
 
+    this.getAllByName = function(name) {
+        return Restangular.one('posts').post('search', {name: name});
+    };
+
     this.savePost = function(post) {
         var request = {
             author: post.author,

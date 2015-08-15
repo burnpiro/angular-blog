@@ -14,6 +14,7 @@ angular.module('app', [
     'app.article',
     'app.login',
     'app.admin',
+    'app.about',
 
     //services
     'app.services'
@@ -44,6 +45,19 @@ angular.module('app', [
                     templateUrl: "components/home/home.html",
                     controller: 'HomeController',
                     controllerAs: 'home'
+                },
+                "bottomMenu": {
+                    templateUrl: "components/menu/menu.html"
+                }
+            }
+        })
+        .state('about', {
+            url: "/about",
+            views: {
+                "" :{
+                    templateUrl: "components/about/about.html",
+                    controller: 'AboutController',
+                    controllerAs: 'about'
                 },
                 "bottomMenu": {
                     templateUrl: "components/menu/menu.html"
