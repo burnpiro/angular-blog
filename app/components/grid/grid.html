@@ -1,20 +1,44 @@
-<section>
-    <div class="container grid">
-        <div class="main">
-            <ul class="cbp-ig-grid">
-                <li ng-repeat="gridElement in grid.gridData" class="grid-animate">
-                    <a ui-sref="category({categoryId: gridElement._id})" ng-if="gridElement._category === undefined">
-                        <span class="" ng-class="{true: 'cbp-ig-icon cbp-ig-icon-shoe', false: 'fa '+gridElement.icon}[gridElement.icon === undefined]"></span>
-                        <h3 class="cbp-ig-title">{{::gridElement.name}}</h3>
-                        <span class="cbp-ig-category" ng-if="gridElement.type">{{::gridElement.type}}</span>
-                    </a>
-                    <a ui-sref="post({postId: gridElement._id})" ng-if="gridElement._category !== undefined">
-                        <span class="" ng-class="{true: 'cbp-ig-icon cbp-ig-icon-shoe', false: 'fa '+gridElement.icon}[gridElement.icon === undefined]"></span>
-                        <h3 class="cbp-ig-title">{{::gridElement.name}}</h3>
-                        <span class="cbp-ig-category" ng-if="gridElement.shortText">{{::gridElement.shortText}}</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
+<!--<section>-->
+    <!--<div class="container grid">-->
+        <!--<div class="main">-->
+            <!--<ul class="cbp-ig-grid">-->
+                <!--<li ng-repeat="gridElement in grid.gridData" class="grid-animate">-->
+                    <!--<a ui-sref="category({categoryId: gridElement._id})" ng-if="gridElement._category === undefined">-->
+                        <!--<span class="" ng-class="{true: 'cbp-ig-icon cbp-ig-icon-shoe', false: 'fa '+gridElement.icon}[gridElement.icon === undefined]"></span>-->
+                        <!--<h3 class="cbp-ig-title">{{::gridElement.name}}</h3>-->
+                        <!--<span class="cbp-ig-category" ng-if="gridElement.type">{{::gridElement.type}}</span>-->
+                    <!--</a>-->
+                    <!--<a ui-sref="post({postId: gridElement._id})" ng-if="gridElement._category !== undefined">-->
+                        <!--<span class="" ng-class="{true: 'cbp-ig-icon cbp-ig-icon-shoe', false: 'fa '+gridElement.icon}[gridElement.icon === undefined]"></span>-->
+                        <!--<h3 class="cbp-ig-title">{{::gridElement.name}}</h3>-->
+                        <!--<span class="cbp-ig-category" ng-if="gridElement.shortText">{{::gridElement.shortText}}</span>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</section>-->
+<section layout="column" layout-padding class="container grid">
+    <md-grid-list
+            md-cols-sm="2" md-cols-md="6" md-cols-gt-md="12"
+            md-row-height-gt-md="3:6" md-row-height="3:4"
+            md-gutter="8px" md-gutter-gt-sm="4px" >
+        <md-grid-tile ng-repeat="post in grid.postsData" md-colspan="2" md-colspan-sm="1" md-colspan-md="1"
+                      md-colspan-gt-md="3" ng-class="post.background" ui-sref="post({postId: post._id})">
+            <div class="gridBackgroundImage" ng-style="{'background-image':'url({{grid.getImageLink(post.image)}})'}"
+                 layout="column" layout-align="center center">
+                <icon class="bottomIcon fa" ng-class="post.icon"></icon>
+            </div>
+
+            <div class="gridPostDescription" layout="column" layout-align="start center">
+                <h3>{{post.name}}</h3>
+                <div layout-padding>{{post.shortText}}</div>
+            </div>
+        </md-grid-tile>
+        <md-grid-tile ng-repeat="category in grid.categoriesData" md-colspan="2" md-colspan-sm="1" md-colspan-md="1"
+                      md-colspan-gt-md="3" ng-class="category.background" ui-sref="category({categoryId: category._id})">
+            <icon class="fa {{category.icon}}"></icon>
+            <md-grid-tile-footer><h3>{{category.name}}</h3></md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
 </section>
