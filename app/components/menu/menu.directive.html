@@ -22,27 +22,27 @@
     </ul>
 </nav>
 <div class="mainSearch">
-    <md-button aria-label="search" class="md-fab md-primary searchTrigger" ng-click="menuCtrl.toggleSearch()">
+    <div class="searchTrigger" ng-click="menuCtrl.toggleSearch()">
         <i class="fa fa-search"></i>
-    </md-button>
+    </div>
     <md-content ng-show="menuCtrl.search.isOpen">
         <div class="searchContent" ng-class="{'open': menuCtrl.search.isOpen}" layout="column" layout-align="start center">
-            <div class="closeSearch" flex="10">
-                <a><i class="fa fa-times" ng-click="menuCtrl.toggleSearch()"></i></a>
+            <div class="closeSearch">
+                <i class="fa fa-times" ng-click="menuCtrl.toggleSearch()"></i>
             </div>
-            <div class="searchInput" flex="15">
+            <div class="searchInput">
                 <i class="fa fa-search"></i>
                 <md-input-container md-no-float>
                     <input ng-model="menuCtrl.search.text" type="text" placeholder="Search" ng-change="menuCtrl.search()">
                 </md-input-container>
             </div>
-            <div layout="row" layout-align="center start" class="dataContainer" flex="70">
+            <div layout="row" layout-align="center start" class="dataContainer">
                 <div class="categories" flex="33" flex-sm="50">
                     <md-list>
                         <md-subheader class="md-no-sticky">Categories</md-subheader>
                         <md-list-item class="md-3-line" ng-repeat="item in menuCtrl.search.categories">
-                            <a ui-sref="category({categoryId: item._id})">
-                                <i class="md-avatar fa" ng-class="item.icon"></i>
+                            <a ui-sref="category({categoryId: item._id})" layout="row" layout-align="start center">
+                                <i class="fa" ng-class="item.icon"></i>
                                 <div class="md-list-item-text">
                                     <h3>{{ item.name }}</h3>
                                     <p>{{ item.type }}</p>
@@ -55,8 +55,8 @@
                     <md-list>
                         <md-subheader class="md-no-sticky">Posts</md-subheader>
                         <md-list-item class="md-3-line" ng-repeat="item in menuCtrl.search.posts">
-                            <a ui-sref="post({postId: item._id})">
-                                <i class="md-avatar fa" ng-class="item.icon"></i>
+                            <a ui-sref="post({postId: item._id})" layout="row" layout-align="start center">
+                                <i class="fa" ng-class="item.icon"></i>
                                 <div class="md-list-item-text">
                                     <h3>{{ item.name }}</h3>
                                     <p>{{ item.shortText }}</p>

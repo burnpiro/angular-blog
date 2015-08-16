@@ -253,12 +253,18 @@ body  {
     position: fixed;
     right: 0;
     top: 0;
-    z-index: 0;
+    z-index: 100;
 
     .searchTrigger {
         color: $primary-color-light-gray !important;
+        background-color: $primary-color;
+        min-width: 60px;
+        min-height: 60px;
+        border-radius: 100%;
         font-size: 22px;
-        z-index: 0;
+        text-align: center;
+        padding-top: 25%;
+        margin: 10px 10px 0 0;
     }
 
     .searchContent {
@@ -271,25 +277,63 @@ body  {
             font-size: 3em;
 
             i {
+                opacity: 0.5;
                 position: absolute;
                 right: 0;
                 top: 0;
             }
+            height: 40px;
         }
 
         .searchInput {
-            max-width: 100%;
+            max-width: 80%;
             font-size: 4em;
+            color: $accent-color;
 
             input {
                 line-height: 1em;
+                color: $accent-color;
             }
             i {
                 float: right;
+                opacity: 0.5;
             }
         }
         .dataContainer {
             width: 100%;
+
+            .md-3-line {
+                background-color: $light-gray;
+                overflow: hidden;
+                i {
+                    margin-right: 0.5em;
+                    font-size: 25px;
+                }
+                a {
+                    color: $primary-color-dark;
+                }
+                margin: 2px;
+
+                &:hover {
+                    background-color: $primary-color-light;
+                    color: $accent-color;
+
+                    a {
+                        color: $accent-color;
+                    }
+                    .md-list-item-text {
+                        h3 {
+                            color: $accent-color;
+                        }
+                        h4 {
+                            color: $accent-color;
+                        }
+                        p {
+                            color: $accent-color;
+                        }
+                    }
+                }
+            }
             .categories {
             }
 
@@ -298,11 +342,19 @@ body  {
         }
 
         &.open {
-            width: 100%;
-            height: 100vh;
             background-color: $primary-color-light-gray;
-            z-index: 1;
             overflow-y: scroll;
+            z-index: 1;
+            @include animation(searchOpen, 1s, '', 'ease-out', '', 1, forwards);
         }
     }
+}
+
+@include keyframes(searchOpen) {
+    0% {width: 0;
+        height: 0;
+        display: none;}
+    100% {
+        width: 100%;
+        height: 100vh;}
 }

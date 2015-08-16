@@ -1,9 +1,9 @@
 <section layout="column" layout-padding class="container grid">
     <md-grid-list
             md-cols-sm="2" md-cols-md="6" md-cols-gt-md="12"
-            md-row-height-gt-md="3:6" md-row-height="3:4"
+            md-row-height-gt-sm="1:2" md-row-height="1:1"
             md-gutter="8px" md-gutter-gt-sm="4px" >
-        <md-grid-tile ng-repeat="post in grid.postsData" md-colspan="2" md-colspan-sm="1" md-colspan-md="1"
+        <md-grid-tile ng-repeat="post in grid.postsData" md-colspan="2" md-colspan-sm="1" md-colspan-md="2"
                       md-colspan-gt-md="3" ng-class="post.background" ui-sref="post({postId: post._id})">
             <div class="gridBackgroundImage" ng-style="{'background-image':'url({{grid.getImageLink(post.image)}})'}"
                  layout="column" layout-align="center center">
@@ -15,7 +15,7 @@
                 <div class="postDescription">{{post.shortText}}</div>
             </div>
         </md-grid-tile>
-        <md-grid-tile ng-repeat="category in grid.categoriesData" md-colspan="2" md-colspan-sm="1" md-colspan-md="1"
+        <md-grid-tile ng-repeat="category in grid.categoriesData" md-colspan="2" md-colspan-sm="1" md-colspan-md="2"
                       md-colspan-gt-md="3" ng-class="category.background" ui-sref="category({categoryId: category._id})">
             <i class="fa {{category.icon}}"></i>
             <md-grid-tile-footer><h3>{{category.name}}</h3></md-grid-tile-footer>
