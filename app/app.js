@@ -44,7 +44,13 @@ angular.module('app', [
                 "" :{
                     templateUrl: "components/home/home.html",
                     controller: 'HomeController',
-                    controllerAs: 'home'
+                    controllerAs: 'home',
+                    resolve: {
+                        posts: ['PostService',
+                            function(PostService) {
+                                return PostService.getRecentPosts();
+                            }]
+                    }
                 },
                 "bottomMenu": {
                     templateUrl: "components/menu/menu.html"

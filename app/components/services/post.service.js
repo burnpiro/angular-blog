@@ -20,6 +20,10 @@ function PostService(Restangular) {
         return Restangular.one('posts').post('search', {name: name});
     };
 
+    this.getRecentPosts = function() {
+        return Restangular.one('posts').post('search', {limit: 11});
+    };
+
     this.savePost = function(post) {
         var request = {
             author: post.author,

@@ -1,4 +1,96 @@
 @import 'settings';
 .home {
+    md-grid-tile {
+        .gridBackgroundImage {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            opacity: 1;
+            @include animation(horizontalGridOpacityChangeDown, 0.5s, '', '', '', 1, forwards);
+            background-size: 100% 150%;
 
+            .bottomIcon {
+                font-size: 2em;
+                opacity: 0;
+            }
+
+            h1 {
+                width: 100%;
+                font-size: 3em;
+                text-align: center;
+            }
+        }
+
+
+        .gridPostDescription {
+            position: absolute;
+            top: 60%;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            opacity: 0.6;
+            overflow: hidden;
+
+            h5 {
+                position: absolute;
+                bottom: 5%;
+                left: 5%;
+                margin: 0;
+                color: $secondary-text-color;
+            }
+
+            h4 {
+                margin-top: 0.5em;
+                margin-bottom: 0;
+            }
+
+            .postDescription {
+                width: 100%;
+                padding: 5% 5%;
+            }
+
+            .bottomIcon {
+                position: absolute;
+                bottom: 5%;
+                right: 5%;
+                margin: 0;
+                font-size: 32px;
+            }
+        }
+
+        &:hover {
+            .gridBackgroundImage {
+                @include animation(horizontalGridOpacityChangeUp, 0.5s, '', '', '', 1, forwards);
+
+                .bottomIcon {
+                    opacity: 1;
+                }
+            }
+
+            .gridPostDescription {
+                opacity: 1;
+            }
+
+        }
+
+        md-grid-tile-header {
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        md-grid-tile-footer {
+            background-color: rgba(0,0,0,0.4);
+        }
+    }
+}
+@include keyframes(horizontalGridOpacityChangeUp) {
+    0% {opacity:1;}
+    100% {opacity:0.6;
+        background-position-y: 50%}
+}
+
+@include keyframes(horizontalGridOpacityChangeDown) {
+    0% {opacity:0.6;
+        background-position-y: 50%}
+    100% {opacity:1}
 }

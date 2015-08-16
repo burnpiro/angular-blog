@@ -33,7 +33,7 @@ angular.module('app.grid', ['ui.router'])
                         templateUrl: "components/grid/grid.html",
                         resolve: {
                             categories: ['$stateParams', 'CategoryService',
-                                function($stateParams, CategoryService, PostService) {
+                                function($stateParams, CategoryService) {
                                     return CategoryService.getAllByParentId($stateParams.categoryId);
                                 }],
                             posts: ['$stateParams', 'PostService',
