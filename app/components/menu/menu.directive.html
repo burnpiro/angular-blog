@@ -42,10 +42,10 @@
                         <md-subheader class="md-no-sticky">Categories</md-subheader>
                         <md-list-item class="md-3-line" ng-repeat="item in menuCtrl.search.categories">
                             <a ui-sref="category({categoryId: item._id})" layout="row" layout-align="start center">
-                                <i class="fa" ng-class="item.icon"></i>
+                                <i class="fa" ng-class="::item.icon"></i>
                                 <div class="md-list-item-text">
-                                    <h3>{{ item.name }}</h3>
-                                    <p>{{ item.type }}</p>
+                                    <h3>{{ ::item.name }}</h3>
+                                    <p>{{ ::item.type }}</p>
                                 </div>
                             </a>
                         </md-list-item>
@@ -56,10 +56,10 @@
                         <md-subheader class="md-no-sticky">Posts</md-subheader>
                         <md-list-item class="md-3-line" ng-repeat="item in menuCtrl.search.posts">
                             <a ui-sref="post({postId: item._id})" layout="row" layout-align="start center">
-                                <i class="fa" ng-class="item.icon"></i>
+                                <i class="fa" ng-class="::item.icon"></i>
                                 <div class="md-list-item-text">
-                                    <h3>{{ item.name }}</h3>
-                                    <p>{{ item.shortText }}</p>
+                                    <h3>{{ ::item.name }}</h3>
+                                    <p>{{ ::item.shortText }}</p>
                                 </div>
                             </a>
                         </md-list-item>
