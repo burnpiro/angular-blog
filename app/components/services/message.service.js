@@ -10,5 +10,9 @@ function MessageService(Restangular) {
 
     this.sendMessage = function(message) {
         return Restangular.one('messages').post('', message);
+    };
+
+    this.deleteMessage = function(messageId) {
+        return Restangular.one('messages', messageId).remove();
     }
 }

@@ -5,7 +5,7 @@
             <p>{{category.name}}<i ng-if="category.icon" class="fa {{category.icon}}"></i></p>
             <i ng-click="categoryCtrl.openModal($event, category)" aria-label="Edit" class="fa fa-pencil-square-o"></i>
         </md-list-item>
-        <md-button layoutlayout-align="center center" class="md-primary md-fab md-fab-bottom-right fa fa-plus"
+        <md-button layout layout-align="center center" class="md-primary md-fab md-fab-bottom-right fa fa-plus"
                    ng-click="categoryCtrl.openModal($event, null)" aria-label="Add Category">
         </md-button>
     </md-list>

@@ -161,4 +161,26 @@ angular.module('app.admin', ['ui.router', 'aloha-editor', 'angularFileUpload'])
                     }
                 }
             })
+            .state('admin.messages', {
+                url: "/messages",
+                onEnter: ['$stateParams', '$state', 'UserService',
+                    function($stateParams, $state, UserService) {
+                        if(!UserService.isUserLoggedIn() || !UserService.isAdmin()) {
+                            $state.go('login');
+                        }
+                    }],
+                views: {
+                    "adminContent" :{
+                        templateUrl: "components/admin-contact/admin-contact.html",
+                        resolve: {
+                            messages: ['$stateParams', 'MessageService',
+                                function($stateParams, MessageService) {
+                                    return MessageService.getMessages();
+                                }]
+                        },
+                        controller: 'AdminContactController',
+                        controllerAs: 'contactCtrl'
+                    }
+                }
+            })
     });

@@ -1,0 +1,14 @@
+<div class="adminContact">
+    <md-list>
+        <md-list-item ng-repeat="message in contactCtrl.messages" layout="row" layout-align="space-between center">
+            <div class="contactInfo">
+                <p>{{message.title}}</p>
+                <span><strong>{{message.createdAt | date : 'short'}}</strong> | <strong>{{message.author}} <i class="fa fa-at"></i> {{message.email}}</strong></span>
+            </div>
+            <div>
+                <i ng-click="contactCtrl.openMessage($event, message)" aria-label="Open" class="openMessage fa fa-folder-open-o"></i>
+                <i ng-click="contactCtrl.deleteMessage($event, message)" aria-label="Remove" class="fa fa-times"></i>
+            </div>
+        </md-list-item>
+    </md-list>
+</div>

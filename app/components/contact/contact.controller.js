@@ -11,6 +11,7 @@ function ContactController(MessageService, toastr) {
         MessageService.sendMessage(self.contactForm)
             .then(function(response) {
             toastr.success(response.message);
-        });;
+                self.contactForm = {};
+        });
     }
 }

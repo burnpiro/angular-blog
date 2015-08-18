@@ -8,7 +8,7 @@
             <p class="subline">{{::articleData.shortText}}</p>
             <p>by <strong>{{::articleData.author}}</strong> &#8212; Posted in
                 <a ui-sref="category({categoryId: articleData._category._id})">{{::articleData._category.name}}</a>
-                on <strong>{{::articleData.createdAt | date : mediumDate}}</strong></p>
+                on <strong>{{::articleData.createdAt | date : 'mediumDate'}}</strong></p>
         </div>
         <div id="articleContent"></div>
     </article>

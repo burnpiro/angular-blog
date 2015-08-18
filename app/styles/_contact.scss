@@ -19,8 +19,9 @@ section.contact {
     md-content {
         padding-bottom: 68px;
     }
+
     button {
-        position: fixed;
+        position: absolute;
         right: 0;
         bottom: 0;
         .fa {
