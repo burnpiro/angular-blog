@@ -5,7 +5,7 @@
             md-gutter="8px" md-gutter-gt-sm="4px" >
         <md-grid-tile md-colspan="6" md-colspan-sm="2" md-colspan-md="4"
                       md-colspan-gt-md="6" md-rowspan="3" md-rowspan-sm="2" ng-class="::home.topPost.background" ui-sref="post({postId: home.topPost._id})">
-            <div class="gridBackgroundImage" ng-style="{'background-image':'url({{home.getImageLink(home.topPost.image)}})'}"
+            <div class="gridBackgroundImage" ng-style="{'background-image':'url({{home.getImageLink(home.topPost.image, 1024)}})'}"
                  layout="column" layout-align="center center">
                 <h1>{{::home.topPost.name}}</h1>
             </div>
@@ -18,7 +18,7 @@
         </md-grid-tile>
         <md-grid-tile ng-repeat="post in home.posts" md-colspan="2" md-colspan-sm="1" md-colspan-md="2"
                       md-colspan-gt-md="3" md-rowspan-md="2" ng-class="::post.background" ui-sref="post({postId: post._id})">
-            <div class="gridBackgroundImage" ng-style="{'background-image':'url({{home.getImageLink(post.image)}})'}"
+            <div class="gridBackgroundImage" ng-style="{'background-image':'url({{home.getImageLink(post.image, 400)}})'}"
                  layout="column" layout-align="center center">
                 <i class="bottomIcon fa" ng-class="::post.icon"></i>
             </div>

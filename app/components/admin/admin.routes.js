@@ -109,7 +109,7 @@ angular.module('app.admin', ['ui.router', 'aloha-editor', 'angularFileUpload'])
                                 }],
                             files: ['$stateParams', 'FileService',
                                 function($stateParams, FileService) {
-                                    return FileService.getAll();
+                                    return FileService.getAllImages();
                                 }]
                         },
                         controller: 'AdminArticleController',
@@ -153,7 +153,7 @@ angular.module('app.admin', ['ui.router', 'aloha-editor', 'angularFileUpload'])
                         resolve: {
                             files: ['$stateParams', 'FileService',
                                 function($stateParams, FileService) {
-                                    return FileService.getAll();
+                                    return FileService.getAllImages();
                                 }]
                         },
                         controller: 'AdminFileController',

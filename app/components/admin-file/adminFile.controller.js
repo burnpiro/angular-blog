@@ -11,7 +11,6 @@ function AdminFileController(FileService, files, $mdDialog, toastr, FileUploader
         url: config.host + '/files'
     });
     self.files = files.data;
-    console.log(files);
     self.isOpen = false;
     self.demo = {
         isOpen: false,
@@ -52,8 +51,6 @@ function AdminFileController(FileService, files, $mdDialog, toastr, FileUploader
         self.files.push(response.data.name);
         self.uploader.clearQueue();
     };
-
-    console.info('uploader', self.uploader);
 }
 
 function EditFileModalController($mdDialog, file) {
