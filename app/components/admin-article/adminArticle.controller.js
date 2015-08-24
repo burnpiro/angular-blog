@@ -20,24 +20,12 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
             author: 'Kemal Erdem'
         };
     }
-    self.buttons = [
-        {id: 'editorClear', type: 'unformat'},
-        {id: 'editorBold', type: 'bold'},
-        {id: 'editorItalic', type: 'italic'},
-        {id: 'editorUl', type: 'ul'},
-        {id: 'editorOl', type: 'ol'},
-        {id: 'editorH2', type: 'h2'},
-        {id: 'editorH3', type: 'h3'},
-        {id: 'editorH4', type: 'h4'},
-        {id: 'editorP', type: 'p'},
-        {id: 'editorPre', type: 'pre'}
-    ];
     var editor = ckeditorEditorFactory;
     editor.initEditor('editor');
     editor.setValue(self.post.content);
-    editor.addPlugin('mathjax', '/js/ckeditor/mathjax/');
+    editor.addPlugin('mathjax');
     editor.addConfig('mathJaxLib', '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML');
-    editor.addButton('mathjax', 'mathjax', 'Math Formula');
+    editor.addButton('mathjax', 'mathjax', 'Math Formula', 'edu_mathematics.png');
     self.categories = categories.data;
     self.files = files.data;
     self.getImageLink = FileService.getImageLink;
