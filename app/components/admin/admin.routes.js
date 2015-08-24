@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.admin', ['ui.router', 'aloha-editor', 'angularFileUpload'])
+angular.module('app.admin', ['ui.router', 'ng-ckeditor', 'angularFileUpload'])
     .config(function($stateProvider){
 
         $stateProvider

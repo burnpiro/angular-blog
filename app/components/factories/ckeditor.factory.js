@@ -2,6 +2,7 @@ angular.module('ng-ckeditor', []).
     factory('ckeditorEditorFactory', [ckeditorEditorFactory]);
 
 function ckeditorEditorFactory() {
+    var _editor = '';
     var _defaultConfig = {
         toolbar: [
             { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
@@ -39,8 +40,40 @@ function ckeditorEditorFactory() {
     var service = {};
 
     service.initEditor = function(editorId) {
-        console.log(_defaultConfig);
         CKEDITOR.replace( editorId, _defaultConfig );
+        _editor = CKEDITOR.instances[editorId];
+    };
+
+    service.setValue = function(value) {
+        _editor.setData(value);
+    };
+
+    service.getData = function() {
+        return _editor.getData();
+    };
+
+    service.addPlugin = function(pluginName, pathToMainFolder, indexFile) {
+        if (_.isUndefined(indexFile)) {
+            indexFile = 'plugin.js';
+        }
+        if(!_.isUndefined(pathToMainFolder)) {
+            CKEDITOR.plugins.addExternal( pluginName, pathToMainFolder, indexFile );
+        }
+        _editor.config.extraPlugins = _editor.config.extraPlugins +
+        (_editor.config.extraPlugins === '' ? '' : ',') + pluginName;
+    };
+
+    service.addButton = function(button, command, label, icon) {
+        _editor.ui.addButton(button,
+            {
+                label: label,
+                command: command,
+                icon: CKEDITOR.plugins.getPath(button) + icon
+            });
+    };
+
+    service.addConfig = function(name, value) {
+        _.set(_editor.config, name, value)
     };
 
     return service;

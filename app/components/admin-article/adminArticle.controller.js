@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('app.admin').
-    controller('AdminArticleController', ['PostService', 'alohaEditorFactory', 'post', 'categories', 'files', 'toastr', 'FileService',
+    controller('AdminArticleController', ['PostService', 'ckeditorEditorFactory', 'post', 'categories', 'files', 'toastr', 'FileService',
         AdminArticleController]);
 
-function AdminArticleController(PostService, alohaEditorFactory, post, categories, files, toastr, FileService) {
+function AdminArticleController(PostService, ckeditorEditorFactory, post, categories, files, toastr, FileService) {
     var self = this;
 
     if(!_.isEmpty(post)) {
@@ -32,18 +32,19 @@ function AdminArticleController(PostService, alohaEditorFactory, post, categorie
         {id: 'editorP', type: 'p'},
         {id: 'editorPre', type: 'pre'}
     ];
-    alohaEditorFactory.initEditor('editor');
-    aloha.editor.editables[1].elem.innerHTML = self.post.content;
-    _.forEach(self.buttons, function(button) {
-        alohaEditorFactory.addButton(button);
-    });
+    var editor = ckeditorEditorFactory;
+    editor.initEditor('editor');
+    editor.setValue(self.post.content);
+    editor.addPlugin('mathjax', '/js/ckeditor/mathjax/');
+    editor.addConfig('mathJaxLib', '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML');
+    editor.addButton('mathjax', 'mathjax', 'Math Formula');
     self.categories = categories.data;
     self.files = files.data;
     self.getImageLink = FileService.getImageLink;
 
     self.savePost = function() {
-        if($('#alohaEditor').is(':visible')) {
-            self.post.content = $('#editor.aloha-editable').html();
+        if($('#desktopEditor').is(':visible')) {
+            self.post.content = editor.getData();
         }
         PostService.savePost(self.post).then(function(response) {
             toastr.success(response.message);
