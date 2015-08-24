@@ -27,6 +27,16 @@ function ckeditorEditorFactory() {
     service.initEditor = function(editorId) {
         CKEDITOR.replace( editorId, _defaultConfig );
         _editor = CKEDITOR.instances[editorId];
+        _editor.on( 'fileUploadRequest', function( evt ) {
+            var fileLoader = evt.data.fileLoader,
+                formData = new FormData(),
+                xhr = fileLoader.xhr;
+
+            xhr.open( 'POST', fileLoader.uploadUrl, true );
+            formData.append( 'file', fileLoader.file, fileLoader.fileName );
+            fileLoader.xhr.send( formData );
+            evt.stop();
+        } );
     };
 
     service.setValue = function(value) {

@@ -25,7 +25,8 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
     editor.setValue(self.post.content);
     editor.addPlugin('mathjax');
     editor.addConfig('mathJaxLib', '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML');
-    editor.addButton('mathjax', 'mathjax', 'Math Formula', 'edu_mathematics.png');
+    editor.addPlugin('uploadimage');
+    editor.addConfig('uploadUrl', config.host+config.filePath);
     self.categories = categories.data;
     self.files = files.data;
     self.getImageLink = FileService.getImageLink;

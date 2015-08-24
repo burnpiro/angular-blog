@@ -126,6 +126,12 @@
         width: 60%;
         margin: 0 auto 0 40%;
         padding: 0 2.5em;
+
+        img {
+            width: auto !important;
+            height: auto !important;
+            max-width: 100%;
+        }
     }
 
     .content > div:not(.title) {
