@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('app.admin').
-    controller('AdminFileController', ['FileService', 'files', '$mdDialog', 'toastr', 'FileUploader',
+    controller('AdminFileController', ['FileService', 'files', '$mdDialog', 'toastr', 'FileUploader', '$window',
         AdminFileController])
     .directive('ngThumb', ['$window', ngThumbDirective]);
 
-function AdminFileController(FileService, files, $mdDialog, toastr, FileUploader) {
+function AdminFileController(FileService, files, $mdDialog, toastr, FileUploader, $window) {
     var self = this;
     self.uploader = new FileUploader({
-        url: config.host + '/files'
+        url: config.host + '/files',
+        headers: {'Authorization': 'Bearer '+$window.localStorage.token}
     });
     self.files = files.data;
     self.isOpen = false;
@@ -48,7 +49,7 @@ function AdminFileController(FileService, files, $mdDialog, toastr, FileUploader
     };
     self.uploader.onCompleteItem = function(fileItem, response) {
         toastr.success(response.message);
-        self.files.push(response.data.name);
+        self.files.push(response.fileName);
         self.uploader.clearQueue();
     };
 }

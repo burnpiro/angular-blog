@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('app.admin').
-    controller('AdminArticleController', ['PostService', 'ckeditorEditorFactory', 'post', 'categories', 'files', 'toastr', 'FileService',
+    controller('AdminArticleController', ['PostService', 'ckeditorEditorFactory', 'post', 'categories', 'files', 'toastr', 'FileService', '$window',
         AdminArticleController]);
 
-function AdminArticleController(PostService, ckeditorEditorFactory, post, categories, files, toastr, FileService) {
+function AdminArticleController(PostService, ckeditorEditorFactory, post, categories, files, toastr, FileService, $window) {
     var self = this;
 
     if(!_.isEmpty(post)) {
@@ -21,6 +21,7 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
         };
     }
     var editor = ckeditorEditorFactory;
+    editor.addFileRequestHeader({ name: 'Authorization', value: 'Bearer '+$window.localStorage.token});
     editor.initEditor('editor');
     editor.setValue(self.post.content);
     editor.addPlugin('mathjax');

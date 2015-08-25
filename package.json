@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "",
   "main": "server.js",
-  "dependencies": {
-    "angular": "^1.4.*"
-  },
   "devDependencies": {
     "body-parser": "^1.5.2",
     "browser-sync": "^2.7.6",

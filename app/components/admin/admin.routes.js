@@ -69,7 +69,7 @@ angular.module('app.admin', ['ui.router', 'ng-ckeditor', 'angularFileUpload'])
                                 }],
                             files: ['$stateParams', 'FileService',
                                 function($stateParams, FileService) {
-                                    return FileService.getAll();
+                                    return FileService.getAllImages();
                                 }]
                         },
                         data: {

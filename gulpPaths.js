@@ -11,7 +11,7 @@ module.exports  = {
     scriptsDevServer: 'devServer/**/*.js',
     fonts: './app/fonts/**/*.*',
     nodeModules: [
-        './node_modules/angular/angular.js',
-        './node_modules/angular-new-router/dist/router.es5.js'
+        //'./node_modules/angular/angular.js',
+        //'./node_modules/angular-new-router/dist/router.es5.js'
     ]
 };

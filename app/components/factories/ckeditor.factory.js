@@ -3,6 +3,7 @@ angular.module('ng-ckeditor', []).
 
 function ckeditorEditorFactory() {
     var _editor = '';
+    var _fileUploadHeaders = [];
     var _defaultConfig = {
         toolbarGroups: [
             { name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
@@ -33,10 +34,21 @@ function ckeditorEditorFactory() {
                 xhr = fileLoader.xhr;
 
             xhr.open( 'POST', fileLoader.uploadUrl, true );
+            _.forEach(_fileUploadHeaders, function(header) {
+                xhr.setRequestHeader( header.name, header.value );
+            });
             formData.append( 'file', fileLoader.file, fileLoader.fileName );
             fileLoader.xhr.send( formData );
             evt.stop();
         } );
+    };
+
+    service.addFileRequestHeader = function(header) {
+        _fileUploadHeaders.push(header);
+    };
+
+    service.removeFileRequestHeader = function(headerName) {
+        _.remove(_fileUploadHeaders, { name: headerName });
     };
 
     service.setValue = function(value) {
