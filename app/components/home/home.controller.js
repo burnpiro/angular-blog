@@ -22,5 +22,7 @@ function HomeController(posts, FileService) {
         post.background = _.sample(classes);
     });
 
-    self.topPost.background = 'bg-color-light-green-600';
+    if(!_.isUndefined(self.topPost)) {
+        self.topPost.background = 'bg-color-light-green-600';
+    }
 }

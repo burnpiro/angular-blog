@@ -17,7 +17,8 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
             icon: 'fa-bicycle',
             shortText: '',
             image: '',
-            author: 'Kemal Erdem'
+            author: 'Kemal Erdem',
+            display: true
         };
     }
     var editor = ckeditorEditorFactory;

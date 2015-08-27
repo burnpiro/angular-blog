@@ -31,7 +31,8 @@ function PostService(Restangular) {
             icon: post.icon,
             shortText: post.shortText,
             image: post.image,
-            content: post.content
+            content: post.content,
+            display: post.display
         };
         if(_.isObject(post._category)) {
             request._category = post._category._id;
