@@ -5,12 +5,12 @@
             md-gutter="8px" md-gutter-gt-sm="4px" >
         <md-grid-tile md-colspan="6" md-colspan-sm="2" md-colspan-md="4"
                       md-colspan-gt-md="6" md-rowspan="3" md-rowspan-sm="2" ng-class="::home.topPost.background" ui-sref="post({postId: home.topPost._id})">
-            <div class="gridBackgroundImage" ng-style="{'background-image':'url({{home.getImageLink(home.topPost.image, 1024)}})'}"
+            <div class="gridBackgroundImage mainGridElement" ng-style="{'background-image':'url({{home.getImageLink(home.topPost.image, 1024)}})'}"
                  layout="column" layout-align="center center">
                 <h1>{{::home.topPost.name}}</h1>
             </div>
 
-            <div class="gridPostDescription" layout="column" layout-align="start start">
+            <div class="gridPostDescription mainGridElement" layout="column" layout-align="start start">
                 <div class="postDescription">{{home.topPost.shortText}}</div>
                 <h5><strong>{{::home.topPost.createdAt | date : 'mediumDate'}}</strong> by <strong>{{::home.topPost.author}}</strong></h5>
                 <i class="bottomIcon fa" ng-class="::home.topPost.icon"></i>
