@@ -43,7 +43,10 @@
             <textarea ng-model="articleCtrl.post.shortText" columns="1" md-maxlength="160"></textarea>
         </md-input-container>
         <div layout="row" layout-align="space-between center">
-            <md-button class="md-raised md-primary" ng-click="articleCtrl.savePost()">Save</md-button>
+            <div>
+                <md-button class="md-raised md-primary" ng-click="articleCtrl.savePost()">Save</md-button>
+                <md-button class="md-raised md-warn" ng-click="articleCtrl.deletePost()">Delete</md-button>
+            </div>
             <md-switch ng-model="articleCtrl.post.display " aria-label="Switch 1">
                 Publish?
             </md-switch>

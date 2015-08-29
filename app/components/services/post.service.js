@@ -42,5 +42,9 @@ function PostService(Restangular) {
         } else {
             return Restangular.one('posts').post('', request);
         }
+    };
+
+    this.deletePost = function(postId) {
+        return Restangular.one('posts', postId).remove();
     }
 }

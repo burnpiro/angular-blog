@@ -39,6 +39,16 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
         }
         PostService.savePost(self.post).then(function(response) {
             toastr.success(response.message);
+            if(_.isEmpty(self.post._id)) {
+                self.post._id = response.data._id;
+            }
         });
-    }
+    };
+
+    self.deletePost = function() {
+        PostService.deletePost(self.post._id).then(function(response) {
+            toastr.success(response.message);
+            self.post = {}
+        });
+    };
 }
