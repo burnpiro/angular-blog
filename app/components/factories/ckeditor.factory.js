@@ -44,7 +44,16 @@ function ckeditorEditorFactory() {
     };
 
     service.addFileRequestHeader = function(header) {
-        _fileUploadHeaders.push(header);
+        // Prevent from add the same headers
+        if(_.findIndex(_fileUploadHeaders, function(element) {
+            return element.name === header.name;
+        }) !== -1) {
+            _fileUploadHeaders[(_.findIndex(_fileUploadHeaders, function(element) {
+                return element.name === header.name;
+            }))] = header;
+        } else {
+            _fileUploadHeaders.push(header);
+        }
     };
 
     service.removeFileRequestHeader = function(headerName) {
