@@ -125,14 +125,7 @@ function articleDirective() {
                 $scope.status.modify = true;
             }
 
-            //$(document).scrollTop(0);
-            //$(document).off( 'scroll' );
             $(document).scroll(self.scrollPage);
-            //document.addEventListener('touchmove', function(e) {
-            //    if(scrollVal === 0 || _.isUndefined(scrollVal)) {
-            //        $scope.toggle(1);
-            //    }
-            //});
         }
     };
 }

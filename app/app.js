@@ -109,6 +109,8 @@ angular.module('app', [
         $rootScope
             .$on('$stateChangeStart',
             function(){
+                // we have to remove scroll event because it is used in other places and need to be refreshed
+                $(document).off( "scroll" );
                 if(!$rootScope.loadingStart) {
                     var loader = $(".loader");
                     if(loader.hasClass('active')) {
