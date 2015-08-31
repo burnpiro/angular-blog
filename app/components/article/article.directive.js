@@ -126,6 +126,9 @@ function articleDirective() {
             }
 
             $(document).scroll(self.scrollPage);
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
         }
     };
 }
