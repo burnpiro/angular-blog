@@ -87,15 +87,17 @@
 
     .title h1 {
         padding: 0 0 0.5em 0;
-        color: $primary-color-light-gray;
+        color: $primary-text-color;
         font-family: 'Playfair Display', serif;
         font-weight: 700;
         font-size: 3.25em;
         margin: 0 auto;
+        text-shadow: -2px 0 $secondary-text-color, 0 2px $secondary-text-color, 2px 0 $secondary-text-color, 0 -2px $secondary-text-color;
     }
 
     &.modify h1 {
         color: $secondary-text-color;
+        text-shadow: none;
     }
 
     .title p {

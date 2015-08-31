@@ -1,5 +1,5 @@
 <section class="adminArticle">
-    <div class="bg-img"><img class="postImagePreview" ng-if="articleCtrl.post.image !== null" src="{{articleCtrl.getImageLink(articleCtrl.post.image, 1920)}}"/></div>
+    <div class="bg-img"><img class="postImagePreview" ng-if="articleCtrl.post.image !== null" ng-src="{{articleCtrl.getImageLink(articleCtrl.post.image, 1920)}}"/></div>
     <div layout-gt-lg="row" layout="column" layout-align="space-between center">
         <div layout="row" layout-sm="column" layout-align="space-between center" flex>
             <md-input-container md-no-float layout-padding>
@@ -12,20 +12,22 @@
                 <span class="fa" ng-class="articleCtrl.post.icon"></span>
                 <input required ng-model="articleCtrl.post.icon" placeholder="Fa icon class" class="md-primary">
             </md-input-container>
-            <md-input-container layout-padding>
+            <md-input-container layout-padding layout="row" layout-align="start center">
                 <md-select ng-model="articleCtrl.post._category._id" placeholder="Category">
                     <md-option ng-repeat="category in articleCtrl.categories" value="{{category._id}}">{{category.name}}</md-option>
                 </md-select>
+                <i class="fa fa-times" ng-click="articleCtrl.post._category._id = undefined"></i>
             </md-input-container>
         </div>
 
         <div layout="row" layout-sm="column" layout-align="center center" flex>
 
             <span>Post image:</span>
-            <md-input-container layout-padding>
+            <md-input-container layout-padding layout="row" layout-align="start center">
                 <md-select ng-model="articleCtrl.post.image" placeholder="Image">
                     <md-option ng-repeat="file in articleCtrl.files" value="{{file}}">{{file}}</md-option>
                 </md-select>
+                <i class="fa fa-times" ng-click="articleCtrl.post.image = undefined"></i>
             </md-input-container>
         </div>
     </div>
