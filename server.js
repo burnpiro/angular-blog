@@ -15,8 +15,12 @@ app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-M
 app.use(express.static(__dirname + '/' + staticdir)); // set the static files location /public/img will be /img for users
 
 // routes ==================================================
-require('./devServer/routes')(app); // configure our routes
+require('./devServer/routes')(app, staticdir); // configure our routes
 
+// This route deals enables HTML5Mode by forwarding missing files to the index.html
+app.all('/*', function(req, res) {
+    res.sendfile(staticdir+'/index.html');
+});
 // start app ===============================================
 app.listen(port);                   // startup our app at http://localhost:8080
 console.log('Starting sever on port ' + port);       // shoutout to the user

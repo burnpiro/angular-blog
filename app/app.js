@@ -25,9 +25,9 @@ angular.module('app', [
         var interceptor = authInterceptor($windowProvider.$get());
         RestangularProvider.addFullRequestInterceptor(interceptor.request);
     })
-    //.config(["$locationProvider", function($locationProvider) {
-    //    $locationProvider.html5Mode(true);
-    //}])
+    .config(["$locationProvider", function($locationProvider) {
+        $locationProvider.html5Mode(true);
+    }])
     .config(function($mdThemingProvider) {
         $mdThemingProvider.theme('default')
             .primaryPalette('light-green')
@@ -35,8 +35,8 @@ angular.module('app', [
     })
     .config(function($stateProvider, $urlRouterProvider){
 
-    // For any unmatched url, send to /
-    //$urlRouterProvider.otherwise("/");
+     //For any unmatched url, send to /
+    $urlRouterProvider.otherwise("/");
 
     $stateProvider
         .state('home', {
