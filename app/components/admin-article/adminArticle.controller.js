@@ -27,6 +27,7 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
     editor.setValue(self.post.content);
     editor.addPlugin('mathjax');
     editor.addPlugin('codesnippet');
+    editor.addPlugin('iframedialog');
     editor.addConfig('mathJaxLib', '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML');
     editor.addPlugin('uploadimage');
     editor.addConfig('uploadUrl', config.host+config.filePath);

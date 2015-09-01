@@ -20,7 +20,7 @@ function ckeditorEditorFactory() {
             { name: 'colors', groups: [ 'colors' ] },
             { name: 'about', groups: [ 'about' ] }
         ],
-        removeButtons: 'Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Templates,Print,NewPage,Save,Select,Button,ImageButton,HiddenField,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Iframe,Maximize,ShowBlocks,Underline,Cut,Copy,Paste,PasteText,PasteFromWord,About,Styles,Format,Outdent,Indent,Strike,Anchor,Redo,Undo'
+        removeButtons: 'Find,Replace,SelectAll,Scayt,Form,Checkbox,Radio,TextField,Textarea,Templates,Print,NewPage,Save,Select,Button,ImageButton,HiddenField,CreateDiv,BidiLtr,BidiRtl,Language,PageBreak,Maximize,ShowBlocks,Underline,Cut,Copy,Paste,PasteText,PasteFromWord,About,Styles,Format,Outdent,Indent,Strike,Anchor,Redo,Undo'
     };
 
     var service = {};
