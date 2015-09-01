@@ -30,7 +30,7 @@ function PostService(Restangular) {
             name: post.name,
             icon: post.icon,
             shortText: post.shortText,
-            image: post.image,
+            image: post.image ? post.image : null,
             content: post.content,
             display: post.display
         };
