@@ -1,32 +1,19 @@
-<section layout="column" layout-padding class="home">
-    <md-grid-list
-            md-cols-sm="2" md-cols-md="6" md-cols-gt-md="12"
-            md-row-height-gt-md="1:2" md-row-height-md="1:1" md-row-height="1:1"
-            md-gutter="8px" md-gutter-gt-sm="4px" >
-        <md-grid-tile md-colspan="6" md-colspan-sm="2" md-colspan-md="4"
-                      md-colspan-gt-md="6" md-rowspan="3" md-rowspan-sm="2" ng-class="::home.topPost.background" ui-sref="post({postId: home.topPost._id})">
-            <div class="gridBackgroundImage mainGridElement" ng-style="{'background-image':'url({{home.getImageLink(home.topPost.image, 1024)}})'}"
-                 layout="column" layout-align="center center">
-                <h1>{{::home.topPost.name}}</h1>
-            </div>
+<section class="home">
+    <div class="mainGridElement" ui-sref="post({postId: home.topPost._id})">
+        <div class="mainGridImage " ng-style="{'background-image':'url({{home.getImageLink(home.topPost.image, 1024)}})'}">
+            <h1>{{::home.topPost.name}}</h1>
+        </div>
 
-            <div class="gridPostDescription mainGridElement" layout="column" layout-align="start start">
-                <div class="postDescription">{{home.topPost.shortText}}</div>
-                <h5><strong>{{::home.topPost.createdAt | date : 'mediumDate'}}</strong> by <strong>{{::home.topPost.author}}</strong></h5>
-                <i class="bottomIcon fa" ng-class="::home.topPost.icon"></i>
-            </div>
-        </md-grid-tile>
-        <md-grid-tile ng-repeat="post in home.posts" md-colspan="2" md-colspan-sm="1" md-colspan-md="2"
-                      md-colspan-gt-md="3" md-rowspan-md="2" ng-class="::post.background" ui-sref="post({postId: post._id})">
-            <div class="gridBackgroundImage" ng-style="{'background-image':'url({{home.getImageLink(post.image, 400)}})'}"
-                 layout="column" layout-align="center center">
-                <i class="bottomIcon fa" ng-class="::post.icon"></i>
-            </div>
-
-            <div class="gridPostDescription" layout="column" layout-align="start center">
-                <h4>{{::post.name}}</h4>
-                <div class="postDescription">{{::post.shortText}}</div>
-            </div>
-        </md-grid-tile>
-    </md-grid-list>
+        <div class="mainGridOverlay"></div>
+        <div class="mainGridDescription">
+            <div class="description">{{home.topPost.shortText}}</div>
+            <h6><strong>{{::home.topPost.createdAt | date : 'mediumDate'}}</strong> by <strong>{{::home.topPost.author}}</strong></h6>
+        </div>
+    </div>
+    <div class="Grid">
+        <ke-grid
+                data-elements="home.posts"
+                data-type="post"
+                ></ke-grid>
+    </div>
 </section>

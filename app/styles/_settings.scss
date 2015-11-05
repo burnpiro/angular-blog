@@ -6,9 +6,50 @@ $primary-color-text:   #212121;
 $accent-color:         #FF9800;
 $primary-text-color:   #212121;
 $secondary-text-color: #727272;
-$divider-color:        #B6B6B6;
+$divider-color:        #c6c6c6;
 $primary-color-light-gray: #FAFAFA;
+$primary-color-white: #FFFFFF;
+$primary-color-gray: #767676;
 $light-gray: rgba(118,117,128,0.05);
+$bg-color-dark: #212121;
+$bg-color-light-gray: #Dedede;
+
+$success-color: #43a047;
+$error-color: #e53935;
+$warning-color: #fb8c00;
+$info-color: #1e88e5;
+
+$facebook-color: #3B5998;
+$twitter-color: #326ada;
+$github-color: #999999;
+$google-plus-color: #dc4e41;
+
+$mobileWidth: 480px;
+$tabletWidth: 1024px;
+// Import gridle
+@import 'gridle/gridle';
+
+
+// setup the grid (required)
+@include gridle_setup((
+        context : 12,
+        gutter-width : 20px,
+        direction : ltr,
+));
+
+// make the use of media queries really easy
+@include gridle_register_state(mobile, (
+        max-width : $mobileWidth
+));
+@include gridle_register_state(tablet, (
+        min-width : $mobileWidth,
+        max-width : $tabletWidth
+));
+
+// even with full custom queries :
+@include gridle_register_state ( landscape, (
+        query : "(orientation : landscape)"
+) );
 
 //    Sample usage
 //    @include keyframes(animationName) {

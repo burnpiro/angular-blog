@@ -37,6 +37,10 @@ function FileService(Restangular) {
         if(_.isUndefined(size)) {
             size = '400';
         }
-        return config.host+config.imagePath+'/'+imageName+'/'+size;
+        if(imageName === null) {
+            return '/images/logo1920x1280.png';
+        } else {
+            return config.host+config.imagePath+'/'+imageName+'/'+size;
+        }
     };
 }

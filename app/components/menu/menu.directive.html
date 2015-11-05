@@ -1,71 +1,7 @@
-<nav id="bt-menu" class="bt-menu" ng-class="{'bt-menu-open': menuCtrl.open, 'bt-menu-close': !menuCtrl.open}">
-    <a class="bt-menu-trigger" ng-click="menuCtrl.toggleMenu()"><span>Menu</span></a>
+<nav class="MenuContainer" ng-class="{'is-open': menuCtrl.open, 'is-close': !menuCtrl.open}">
     <ul>
-        <li>
-            <a ui-sref="home" ng-click="menuCtrl.closeMenu()">Home</a>
+        <li ng-repeat="row in menuCtrl.elements" ui-sref="category({categoryId: row._id})">
+            {{row.name}}
         </li>
-        <li>
-            <a ui-sref="about" ng-click="menuCtrl.closeMenu()">About</a>
-        </li>
-        <li>
-            <a ui-sref="categories" ng-click="menuCtrl.closeMenu()">Blog</a>
-        </li>
-        <li>
-            <a ui-sref="contact" ng-click="menuCtrl.closeMenu()">Contact</a>
-        </li>
-    </ul>
-    <ul>
-        <li><a href="http://www.twitter.com/burnpiro" class="bt-icon icon-twitter">Twitter</a></li>
-        <li><a href="https://plus.google.com/110838918441805962112" class="bt-icon icon-gplus">Google+</a></li>
-        <li><a href="https://www.facebook.com/pirokemal" class="bt-icon icon-facebook">Facebook</a></li>
-        <li><a href="https://github.com/burnpiro" class="bt-icon icon-github">icon-github</a></li>
     </ul>
 </nav>
-<div class="mainSearch">
-    <div class="searchTrigger" ng-click="menuCtrl.toggleSearch()">
-        <i class="fa fa-search"></i>
-    </div>
-    <md-content ng-show="menuCtrl.search.isOpen">
-        <div class="searchContent" ng-class="{'open': menuCtrl.search.isOpen}" layout="column" layout-align="start center">
-            <div class="closeSearch">
-                <i class="fa fa-times" ng-click="menuCtrl.toggleSearch()"></i>
-            </div>
-            <div class="searchInput">
-                <i class="fa fa-search"></i>
-                <md-input-container md-no-float>
-                    <input ng-model="menuCtrl.search.text" type="text" placeholder="Search" ng-change="menuCtrl.search()">
-                </md-input-container>
-            </div>
-            <div layout="row" layout-align="center start" class="dataContainer">
-                <div class="categories" flex="33" flex-sm="50">
-                    <md-list>
-                        <md-subheader class="md-no-sticky">Categories</md-subheader>
-                        <md-list-item class="md-3-line" ng-repeat="item in menuCtrl.search.categories">
-                            <a ui-sref="category({categoryId: item._id})" layout="row" layout-align="start center">
-                                <i class="fa" ng-class="::item.icon"></i>
-                                <div class="md-list-item-text">
-                                    <h3>{{ ::item.name }}</h3>
-                                    <p>{{ ::item.type }}</p>
-                                </div>
-                            </a>
-                        </md-list-item>
-                    </md-list>
-                </div>
-                <div class="posts" flex="33" flex-sm="50">
-                    <md-list>
-                        <md-subheader class="md-no-sticky">Posts</md-subheader>
-                        <md-list-item class="md-3-line" ng-repeat="item in menuCtrl.search.posts">
-                            <a ui-sref="post({postId: item._id})" layout="row" layout-align="start center">
-                                <i class="fa" ng-class="::item.icon"></i>
-                                <div class="md-list-item-text">
-                                    <h3>{{ ::item.name }}</h3>
-                                    <p>{{ ::item.shortText }}</p>
-                                </div>
-                            </a>
-                        </md-list-item>
-                    </md-list>
-                </div>
-            </div>
-        </div>
-    </md-content>
-</div>

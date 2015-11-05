@@ -1,0 +1,9 @@
+<div class="keInput" ng-class="{'is-fullWidth': fullWidth}">
+    <input type="{{type}}"
+           placeholder="{{placeholder}}"
+           ng-required="required"
+           ng-model="ngModel"
+           ng-change="onChange(ngModel)"
+            ng-model-options="{debounce: 300}"/>
+    <span ng-if="icon !== undefined"><i class="fa" ng-class="icon"></i></span>
+</div>

@@ -19,6 +19,14 @@ angular.module('app.article', ['ui.router'])
                         controllerAs: 'article'
                     },
                     "bottomMenu": {
+                        controller: 'MenuController',
+                        controllerAs: 'menu',
+                        resolve: {
+                            categories: ['CategoryService',
+                                function(CategoryService) {
+                                    return CategoryService.getTopCategories();
+                                }]
+                        },
                         templateUrl: "components/menu/menu.html"
                     }
                 }

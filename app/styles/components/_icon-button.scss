@@ -1,0 +1,54 @@
+@import "../settings";
+
+ke-icon-button {
+    .keIconButton {
+        font-size: 30px;
+        height: 50px;
+        color: $primary-color-gray;
+        cursor: pointer;
+        text-align: center;
+        @include transition(all 0.5s ease);
+        &:hover {
+            color: $primary-color;
+        }
+
+        i {
+            padding: 10px 0;
+            &.openedIcon {
+                display: block;
+            }
+            &.closedIcon {
+                display: none;
+            }
+
+        }
+
+        &.is-close {
+            i {
+                &.openedIcon {
+                    display: none;
+                }
+                &.closedIcon {
+                    display: block;
+                }
+            }
+        }
+
+
+    }
+    &.bordered {
+        border-top: 1px solid $divider-color;
+        border-bottom: 1px solid $divider-color;
+    }
+
+    @media screen and (max-width: $mobileWidth) {
+        &.bordered {
+            i {
+                width: 50px;
+            }
+            border: 0;
+            border-left: 1px solid $divider-color;
+            border-right: 1px solid $divider-color;
+        }
+    }
+}

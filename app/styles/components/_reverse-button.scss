@@ -1,0 +1,43 @@
+@import "../settings";
+
+ke-reverse-button {
+    a {
+        color: $primary-color-gray;
+        &:hover {
+            color: $primary-color-white;
+        }
+    }
+    cursor: pointer;
+    text-align: center;
+    padding: 0 !important;
+    @include transition(all 0.5s ease-out);
+
+    i {
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    &.keReverseButton--facebook {
+        &:hover {
+            background-color: $facebook-color;
+        }
+    }
+
+    &.keReverseButton--twitter {
+        &:hover {
+            background-color: $twitter-color;
+        }
+    }
+
+    &.keReverseButton--github {
+        &:hover {
+            background-color: $github-color;
+        }
+    }
+
+    &.keReverseButton--googlePlus {
+        &:hover {
+            background-color: $google-plus-color;
+        }
+    }
+}

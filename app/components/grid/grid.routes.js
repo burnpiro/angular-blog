@@ -22,6 +22,14 @@ angular.module('app.grid', ['ui.router'])
                         controllerAs: 'grid'
                     },
                     "bottomMenu": {
+                        controller: 'MenuController',
+                        controllerAs: 'menu',
+                        resolve: {
+                            categories: ['CategoryService',
+                                function(CategoryService) {
+                                    return CategoryService.getTopCategories();
+                                }]
+                        },
                         templateUrl: "components/menu/menu.html"
                     }
                 }
@@ -45,6 +53,14 @@ angular.module('app.grid', ['ui.router'])
                         controllerAs: 'grid'
                     },
                     "bottomMenu": {
+                        controller: 'MenuController',
+                        controllerAs: 'menu',
+                        resolve: {
+                            categories: ['CategoryService',
+                                function(CategoryService) {
+                                    return CategoryService.getTopCategories();
+                                }]
+                        },
                         templateUrl: "components/menu/menu.html"
                     }
                 }

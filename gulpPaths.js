@@ -1,6 +1,6 @@
 module.exports  = {
-    scripts: ['app/**/*.js', '!./app/plugins/**/*'],
-    styles: ['./app/**/*.css', './app/**/*.scss', '!./app/plugins/**/*'],
+    scripts: ['app/**/*.js', './app/plugins/*.js'],
+    styles: ['./app/styles/**/*.scss', '!./app/plugins/**/*'],
     images: './app/images/**/*',
     index: './app/index.html',
     folders: ['./app/plugins/**/*'],

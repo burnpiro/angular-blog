@@ -1,1 +1,87 @@
-<div menu-directive=""></div>
+<menu-directive
+        data-open="menu.categoriesOpen"
+        data-elements="menu.categoriesElements"
+        ></menu-directive>
+<div class="mainSearch" ng-class="{'is-open': menu.searchOpen}">
+    <div class="InputContainer" ng-class="{'is-search' : menu.posts.length > 0}">
+        <ke-input-text
+            data-icon="fa-search"
+            data-placeholder="Search"
+            data-type="text"
+            data-full-width="true"
+            ng-model="menu.searchText"
+            data-on-change="menu.search"
+            ></ke-input-text>
+    </div>
+
+    <div class="SearchContainer">
+        <div class="Grid">
+            <ke-grid
+                    data-elements="menu.posts"
+                    data-type="post"
+                    ></ke-grid>
+        </div>
+    </div>
+</div>
+<nav id="mainMenu" class="mainMenu">
+    <div class="topLinks">
+        <ke-icon-button
+                class="gr-12"
+                ui-sref="home"
+                data-icon="fa-home"
+                ng-if="!menu.prevState"
+                data-no-close="true"
+                ></ke-icon-button>
+        <ke-icon-button
+                class="gr-12"
+                ng-click="menu.goToPrevState()"
+                data-icon="fa-arrow-left"
+                ng-if="menu.prevState"
+                data-no-close="true"
+                ></ke-icon-button>
+    </div>
+
+    <div class="middleLinks">
+        <ke-icon-button
+                class="gr-12 gr-4@mobile bordered"
+                ng-click="menu.categoriesOpen = !menu.categoriesOpen"
+                data-icon="fa-bars"
+                data-bordered="true"
+                ></ke-icon-button>
+        <ke-icon-button
+                class="gr-12 gr-4@mobile bordered"
+                ng-click="menu.searchOpen = !menu.searchOpen"
+                data-icon="fa-search"
+                data-bordered="true"
+                ></ke-icon-button>
+        <ke-icon-button
+                class="gr-12 gr-4@mobile bordered"
+                ui-sref="about"
+                data-icon="fa-info"
+                data-bordered="true"
+                ></ke-icon-button>
+    </div>
+
+    <div class="bottomLinks">
+        <ke-reverse-button
+                class="gr-6 keReverseButton--facebook"
+                data-icon="fa-facebook"
+                data-link="https://www.facebook.com/pirokemal"
+                ></ke-reverse-button>
+        <ke-reverse-button
+                class="gr-6 keReverseButton--github"
+                data-icon="fa-github-alt"
+                data-link="https://github.com/burnpiro"
+                ></ke-reverse-button>
+        <ke-reverse-button
+                class="gr-6 keReverseButton--googlePlus"
+                data-icon="fa-google-plus"
+                data-link="https://plus.google.com/110838918441805962112"
+                ></ke-reverse-button>
+        <ke-reverse-button
+                class="gr-6 keReverseButton--twitter"
+                data-icon="fa-twitter"
+                data-link="http://www.twitter.com/burnpiro"
+                ></ke-reverse-button>
+    </div>
+</nav>

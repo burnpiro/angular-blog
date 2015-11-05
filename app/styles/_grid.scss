@@ -1,93 +1,129 @@
 @import 'settings';
-.container.grid {
-    .fa {
-        padding: 0px 0 0 0;
-        display: block;
-        -webkit-transition: -webkit-transform 0.2s;
-        transition: -moz-transform 0.2s;
-        transition: transform 0.2s;
+.mainGridElement {
+    height: 16em;
+    position: relative;
+    overflow: hidden;
+    color: $primary-color-white;
+    padding: 10px;
+    text-align: center;
+    top: 0;
+    left: 0;
 
-        &:before {
-            font-size: 5em;
-            speak: none;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
+    .mainGridImage {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        background-size: cover;
+        background-repeat: no-repeat;
+        @include transition(all 0.45s ease);
+        @include transform(scale(1));
+    }
+
+    .mainGridOverlay {
+        background-color: $bg-color-dark;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+    }
+
+    .mainGridDescription {
+        text-align: left;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        margin: 10px 20px;
+        .description {
+            margin-bottom: 10px;
         }
     }
 
-    md-grid-tile {
-         .gridBackgroundImage {
-             position: absolute;
-             left: 0;
-             width: 50%;
-             height: 100%;
-             opacity: 1;
-             @include animation(gridOpacityChangeDown, 0.5s, '', '', '', 1, forwards);
-             background-size: 150% 100%;
-
-             .bottomIcon {
-                 font-size: 10px;
-                 opacity: 0;
-             }
+    &:hover {
+        .mainGridImage {
+            @include transform(scale(1.1));
         }
+    }
 
+    @media screen and (max-width: $mobileWidth) {
+        padding: 0;
+    }
+}
 
-        .gridPostDescription {
-            position: absolute;
-            left: 50%;
-            width: 50%;
+.Grid {
+    .GridElement {
+        height: 16em;
+        position: relative;
+        overflow: hidden;
+        color: $primary-color-white;
+        padding: 5px;
+
+        .GridImageContainer {
+            width: 100%;
             height: 100%;
-            opacity: 0.6;
+            position: absolute;
+            margin: 5px;
             overflow: hidden;
 
-            h3 {
+            .GridBackgroundImage {
                 width: 100%;
+                height: 100%;
+                position: absolute;
+                background-size: cover;
+                background-repeat: no-repeat;
                 text-align: center;
+                top: 0;
+                left: 0;
+                font-size: 48px;
+
+                @include transition(all 0.45s ease);
+                @include transform(scale(1));
+                i {
+                    padding-top: 50%;
+                    transform: translate(0, -50%);
+                }
+                h2 {
+                    padding-top: 50%;
+                    transform: translate(0, -50%);
+                }
+
             }
 
-            .postDescription {
+            .GridElementOverlay {
+                background-color: $bg-color-dark;
+                position: absolute;
                 width: 100%;
-                padding: 0 10%;
+                height: 100%;
+                opacity: 0.5;
             }
-        }
 
-        &:hover {
-            .gridBackgroundImage {
-                @include animation(gridOpacityChangeUp, 0.5s, '', '', '', 1, forwards);
-
-                .bottomIcon {
-                    opacity: 1;
+            &:hover {
+                .GridBackgroundImage {
+                    @include transform(scale(1.1));
                 }
             }
+        }
 
-            .gridPostDescription {
-                opacity: 1;
+        .GridPostDescription {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin: 10px 20px;
+
+            .PostDescription {
+                padding-top: 20px;
+                font-style: italic;
             }
-
         }
 
-        md-grid-tile-header {
-            background-color: rgba(0,0,0,0.4);
-        }
+        @media screen and (max-width: $mobileWidth) {
+            padding: 0;
 
-        md-grid-tile-footer {
-            background-color: rgba(0,0,0,0.4);
+            .GridImageContainer {
+                margin: 5px 0;
+            }
         }
     }
-}
-
-@include keyframes(gridOpacityChangeUp) {
-    0% {opacity:1;}
-    100% {opacity:0.6;
-        background-position-x: 50%}
-}
-
-@include keyframes(gridOpacityChangeDown) {
-    0% {opacity:0.6;
-        background-position-x: 50%}
-    100% {opacity:1}
 }

@@ -1,24 +1,12 @@
-<section layout="column" layout-padding class="container grid">
-    <md-grid-list
-            md-cols-sm="2" md-cols-md="6" md-cols-gt-md="12"
-            md-row-height-gt-sm="1:2" md-row-height="1:1"
-            md-gutter="8px" md-gutter-gt-sm="4px" >
-        <md-grid-tile ng-repeat="post in grid.postsData" md-colspan="2" md-colspan-sm="1" md-colspan-md="2"
-                      md-colspan-gt-md="3" ng-class="::post.background" ui-sref="post({postId: post._id})">
-            <div class="gridBackgroundImage" ng-style="{'background-image':'url({{grid.getImageLink(post.image)}})'}"
-                 layout="column" layout-align="center center">
-                <i class="bottomIcon fa" ng-class="::post.icon"></i>
-            </div>
-
-            <div class="gridPostDescription" layout="column" layout-align="start center">
-                <h3>{{::post.name}}</h3>
-                <div class="postDescription">{{::post.shortText}}</div>
-            </div>
-        </md-grid-tile>
-        <md-grid-tile ng-repeat="category in grid.categoriesData" md-colspan="2" md-colspan-sm="1" md-colspan-md="2"
-                      md-colspan-gt-md="3" ng-class="::category.background" ui-sref="category({categoryId: category._id})">
-            <i class="fa {{::category.icon}}"></i>
-            <md-grid-tile-footer><h3>{{::category.name}}</h3></md-grid-tile-footer>
-        </md-grid-tile>
-    </md-grid-list>
+<section class="">
+    <div class="Grid">
+        <ke-grid
+            data-elements="grid.postsData"
+            data-type="post"
+            ></ke-grid>
+        <ke-grid
+            data-elements="grid.categoriesData"
+            data-type="category"
+            ></ke-grid>
+    </div>
 </section>

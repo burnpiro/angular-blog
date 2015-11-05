@@ -107,7 +107,9 @@ pipes.scriptedPartials = function() {
 
 pipes.builtStylesDev = function() {
     return gulp.src(paths.styles)
-        .pipe(plugins.sass())
+        .pipe(plugins.sass().on('error', function(err) {
+            console.log(err);
+        }))
         .pipe(gulp.dest(paths.distDev));
 };
 

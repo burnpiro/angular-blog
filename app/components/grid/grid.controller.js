@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('app.grid').
-    controller('GridController', ['categories', 'posts', 'FileService', GridController]);
+    controller('GridController', ['categories', 'posts', 'FileService', '$rootScope', '$state', GridController]);
 
-function GridController(categories, posts, FileService) {
+function GridController(categories, posts, FileService, $rootScope, $state) {
     var self = this;
     self.gridData = [];
     self.categoriesData = [];
@@ -24,10 +24,17 @@ function GridController(categories, posts, FileService) {
         'bg-color-deep-orange-'+saturation, 'bg-color-brown-'+saturation
     ];
 
-    _.forEach(self.postsData, function(post) {
-        post.background = _.sample(classes);
-    });
     _.forEach(self.categoriesData, function(category) {
         category.background = _.sample(classes);
     });
+
+    if($state.current.name === 'categories') {
+        $rootScope.prevState = {
+            stateName: 'home'
+        };
+    } else {
+        $rootScope.prevState = {
+            stateName: 'categories'
+        };
+    }
 }

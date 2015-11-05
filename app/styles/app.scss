@@ -10,6 +10,57 @@
 @import "contact";
 @import "fa/font-awesome";
 @import "material-colors/material-classes";
+@import "components/icon-button";
+@import "components/reverse-button";
+@import "components/input-text";
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
 
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 body, html { font-size: 100%; padding: 0; margin: 0;}
@@ -28,6 +79,30 @@ body {
 
 a {
     text-decoration: none;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 12px;
 }
 
 .loader {
@@ -67,6 +142,16 @@ a {
     }
 }
 
+.mainContent {
+    margin-left: 50px;
+    margin-top: 0;
+
+    @media screen and (max-width: $mobileWidth) {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+}
+
 @include keyframes(fadeInHolder) {
     0% {@include transform(scale(0.01)); opacity: 1;}
     40% {@include transform(scale(10))}
@@ -79,4 +164,12 @@ a {
     20% {opacity: 1;}
     60% {opacity: 1;}
     61%, 100% {opacity: 0;}
+}
+
+@include gridle_generate_classes();
+
+// Max size :
+.container {
+    margin:0 auto;
+    max-width:960px;
 }

@@ -4,7 +4,6 @@ angular.module('app', [
     'ui.router',
     'ngAnimate',
     'restangular',
-    'ngMaterial',
     'toastr',
 
     //components
@@ -16,6 +15,7 @@ angular.module('app', [
     'app.admin',
     'app.about',
     'app.contact',
+    'app.common',
 
     //services
     'app.services'
@@ -26,13 +26,8 @@ angular.module('app', [
         RestangularProvider.addFullRequestInterceptor(interceptor.request);
     })
     .config(["$locationProvider", function($locationProvider) {
-        $locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true);
     }])
-    .config(function($mdThemingProvider) {
-        $mdThemingProvider.theme('default')
-            .primaryPalette('light-green')
-            .accentPalette('orange');
-    })
     .config(function($stateProvider, $urlRouterProvider){
 
      //For any unmatched url, send to /
@@ -54,6 +49,14 @@ angular.module('app', [
                     }
                 },
                 "bottomMenu": {
+                    controller: 'MenuController',
+                    controllerAs: 'menu',
+                    resolve: {
+                        categories: ['CategoryService',
+                            function(CategoryService) {
+                                return CategoryService.getTopCategories();
+                            }]
+                    },
                     templateUrl: "components/menu/menu.html"
                 }
             }
@@ -67,6 +70,14 @@ angular.module('app', [
                     controllerAs: 'about'
                 },
                 "bottomMenu": {
+                    controller: 'MenuController',
+                    controllerAs: 'menu',
+                    resolve: {
+                        categories: ['CategoryService',
+                            function(CategoryService) {
+                                return CategoryService.getTopCategories();
+                            }]
+                    },
                     templateUrl: "components/menu/menu.html"
                 }
             }
