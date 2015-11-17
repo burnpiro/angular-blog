@@ -10,8 +10,10 @@
                     <a ui-sref="category({categoryId: articleData._category._id})">{{::articleData._category.name}}</a>
                     on <strong>{{::articleData.createdAt | date : 'mediumDate'}}</strong></p>
             </div>
-            <ke-fb-comments></ke-fb-comments>
-            <div id="articleContent"></div>
+            <div>
+                <div id="articleContent"></div>
+                <div class="fbComments"><ke-fb-comments></ke-fb-comments></div>
+            </div>
         </article>
     </header>
 </div>

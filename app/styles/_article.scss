@@ -2,7 +2,6 @@
 .container.article {
     /* Header */
     .header {
-        position: absolute;
         margin: 0 auto;
         min-height: 101vh;
         width: 100%;
@@ -126,7 +125,8 @@
     /* Conent */
     .content {
         width: 60%;
-        margin: 0 auto 0 40%;
+        position: absolute;
+        right: 0;
         padding: 0 2.5em;
 
         img {
@@ -206,25 +206,27 @@
         transition-duration: 0.5s;
     }
 
-    .content {
-        width: 60%;
-        margin-left: 40%;
-        padding: 0 2.5em;
-    }
-
     .content div {
         position: relative;
         margin: 100px 0;
         color: $secondary-text-color;
+
+        &#articleContent {
+            margin-bottom: 20px;
+        }
+
+        &.fbComments {
+            margin-top: 0;
+        }
     }
 
-    .content div:nth-child(2) {
+    .content div:not(:first-child) {
         opacity: 0;
         -webkit-transform: translateY(200px);
         transform: translateY(200px);
     }
 
-    &.modify .content div:nth-child(2) {
+    &.modify .content div:not(:first-child) {
         opacity: 1;
         -webkit-transform: translateY(0);
         transform: translateY(0);
@@ -246,33 +248,38 @@
         transition-delay: 0s;
     }
 
-    &.modify:not(.notrans) .content div:nth-child(2) {
+    &.modify:not(.notrans) .content div:not(:first-child) {
         -webkit-transition-delay: 0.15s;
         transition-delay: 0.15s;
     }
 
 
     /* Media Queries */
-    @media screen and (max-width: 47em) {
+    @media screen and (max-width: $tabletWidth) {
         .title, .content {
-            font-size: 70%;
+            font-size: 90%;
+            width: 75%;
+            padding: 0 1em 0 1em;
+        }
+
+        .bg-img::after {
+            width: 75%;
+        }
+    }
+
+    @media screen and (max-width: $mobileWidth) {
+
+        .title, .content {
+            font-size: 80%;
         }
 
         .content {
             width: 100%;
-            margin-left: auto;
+            margin: 0 auto;
         }
 
         .bg-img::after {
             width: 95%;
-        }
-
-    }
-
-    @media screen and (max-width: 27em) {
-
-        .title, .content {
-            font-size: 80%;
         }
 
         button.trigger::before {

@@ -27,8 +27,12 @@ function keFbCommentsDirective() {
                 self.link = document.location.href;
             }
         },
-        link: function(scope, elem, attrs) {
-
+        link: function(scope, elem) {
+            scope.$watch('link', function () {
+                if(angular.isDefined(FB)) {
+                    FB.XFBML.parse(elem[0]);
+                }
+            });
         }
     };
 }
