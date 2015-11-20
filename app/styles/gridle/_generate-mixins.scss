@@ -446,19 +446,17 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 
 		// get the actual state
 		$state : gridle_get_state($stateName);
+		$classes : gridle_get_state_var(classes, $state);
 
-		// debug
-		@debug("Generate classes for state #{$stateName}");
+		// stop here if no classes wanted
+		@if $classes {
 
-		// scope all the classes in a media query
-		@include gridle_state($state, false) {
+			// debug
+			@debug("Generate classes for state #{$stateName}");
 
-			// setup vars :
-			$classes : gridle_get_state_var(classes, $state);
-
-			// stop here if no classes wanted
-			@if $classes {
-
+			// scope all the classes in a media query
+			@include gridle_state($state, false) {
+			
 				// generate all classes for columns
 				$i : 0;
 				@each $columnName, $column in gridle_get_columns($state) {
@@ -477,7 +475,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					// classes
 					@if _gridle_need_to_generate(grid, $package) {
 						#{_gridle_classname(grid, $stateName, $columnName)} {
-							@include gridle($columnsCount, $columnsContext);
+							@include gridle_grid($columnsCount, $columnsContext);
 						}
 					}
 					@if _gridle_need_to_generate(push, $package) {
@@ -546,13 +544,16 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	// make nested grids working automatically
 	@if _gridle_need_to_generate(col, $package) or _gridle_need_to_generate(row, $package) {
 		@each $stateName, $state in gridle_get_states() {
-			$gutter-left : gridle_get_state_var(gutter-left, $state);
-			$gutter-right : gridle_get_state_var(gutter-right, $state);
-			@include _gridle_state($stateName, false) {
-				[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(row),2)}"],
-				[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(col),2)}"] {
-					margin-left: -#{$gutter-left};
-					margin-right: -#{$gutter-right};
+			$classes : gridle_get_state_var(classes, $state);
+			@if $classes {
+				$gutter-left : gridle_get_state_var(gutter-left, $state);
+				$gutter-right : gridle_get_state_var(gutter-right, $state);
+				@include _gridle_state($stateName, false) {
+					[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(row),2)}"],
+					[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(col),2)}"] {
+						margin-left: -#{$gutter-left};
+						margin-right: -#{$gutter-right};
+					}
 				}
 			}
 		}

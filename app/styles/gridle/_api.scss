@@ -1,4 +1,21 @@
 //
+// Layout helper
+//
+@mixin gridle_layout(
+	$layout,
+	$context : null
+) {
+	@include gridle_state($context) {
+		@include gridle_row();
+		@each $sel, $l in $layout {
+			> #{$sel} {
+				@include gridle($l);	
+			}
+		}
+	}
+}
+
+//
 // Gridle state
 //
 // @param 	string|map|list 	$states 		A list of states, a state name or a state map
@@ -47,6 +64,8 @@
 		@include _gridle_state($state, $has-parent, true) {
 			@content;
 		}
+	} @else {
+		@content;
 	}
 }
 
@@ -121,11 +140,22 @@
 
 
 //
+// Gridle helper
+//
+@mixin gridle($layout) {
+	$map : _gridle_get_gridle_set_map_from_list($layout);
+	@if type-of($map) == map {
+		@include gridle_set($map);
+	}
+}
+
+
+//
 // Helper to apply multiple config for a certain state with one mixin
 //
 @mixin gridle_set(
 	$settings,
-	$state : default
+	$state : current
 ) {
 	// init if needed
 	@include gridle_init();
@@ -154,9 +184,11 @@
 				}
 			} @else if $sn == grid {
 				@if length($sv) == 2 {
-					@include gridle(nth($sv,1), nth($sv,2));
+					@include gridle_grid(nth($sv,1), nth($sv,2));
+				} @else if type-of($sv) == list and length($sv) == 1 {
+					@include gridle_grid(nth($sv,1));
 				} @else {
-					@include gridle($sv);
+					@include gridle_grid($sv);
 				}
 			} @else if $sn == grid-grow {
 				@if $sv == true {
@@ -195,7 +227,11 @@
 					@include gridle_suffix($sv);
 				}
 			} @else if $sn == clear-each {
-				@include gridle_clear_each(nth($sv,1), nth($sv,2));
+				@if length($sv) == 2 {
+					@include gridle_clear_each(nth($sv,1), nth($sv,2));
+				} @else {
+					@include gridle_clear_each($sv);
+				}
 			} @else if $sn == grid-centered and $sv == true {
 				@include gridle_grid_centered();
 			} @else if $sn == row and $sv == true {
@@ -253,13 +289,255 @@
 			} @else if $sn == float {
 				@include gridle_float($sv);
 			} @else if $sn == clear {
-				@include gridle_clear($sv);
+				@if $sv == true {
+					@include gridle_clear();
+				} @else {
+					@include gridle_clear($sv);
+				}
 			} @else if $sn == no-gutter {
-				@include gridle_no_gutter($sv);
+				@if $sv == true {
+					@include gridle_no_gutter();
+				} @else {
+					@include gridle_no_gutter($sv);
+				}
 			} @else if $sn == gutter or $sn == gutter-width {
-				@include gridle_gutter($sv);
+				@if $sv == true {
+					@include gridle_gutter();
+				} @else {
+					@include gridle_gutter($sv);
+				}
 			} @else {
 				// we do nothing
+			}
+		}
+	}
+}
+
+
+//
+// Push
+//
+@mixin _gridle_common_push(
+	$state : default
+) {
+	// css
+	position:relative;
+	// handle direction attribute
+	@if gridle_get_state_var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			left: auto;
+		}
+		[dir="ltr"] & {
+			right: auto;
+		}
+	}
+}
+@mixin gridle_push(
+	$columns,
+	$context : null
+) {
+	@include _gridle_call(push) {
+		// variables :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		$column-width : gridle_get_state_var(column-width);
+
+		// vars :
+		$width : 0;
+		@if $column-width {
+			$width : $column-width * ($columns / $name-multiplicator);
+		} @else {
+			$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		}
+		// @if $direction == rtl { $width : $width*-1; }
+		// left:$width;
+		// @if $direction == ltr {
+		// 	[dir="rtl"] & {
+		// 		left: $width * -1;
+		// 	}
+		// }
+
+		// set value :
+		@if $direction == rtl { right:$width; }
+		@else { left:$width; }
+		// handle direction attribute
+		@if gridle_get_state_var(dir-attribute) {
+			[dir="rtl"] & {
+				right: $width; 
+			}
+			[dir="ltr"] & {
+				left: $width;
+			}
+		}
+	}
+}
+
+
+//
+// Pull
+//
+@mixin _gridle_common_pull(
+	$state : default
+) {
+	// css
+	position:relative;
+	// handle direction attribute
+	@if gridle_get_state_var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			right: auto;
+		}
+		[dir="ltr"] & {
+			left: auto;
+		}
+	}
+}
+@mixin gridle_pull(
+	$columns,
+	$context : null
+) {
+	@include _gridle_call(pull) {
+		// variables :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		$column-width : gridle_get_state_var(column-width);
+
+		// vars :
+		$width : 0;
+		@if $column-width {
+			$width : $column-width * ($columns / $name-multiplicator);
+		} @else {
+			$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		}
+		// @if $direction == rtl { $width : $width*-1; }
+		// right:$width;
+		// @if $direction == ltr {
+		// 	[dir="rtl"] & {
+		// 		left: $width * -1;
+		// 	}
+		// }
+
+		// set value :
+		@if $direction == rtl { left:$width; }
+		@else { right:$width; }
+		// handle direction attribute
+		@if gridle_get_state_var(dir-attribute) {
+			[dir="rtl"] & {
+				left: $width; 
+			}
+			[dir="ltr"] & {
+				right: $width;
+			}
+		}
+	}
+}
+
+
+//
+// Prefix
+//
+@mixin _gridle_common_prefix(
+	$state : default
+) {
+	// handle direction attribute
+	@if gridle_get_state_var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			margin-left: auto;
+		}
+		[dir="ltr"] & {
+			margin-right: auto;
+		}
+	}
+}
+@mixin gridle_prefix(
+	$columns,
+	$context : null
+) {
+	@include _gridle_call(prefix) {
+		// vars :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		$column-width : gridle_get_state_var(column-width);
+
+		// vars :
+		$width : 0;
+		@if $column-width {
+			$width : $column-width * ($columns / $name-multiplicator);
+		} @else {
+			$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		}
+
+		// set value :
+		@if $direction == rtl { margin-right:$width; }
+		@else { margin-left:$width; }
+		// handle direction attribute
+		@if gridle_get_state_var(dir-attribute) {
+			[dir="rtl"] & {
+				margin-right: $width; 
+			}
+			[dir="ltr"] & {
+				margin-left: $width;
+			}
+		}
+	}
+}
+
+
+//
+// Suffix
+//
+@mixin _gridle_common_suffix(
+	$state : default
+) {
+	@if gridle_get_state_var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			margin-right: auto;
+		}
+		[dir="ltr"] & {
+			margin-left: auto;
+		}
+	}
+}
+@mixin gridle_suffix(
+	$columns,
+	$context : null
+) {
+	@include _gridle_call(suffix) {
+		// vars :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		$column-width : gridle_get_state_var(column-width);
+
+		// vars :
+		$width : 0;
+		@if $column-width {
+			$width : $column-width * ($columns / $name-multiplicator);
+		} @else {
+			$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		}
+
+		// set value :
+		@if $direction == rtl { margin-left:$width; }
+		@else { margin-right:$width; }
+
+		// handle direction attribute
+		@if gridle_get_state_var(dir-attribute) {
+			[dir="rtl"] & {
+				margin-left: $width; 
+			}
+			[dir="ltr"] & {
+				margin-right: $width;
 			}
 		}
 	}
@@ -527,7 +805,7 @@
 
 		// check that we have a gutter map
 		@each $side, $value in $gutters {
-			@if $value > 0 {
+			@if $value and $value > 0 {
 				padding-#{$side} : $value;
 			}
 		}
