@@ -206,7 +206,7 @@
         transition-duration: 0.5s;
     }
 
-    .content div {
+    .content > div {
         position: relative;
         margin: 100px 0;
         color: $secondary-text-color;
@@ -217,6 +217,10 @@
 
         &.fbComments {
             margin-top: 0;
+        }
+
+        &.socialLinks {
+            margin: 0;
         }
     }
 
