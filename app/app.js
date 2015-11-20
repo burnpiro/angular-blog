@@ -141,6 +141,7 @@ angular.module('app', [
             .$on('$stateChangeSuccess',
             function(){
                 $rootScope.loadingStart = false;
+                $rootScope.url = document.location.href;
             });
 
     });
