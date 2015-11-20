@@ -4,7 +4,7 @@
     position: relative;
     overflow: hidden;
     color: $primary-color-white;
-    padding: 10px;
+    margin: 10px 0 10px 10px;
     text-align: center;
     top: 0;
     left: 0;
@@ -49,6 +49,7 @@
 
     @media screen and (max-width: $mobileWidth) {
         padding: 0;
+        margin: 0;
     }
 }
 
