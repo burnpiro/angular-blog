@@ -211,16 +211,23 @@
         margin: 100px 0;
         color: $secondary-text-color;
 
-        &#articleContent {
-            margin-bottom: 20px;
-        }
+        div {
+            &#articleContent {
+                margin-bottom: 20px;
+            }
 
-        &.fbComments {
-            margin-top: 0;
-        }
+            &.fbComments {
+                margin-top: 0;
+            }
 
-        &.socialLinks {
-            margin: 0;
+            &.socialLinks {
+                margin: 0;
+                display: inline-flex;
+
+                div {
+                    margin-right: 2px;
+                }
+            }
         }
     }
 

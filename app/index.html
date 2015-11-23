@@ -22,6 +22,17 @@
     </head>
     <body>
     <div id="fb-root"></div>
+    <!--[if lte IE 9]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="loader">
+        <div class="loadCircle"></div>
+        <img src="images/preloader.gif" class="preloader">
+    </div>
+    <div ui-view="topMenu"></div>
+    <div ui-view class="mainContent">
+    </div>
+    <div ui-view="bottomMenu"></div>
     <script>
         window.fbAsyncInit = function() {
             FB.init({
@@ -39,17 +50,6 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
-    <!--[if lte IE 9]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <div class="loader">
-        <div class="loadCircle"></div>
-        <img src="images/preloader.gif" class="preloader">
-    </div>
-    <div ui-view="topMenu"></div>
-    <div ui-view class="mainContent">
-    </div>
-    <div ui-view="bottomMenu"></div>
     <!-- node:js -->
     <!-- endinject -->
     <script src="//cdn.ckeditor.com/4.5.3/full-all/ckeditor.js"></script>

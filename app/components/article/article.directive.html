@@ -13,9 +13,12 @@
             <div>
                 <div id="articleContent"></div>
                 <div class="socialLinks">
-                    <ke-fb-button
-                            data-share="true"
-                            ></ke-fb-button>
+                    <div class="FbButton">
+                        <ke-fb-button
+                                data-type="fb-share"
+                                ></ke-fb-button>
+                    </div>
+                    <div class="twButtonTweet" ke-tweet-button></div>
                 </div>
                 <div class="fbComments"><ke-fb-comments></ke-fb-comments></div>
             </div>
