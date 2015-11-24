@@ -1,10 +1,8 @@
-<a class="FbButton"
-   ng-class="{
-        'FbButton-like': ctrl.type === 'fb-like',
-        'FbButton-follow': ctrl.type === 'fb-follow',
-        'FbButton-share': ctrl.type === 'fb-share'
-    }"
-   ng-href="ctrl.url"
-    >
-    <i class="fa fa-facebook-f"></i>
-</a>
+<div class="{{ctrl.type}}"
+     data-href="{{ctrl.link}}"
+     data-layout="{{ctrl.layout}}"
+     data-colorscheme="{{ctrl.colorScheme}}"
+     data-width="{{ctrl.width}}"
+        data-action="{{ctrl.action}}"
+        data-show-faces="{{ctrl.showFaces}}"
+        data-share="{{ctrl.share}}"></div>

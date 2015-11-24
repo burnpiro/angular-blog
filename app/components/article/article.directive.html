@@ -15,10 +15,12 @@
                 <div class="socialLinks">
                     <div class="FbButton">
                         <ke-fb-button
-                                data-type="fb-share"
+                            data-share="true"
                                 ></ke-fb-button>
                     </div>
-                    <div class="twButtonTweet" ke-tweet-button></div>
+                    <div class="twButtonTweet">
+                        <ke-tweet-button data-name="{{::articleData.name}}"></ke-tweet-button>
+                    </div>
                 </div>
                 <div class="fbComments"><ke-fb-comments></ke-fb-comments></div>
             </div>

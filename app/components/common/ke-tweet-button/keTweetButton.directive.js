@@ -8,7 +8,7 @@ function keTweetButtonDirective() {
         scope: true,
         bindToController: {
             link: '@',
-            intent: '=', //bool
+            name: '@',
             type: '@' //tweet, follow
         },
         templateUrl: 'components/common/ke-tweet-button/ke-tweet-button.directive.html',
@@ -21,15 +21,12 @@ function keTweetButtonDirective() {
             if(angular.isUndefined(self.link)) {
                 self.link = document.location.href;
             }
-            if(angular.isUndefined(self.intent)) {
-                self.intent = false;
-            }
             switch (self.type) {
                 case 'tweet':
-                    self.url = 'https://twitter.com'+(self.intent ? '/intent' : '')+'/'+self.type+'?text='+self.name+'&url='+self.link;
+                    self.url = 'https://twitter.com/intent/'+self.type+'?'+(angular.isDefined(self.name) ? 'text='+self.name : '')+'&url='+self.link;
                     break;
                 case 'follow':
-                    self.url = 'https://twitter.com'+(self.intent ? '/intent' : '')+'/'+self.type+'?user=kemalerdempl';
+                    self.url = 'https://twitter.com/intent/'+self.type+'?user=kemalerdempl';
                     break;
             }
         }

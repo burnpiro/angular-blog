@@ -7,6 +7,7 @@ function keFbCommentsDirective() {
         bindToController: {
             numPosts: '@',
             colorScheme: '@',
+            orderBy: '@', // 'social', 'reverse_time', 'time'
             width: '@',
             link: '@'
         },
@@ -25,6 +26,9 @@ function keFbCommentsDirective() {
             }
             if(angular.isUndefined(self.link)) {
                 self.link = document.location.href;
+            }
+            if(angular.isUndefined(self.orderBy)) {
+                self.orderBy = 'time';
             }
         },
         link: function(scope, elem) {
