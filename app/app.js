@@ -61,27 +61,6 @@ angular.module('app', [
                 }
             }
         })
-        .state('about', {
-            url: "/about",
-            views: {
-                "" :{
-                    templateUrl: "components/about/about.html",
-                    controller: 'AboutController',
-                    controllerAs: 'about'
-                },
-                "bottomMenu": {
-                    controller: 'MenuController',
-                    controllerAs: 'menu',
-                    resolve: {
-                        categories: ['CategoryService',
-                            function(CategoryService) {
-                                return CategoryService.getTopCategories();
-                            }]
-                    },
-                    templateUrl: "components/menu/menu.html"
-                }
-            }
-        })
     })
     .config(function(toastrConfig) {
         angular.extend(toastrConfig, {

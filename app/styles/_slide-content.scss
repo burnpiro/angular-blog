@@ -1,0 +1,10 @@
+@import "settings";
+
+.slideContent {
+  width: calc(100vw - 100px);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $primary-color-medium-gray;
+}
