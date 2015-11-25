@@ -32,7 +32,7 @@
     <div ui-view="topMenu"></div>
     <div ui-view class="mainContent">
     </div>
-    <div class="slideContent" ng-init="$root.leftSlideOpen = false" ng-class="{'is-open': $root.leftSlideOpen}"></div>
+    <div id="leftSlider" class="slideContent" ng-init="$root.leftSlideOpen = false" ng-class="{'is-open': $root.leftSlideOpen}"></div>
     <div ui-view="bottomMenu"></div>
     <script>
         window.fbAsyncInit = function() {
