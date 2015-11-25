@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('app.menu', [])
-    .controller('MenuController', ['PostService', 'CategoryService', '$rootScope', '$state', MenuController]);
+    .controller('MenuController', ['PostService', 'CategoryService', 'LeftSliderService', '$rootScope', '$state', MenuController]);
 
-function MenuController(PostService, CategoryService, $rootScope, $state) {
+function MenuController(PostService, CategoryService, LeftSliderService, $rootScope, $state) {
     var self = this;
 
     self.categoriesOpen = false;
@@ -31,5 +31,8 @@ function MenuController(PostService, CategoryService, $rootScope, $state) {
 
     self.goToPrevState = function() {
         $state.go($rootScope.prevState.stateName, $rootScope.prevState.stateParams);
-    }
+    };
+
+    self.openLeftSlider = LeftSliderService.toggle;
+    self.loadTemplate = LeftSliderService.loadTemplate;
 }

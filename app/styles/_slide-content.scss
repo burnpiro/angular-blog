@@ -1,10 +1,15 @@
 @import "settings";
 
 .slideContent {
-  width: calc(100vw - 100px);
+  width: 0;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   background-color: $primary-color-medium-gray;
+  @include transition(all 0.5s ease);
+
+  &.is-open {
+    width: calc(100vw - 100px);
+  }
 }
