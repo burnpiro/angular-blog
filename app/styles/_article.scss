@@ -54,11 +54,11 @@
     .bg-img::before {
         width: 100%;
         height: 100%;
-        background-color: rgba(247,214,169,0.1);
+        background-color: $primary-color-transparent;
     }
 
     &.modify .bg-img::before {
-        background-color: $primary-color-transparent;
+        background-color: rgba(247,214,169,0.1);
     }
 
     .title {
@@ -86,17 +86,15 @@
 
     .title h1 {
         padding: 0 0 0.5em 0;
-        color: $primary-text-color;
+        color: $color-white;
         font-family: 'Playfair Display', serif;
         font-weight: 700;
         font-size: 3.25em;
         margin: 0 auto;
-        text-shadow: -2px 0 $secondary-text-color, 0 2px $secondary-text-color, 2px 0 $secondary-text-color, 0 -2px $secondary-text-color;
     }
 
     &.modify h1 {
         color: $secondary-text-color;
-        text-shadow: none;
     }
 
     .title p {
