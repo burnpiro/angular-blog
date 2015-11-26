@@ -37,9 +37,9 @@
             width: 320px; height: 320px; border-radius:50%;
             padding: 10px; margin-top: calc(-300px - 12px);
             position: absolute; margin-left: -12px;
-            border-top:3px solid $primary-color-light-gray;
-            border-right:3px solid $primary-color-light-gray;
-            border-bottom:3px solid $primary-color-light-gray;
+            border-top:3px solid $color-light-gray;
+            border-right:3px solid $color-light-gray;
+            border-bottom:3px solid $color-light-gray;
             border-left:3px solid $primary-color;
             @include animation(profileCircle, 1.8s, '', linear, '', infinite)
         }
@@ -149,7 +149,7 @@
                 border-radius: 50%;
                 font-size: 25px;
                 background-color: $primary-color;
-                color: $primary-color-light-gray;
+                color: $color-light-gray;
             }
         }
     }

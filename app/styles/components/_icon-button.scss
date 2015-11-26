@@ -4,7 +4,7 @@ ke-icon-button {
     .keIconButton {
         font-size: 30px;
         height: 50px;
-        color: $primary-color-gray;
+        color: $color-gray;
         cursor: pointer;
         text-align: center;
         @include transition(all 0.5s ease);
@@ -54,7 +54,7 @@ ke-icon-button {
 }
 
 .TwButton {
-    color: $primary-color-white;
+    color: $color-white;
     background-color: $twitter-color;
     cursor: pointer;
     position: relative;

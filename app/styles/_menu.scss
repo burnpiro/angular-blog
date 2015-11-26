@@ -7,7 +7,7 @@
     left: 0;
     position: fixed;
     top: 0;
-    background: $primary-color-white;
+    background: $color-white;
     box-shadow: 1px 1px rgba(27,27,27,.15);
 
     div {
@@ -62,7 +62,7 @@
     left: 50px;
     position: fixed;
     top: 0;
-    background: $bg-color-light-gray;
+    background: $color-medium-gray;
     box-shadow: 1px 1px rgba(27, 27, 27, .15);
 
     @include transform(translate(0, 0));
@@ -80,14 +80,14 @@
             cursor: pointer;
             line-height: 36px;
             padding-left: 40px;
-            color: $primary-color-gray;
+            color: $color-gray;
             width: 100%;
-            border-top: 1px solid $primary-color-white;
-            border-bottom: 1px solid $primary-color-white;
+            border-top: 1px solid $color-white;
+            border-bottom: 1px solid $color-white;
             @include transition(all 0.35s ease);
 
             &:hover {
-                color: $primary-color-white;
+                color: $color-white;
                 background-color: $divider-color;
             }
 
@@ -106,7 +106,7 @@
     width: 100%;
     height: 100%;
     visibility: hidden;
-    background-color: rgba($primary-color-white, 0.7);
+    background-color: rgba($color-white, 0.7);
     vertical-align: middle;
     opacity: 0;
     font-size: 40px;
@@ -133,7 +133,7 @@
         span {
             font-size: 36px;
         }
-        background-color: $primary-color-white;
+        background-color: $color-white;
 
         &.is-search {
             margin-top: 5vh;
@@ -144,7 +144,7 @@
         width: 80%;
         margin-top: 5vh;
         margin-left: 10%;
-        background-color: $primary-color-white;
+        background-color: $color-white;
         @include transition(all 0.5s ease);
 
         .Grid .GridElement{
