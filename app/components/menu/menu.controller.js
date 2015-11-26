@@ -6,8 +6,10 @@ angular.module('app.menu', [])
 function MenuController(PostService, CategoryService, LeftSliderService, $rootScope, $state) {
     var self = this;
 
-    self.categoriesOpen = false;
-    self.searchOpen = false;
+    self.menus = {
+        categoriesOpen: false,
+        searchOpen: false
+        };
     self.categoriesElements = [];
     self.searchText = '';
     self.busy = false;
@@ -33,6 +35,25 @@ function MenuController(PostService, CategoryService, LeftSliderService, $rootSc
         $state.go($rootScope.prevState.stateName, $rootScope.prevState.stateParams);
     };
 
+    //if action is not defined will be just toggled
+    self.toggleMenu = function(menuName, action) {
+        if(angular.isDefined(action)) {
+            self.menus[menuName] = action;
+        } else {
+            self.menus[menuName] = !self.menus[menuName];
+        }
+        LeftSliderService.toggle(false);
+    };
+
+    self.isOpen = function(menuName) {
+        return self.menus[menuName];
+    };
+
     self.openLeftSlider = LeftSliderService.toggle;
-    self.loadTemplate = LeftSliderService.loadTemplate;
+    self.loadTemplate = function(template, scope, forceRecomplile) {
+        LeftSliderService.loadTemplate(template, scope, forceRecomplile);
+        _.forEach(self.menus, function(menu, element) {
+            self.toggleMenu(element, false);
+        });
+    };
 }

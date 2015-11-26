@@ -1,8 +1,8 @@
 <menu-directive
-        data-open="menu.categoriesOpen"
+        data-open="menu.menus.categoriesOpen"
         data-elements="menu.categoriesElements"
         ></menu-directive>
-<div class="mainSearch" ng-class="{'is-open': menu.searchOpen}">
+<div class="mainSearch" ng-class="{'is-open': menu.isOpen('searchOpen')}">
     <div class="InputContainer" ng-class="{'is-search' : menu.posts.length > 0}">
         <ke-input-text
             data-icon="fa-search"
@@ -44,13 +44,13 @@
     <div class="middleLinks">
         <ke-icon-button
                 class="gr-12 gr-4@mobile bordered"
-                ng-click="menu.categoriesOpen = !menu.categoriesOpen"
+                ng-click="menu.toggleMenu('categoriesOpen')"
                 data-icon="fa-bars"
                 data-bordered="true"
                 ></ke-icon-button>
         <ke-icon-button
                 class="gr-12 gr-4@mobile bordered"
-                ng-click="menu.searchOpen = !menu.searchOpen"
+                ng-click="menu.toggleMenu('searchOpen')"
                 data-icon="fa-search"
                 data-bordered="true"
                 ></ke-icon-button>
