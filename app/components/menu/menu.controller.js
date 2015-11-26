@@ -15,6 +15,7 @@ function MenuController(PostService, CategoryService, LeftSliderService, $rootSc
     self.busy = false;
     self.posts = [];
     self.prevState = $rootScope.prevState;
+    self.leftSlideOpen = $rootScope.leftSlideOpen;
 
     CategoryService.getTopCategories().then(function(response) {
         self.categoriesElements = response.data;

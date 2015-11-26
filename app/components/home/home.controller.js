@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('app.home', []).
-    controller('HomeController', ['posts', 'FileService', HomeController]);
+    controller('HomeController', ['posts', 'FileService', '$rootScope', HomeController]);
 
-function HomeController(posts, FileService) {
+function HomeController(posts, FileService, $rootScope) {
     var self = this;
 
     self.posts = posts.data;
@@ -25,4 +25,6 @@ function HomeController(posts, FileService) {
     if(!_.isUndefined(self.topPost)) {
         self.topPost.background = 'bg-color-light-green-600';
     }
+
+    $rootScope.prevState = undefined;
 }
