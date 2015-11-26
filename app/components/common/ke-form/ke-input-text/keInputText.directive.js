@@ -13,6 +13,6 @@ function keInputTextDirective() {
             ngModel: '=',
             onChange: '='
         },
-        templateUrl: 'components/common/ke-input-text/ke-input-text.directive.html'
+        templateUrl: 'components/common/ke-form/ke-input-text/ke-input-text.directive.html'
     };
 }
