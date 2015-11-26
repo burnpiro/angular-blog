@@ -12,5 +12,19 @@
 
   &.is-open {
     @include transform(translate(0,0));
+
+    + div#bottomMenu > div{
+      @include transition(all 0.5s ease);
+      @include transform(translate(calc(100vw - 100px),0));
+    }
+
+    + div#bottomMenu nav{
+      @include transition(all 0.5s ease);
+      @include transform(translate(calc(100vw - 100px),0));
+    }
+
+    + div#bottomMenu menu-directive{
+      display: none;
+    }
   }
 }

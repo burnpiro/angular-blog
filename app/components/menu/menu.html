@@ -47,18 +47,24 @@
                 ng-click="menu.toggleMenu('categoriesOpen')"
                 data-icon="fa-bars"
                 data-bordered="true"
+                data-close="menu.menus.categoriesOpen"
+                data-no-action="true"
                 ></ke-icon-button>
         <ke-icon-button
                 class="gr-12 gr-4@mobile bordered"
                 ng-click="menu.toggleMenu('searchOpen')"
                 data-icon="fa-search"
                 data-bordered="true"
+                data-close="menu.menus.searchOpen"
+                data-no-action="true"
                 ></ke-icon-button>
         <ke-icon-button
                 class="gr-12 gr-4@mobile bordered"
                 ng-click="menu.loadTemplate('components/about/about.html')"
                 data-icon="fa-info"
                 data-bordered="true"
+                data-close="$root.leftSlideOpen"
+                data-no-action="true"
                 ></ke-icon-button>
     </div>
 

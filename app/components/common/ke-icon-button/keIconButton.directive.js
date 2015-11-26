@@ -8,7 +8,8 @@ function keIconButtonDirective() {
             icon: '@',
             close: '=',
             bordered: '@',
-            noClose: '='
+            noClose: '=',
+            noAction: '='
         },
         templateUrl: 'components/common/ke-icon-button/ke-icon-button.directive.html',
         controllerAs: 'ctrl',
@@ -17,7 +18,9 @@ function keIconButtonDirective() {
             self.close = false;
 
             self.toggle = function() {
-                self.close = !self.close;
+                if(!self.noAction) {
+                    self.close = !self.close;
+                }
             };
         }
     };

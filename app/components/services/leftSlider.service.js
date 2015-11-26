@@ -14,13 +14,13 @@ function LeftSliderService($rootScope, $templateRequest, $compile) {
 
     self.loadTemplate = function(template, scope, forceRecompile) {
         var leftSlider = angular.element(document.getElementById('leftSlider'));
-        $templateRequest(template).then(function(html) {
-            if(currentTemplate === template && !forceRecompile) {
-                self.toggle();
-                return false;
-            }
 
-            currentTemplate = template;
+        if(currentTemplate === template && !forceRecompile) {
+            self.toggle();
+            return false;
+        }
+        currentTemplate = template;
+        $templateRequest(template).then(function(html) {
             leftSlider.html('');
             var template = angular.element(html);
             leftSlider.append(template);

@@ -53,7 +53,7 @@ function MenuController(PostService, CategoryService, LeftSliderService, $rootSc
     self.loadTemplate = function(template, scope, forceRecomplile) {
         LeftSliderService.loadTemplate(template, scope, forceRecomplile);
         _.forEach(self.menus, function(menu, element) {
-            self.toggleMenu(element, false);
+            self.menus[element] =  false;
         });
     };
 }
