@@ -1,4 +1,4 @@
-<a class="keIconButton" ng-class="{'is-close': ctrl.close && !ctrl.noClose, 'keIconButton--bordered': ctrl.bordered}" ng-click="ctrl.toggle()">
+<a class="keIconButton {{ctrl.color}}" ng-class="{'is-close': ctrl.close && !ctrl.noClose, 'keIconButton--bordered': ctrl.bordered}" ng-click="ctrl.toggle()">
     <i class="openedIcon fa" ng-class="ctrl.icon"></i>
-    <i class="closedIcon fa fa-times"></i>
+    <i class="closedIcon fa" ng-class="ctrl.altIcon"></i>
 </a>

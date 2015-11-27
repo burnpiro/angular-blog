@@ -1,4 +1,7 @@
 @import 'settings';
+@import "admin/content";
+@import "admin/menu_top";
+@import "admin/menu_bottom";
 
 .md-grid i {
     @include font-size(32px);

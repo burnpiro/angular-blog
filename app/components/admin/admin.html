@@ -1,15 +1,40 @@
-<section class="admin" layout="column" layout-fill>
-    <md-toolbar md-scroll-shrink>
-        <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" aria-label="More" ng-click="admin.showGridBottomSheet($event)">
-                <i class="fa fa-bars"></i>
-            </md-button>
-            <h4>
-                <span>Admin Panel</span>
-            </h4>
-            <span flex></span>
-            <h5>Logged as {{::admin.userData.userName}}</h5>
+<section class="admin">
+    <div class="AdminMenu">
+        <div class="gr-1 AdminMenu--icon">
+            <ke-icon-button
+                    data-icon="fa-bars"
+                    data-alt-icon="fa-bars fa-rotate-90"
+                    data-color="color-gray"
+                    data-close="admin.bottomMenuOpen"
+                    ng-click="admin.toggleBottomMenu()"
+                    data-no-action="true"
+                    ></ke-icon-button>
         </div>
-    </md-toolbar>
-    <div ui-view="adminContent"></div>
+        <div class="gr-9 gr-6@mobile AdminMenu--title">
+            <h3>Admin Panel</h3>
+        </div>
+        <div class="gr-2 gr5@mobile AdminMenu--userName">
+            <h5><span class="hide@mobile">Logged as </span><span>{{::admin.userData.userName}}</span></h5>
+        </div>
+    </div>
+    <div class="AdminContent gr-12" ui-view="adminContent">
+    </div>
+    <div class="row row-align-between row-align-middle AdminBottomMenu" ng-class="{'is-open': admin.bottomMenuOpen}">
+
+        <div ng-repeat="item in admin.items" ng-if="item.link || item.click" class="AdminBottomMenu--icon gr-1">
+            <ke-icon-button
+                    ng-if="item.link"
+                    data-icon="{{item.icon}}"
+                    ui-sref="{{item.link}}"
+                    data-color="color-gray"
+                    ></ke-icon-button>
+
+            <ke-icon-button
+                    ng-if="item.click"
+                    data-icon="{{item.icon}}"
+                    ng-click="admin.callFunction(item.click)"
+                    data-color="color-gray"
+                    ></ke-icon-button>
+        </div>
+    </div>
 </section>

@@ -1,0 +1,27 @@
+@import "../settings";
+
+.AdminMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $primary-color;
+  height: 50px;
+  width: 100%;
+  display: inline-flex;
+
+  .AdminMenu--title {
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .AdminMenu--userName {
+    padding-top: 13px;
+    white-space: nowrap;
+    h5 {
+      position: absolute;
+      padding-right: 5px;
+      right: 0;
+    }
+  }
+}

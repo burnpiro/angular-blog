@@ -18,9 +18,6 @@ angular.module('app.admin', ['ui.router', 'ng-ckeditor', 'angularFileUpload'])
                         controller: 'AdminController',
                         controllerAs: 'admin'
                     },
-                    "topMenu": {
-                        template: ""
-                    },
                     "bottomMenu": {
                         template: ""
                     }

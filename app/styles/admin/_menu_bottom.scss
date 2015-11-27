@@ -1,0 +1,21 @@
+@import "../settings";
+
+.AdminBottomMenu {
+  position: fixed;
+  width: 100vw;
+  height: 100px;
+  bottom: 0;
+  left: 0;
+  background-color: $primary-color;
+  @include transform(translate(0, 100%));
+  @include transition(all 0.5s ease);
+
+  &.is-open {
+    @include transform(translate(0, 0));
+  }
+
+  .AdminBottomMenu--icon {
+    margin-top: 25px;
+    position: relative;
+  }
+}
