@@ -1,0 +1,22 @@
+@import "../settings";
+
+.keButton{
+  position: relative;
+  width: 200px;
+  margin: 15px 0;
+  padding: 10px 20px;
+  background-color: $info-color;
+  color: $color-white;
+  text-align: center;
+  font-size: $font-size-l;
+  cursor: pointer;
+  @include border-radius(5px);
+
+  &.is-fullWidth {
+    width: 100%;
+  }
+
+  i {
+    font-size: 20px;
+  }
+}

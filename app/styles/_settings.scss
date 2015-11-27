@@ -22,6 +22,11 @@ $twitter-color: #1b95e0;
 $github-color: #999999;
 $google-plus-color: #dc4e41;
 
+$font-size-default: 12px;
+$font-size-md: 16px;
+$font-size-l: 20px;
+$font-size-xl: 26px;
+
 $mobileWidth: 480px;
 $tabletWidth: 1024px;
 // Import gridle
@@ -146,6 +151,13 @@ $tabletWidth: 1024px;
     -moz-perspective: $val;
     -ms-perspective: $val;
     perspective: $val;
+}
+
+
+@mixin border-radius($val) {
+    -webkit-border-radius: $val;
+    -moz-border-radius: $val;
+    border-radius: $val;
 }
 
 @mixin perspective-origin($val){

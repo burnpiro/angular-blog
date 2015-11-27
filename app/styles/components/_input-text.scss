@@ -15,7 +15,7 @@
         color: $secondary-text-color;
         left: 10px;
         top: 8px;
-        font-size: 20px;
+        font-size: $font-size-xl;
     }
 
     input{
@@ -25,6 +25,7 @@
         border: 1px solid #EDEDED;
         border-radius: 4px;
         transition: 0.2s ease-out;
+        font-size: $font-size-l;
 
         &:focus{
             padding-left: 10px;

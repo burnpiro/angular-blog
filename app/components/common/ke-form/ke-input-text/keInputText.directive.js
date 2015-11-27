@@ -3,7 +3,8 @@ angular.module('app.common').
 
 function keInputTextDirective() {
     return {
-        scope: {
+        scope: true,
+        bindToController: {
             icon: '@',
             type: '@',
             placeholder: '@',
@@ -13,6 +14,12 @@ function keInputTextDirective() {
             ngModel: '=',
             onChange: '='
         },
-        templateUrl: 'components/common/ke-form/ke-input-text/ke-input-text.directive.html'
+        controllerAs: 'ctrl',
+        templateUrl: 'components/common/ke-form/ke-input-text/ke-input-text.directive.html',
+        controller: ctrl
     };
+
+    function ctrl() {
+
+    }
 }

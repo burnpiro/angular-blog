@@ -1,17 +1,36 @@
 <section class="login">
     <form name="signInForm" ng-submit="login.loginAction()">
-        <div layout="row" layout-align="center center" class="loginForm">
-            <md-content layout-padding class="md-whiteframe-z2" flex="33" flex-md="66" flex-sm="80">
-                <md-input-container flex>
-                    <label>Email</label>
-                    <input type="email" ng-model="login.login" ng-required="true">
-                </md-input-container>
-                <md-input-container flex>
-                    <label>Password</label>
-                    <input ng-model="login.password" type="password" ng-required="true">
-                </md-input-container>
-                <md-button class="md-raised md-primary">Login</md-button>
-            </md-content>
+        <div class="gr-6 gr-8@tablet gr-12@mobile gr-centered">
+            <div class="row row-align-middle row-align-center">
+                <div class="gr-12">
+                    <ke-input-text
+                            ng-model="login.login"
+                            data-label="Email"
+                            data-type="email"
+                            data-required="true"
+                            data-icon="fa-at"
+                            data-full-width="true"
+                            ></ke-input-text>
+                </div>
+                <div class="gr-12">
+                    <ke-input-text
+                            ng-model="login.password"
+                            data-label="Password"
+                            data-type="password"
+                            data-required="true"
+                            data-icon="fa-key"
+                            data-full-width="true"
+                            ></ke-input-text>
+                </div>
+                <div class="gr-12">
+                    <ke-button
+                            data-label="Login"
+                            data-icon="fa-sign-in"
+                            data-full-width="true"
+                            ng-click="login.loginAction()"
+                            ></ke-button>
+                </div>
+            </div>
         </div>
     </form>
 </section>
