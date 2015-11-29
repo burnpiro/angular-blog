@@ -1,5 +1,5 @@
-<section class="home">
-    <div class="mainGridElement" ui-sref="post({postId: home.topPost._id})">
+<section class="home container">
+    <div class="mainGridElement row" ui-sref="post({postId: home.topPost._id})">
         <div class="mainGridImage " ng-style="{'background-image':'url({{home.getImageLink(home.topPost.image, 1024)}})'}">
             <h1>{{::home.topPost.name}}</h1>
         </div>
@@ -10,7 +10,7 @@
             <h6><strong>{{::home.topPost.createdAt | date : 'mediumDate'}}</strong> by <strong>{{::home.topPost.author}}</strong></h6>
         </div>
     </div>
-    <div class="Grid">
+    <div class="Grid row">
         <ke-grid
                 data-elements="home.posts"
                 data-type="post"

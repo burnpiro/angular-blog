@@ -2,6 +2,7 @@
 @import "admin/content";
 @import "admin/menu_top";
 @import "admin/menu_bottom";
+@import "admin/category_list";
 
 .md-grid i {
     @include font-size(32px);
@@ -75,5 +76,11 @@
                 }
             }
         }
+    }
+}
+
+.AdminBottomMenu {
+    .AdminBottomMenu--icon {
+        color: $color-dark;
     }
 }

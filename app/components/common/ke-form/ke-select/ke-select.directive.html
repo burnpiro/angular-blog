@@ -1,0 +1,20 @@
+<div class="keSelect" ng-class="{'is-fullWidth': ctrl.fullWidth,'is-open': ctrl.isFocused}">
+    <input
+            type="hidden"
+            ng-model="ctrl.ngModel"
+            ng-change="ctrl.onChange(ngModel)"
+            ng-model-options="{debounce: 300}"
+            >
+    <div class="keSelect--overlay" ng-click="ctrl.isFocused = false;"></div>
+    <input class="keSelect--input"
+           type="text"
+           placeholder="{{ctrl.placeholder}}"
+           ng-required="ctrl.required"
+           ng-model="ctrl.selectedValue"
+           ng-focus="ctrl.isFocused = true"
+           />
+    <span ng-if="ctrl.icon !== undefined"><i class="fa" ng-class="ctrl.icon"></i></span>
+    <ul class="keSelect--list">
+       <li ng-repeat="row in ctrl.options | filter:ctrl.filterOptions" ng-click="ctrl.inputChange(row[ctrl.optionValue]); ctrl.isFocused = false;">{{row[ctrl.optionName]}}</li>
+    </ul>
+</div>

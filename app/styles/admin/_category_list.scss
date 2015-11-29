@@ -1,0 +1,7 @@
+.AdminCategoriesList {
+    .AdminCategoriesList--element {
+        border: 1px solid black;
+        @include border-radius(10px);
+        margin-top: 5px;
+    }
+}

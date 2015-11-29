@@ -9,6 +9,7 @@ function keIconButtonDirective() {
             altIcon: '@',
             close: '=',
             bordered: '@',
+            title: '@',
             noClose: '=',
             noAction: '=',
             color: '@'

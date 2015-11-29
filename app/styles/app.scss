@@ -15,6 +15,7 @@
 @import "components/reverse-button";
 @import "components/input-text";
 @import "components/button";
+@import "components/input-select";
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -170,16 +171,14 @@ h6 {
 
 @include gridle_generate_classes();
 
-// Max size :
-.container {
-    margin:0 auto;
-    max-width:960px;
-}
-
 .color-primary {
     color: $primary-color !important;
 }
 
 .color-gray {
     color: $color-gray !important;
+}
+
+.color-dark {
+    color: $color-dark !important;
 }

@@ -1,15 +1,15 @@
-<div id="article-container" class="container article intro-effect-sidefixed" ng-class="{'notrans': status.notrans, 'modify': status.modify}">
-    <header class="header" ng-click="toggle(1)">
+<section id="article-container" class="container article intro-effect-sidefixed" ng-class="{'notrans': status.notrans, 'modify': status.modify}">
+    <div class="header" ng-click="toggle(1)">
         <div class="bg-img"><img ng-if="articleData.image !== null" ng-src="{{getImageLink(articleData.image, 1920)}}" alt="Background Image"
                                  /></div>
         <article class="content">
-            <div class="title" ng-class="">
+            <header class="title" ng-class="">
                 <h1>{{::articleData.name}}</h1>
                 <p class="subline">{{::articleData.shortText}}</p>
                 <p>by <strong>{{::articleData.author}}</strong> &#8212; Posted in
                     <a ui-sref="category({categoryId: articleData._category._id})">{{::articleData._category.name}}</a>
                     on <strong>{{::articleData.createdAt | date : 'mediumDate'}}</strong></p>
-            </div>
+            </header>
             <div>
                 <div id="articleContent"></div>
                 <div class="socialLinks">
@@ -25,5 +25,5 @@
                 <div class="fbComments"><ke-fb-comments></ke-fb-comments></div>
             </div>
         </article>
-    </header>
-</div>
+    </div>
+</section>
