@@ -1,7 +1,7 @@
 <section class="AdminCategoriesList container">
     <div class="row">
         <div class="AdminCategoriesList--element gr-5 gr-12@tablet suffix-1 suffix-0@tablet" ng-repeat="category in categoryCtrl.categories" ng-init="categoryCtrl.isOpen[$index] = false">
-            <div class="gr-8"><span>{{category.name}}</span><i ng-if="category.icon" class="fa {{category.icon}}"></i></div>
+            <div class="gr-8 AdminCategoriesList--elementTitle"><span>{{category.name}}</span><i ng-if="category.icon" class="fa {{category.icon}}"></i></div>
             <ke-icon-button
                     class="gr-4"
                     data-icon="fa-pencil-square-o"
@@ -16,17 +16,59 @@
                         ></ke-input-text>
                 <ke-select
                         ng-model="category.parent"
-                        data-placeholder="Category"
+                        data-placeholder="Parent Category"
                         data-options="categoryCtrl.categories"
                         data-option-value="_id"
                         data-full-width="true"
                         ></ke-select>
+                <ke-input-text
+                        data-placeholder="Icon class [fa-]"
+                        data-full-width="true"
+                        ng-model="category.icon"
+                        ></ke-input-text>
+                <ke-button
+                        data-label="Save"
+                        data-full-width="true"
+                        ng-click="categoryCtrl.saveCategory(category)"
+                        ></ke-button>
+            </div>
+        </div>
+        <div class="AdminCategoriesList--element gr-5 gr-12@tablet suffix-1 suffix-0@tablet" ng-show="categoryCtrl.newCategory">
+            <div class="gr-12">
+                <ke-input-text
+                        ng-model="categoryCtrl.newCategory.name"
+                        data-icon="fa-font"
+                        data-full-width="true"
+                        ></ke-input-text>
+                <ke-select
+                        ng-model="categoryCtrl.newCategory.parent"
+                        data-placeholder="Parent Category"
+                        data-options="categoryCtrl.categories"
+                        data-option-value="_id"
+                        data-full-width="true"
+                        ></ke-select>
+                <ke-input-text
+                        data-placeholder="Icon class [fa-]"
+                        data-full-width="true"
+                        ng-model="categoryCtrl.newCategory.icon"
+                        ></ke-input-text>
+                <ke-button
+                        data-label="Save"
+                        data-full-width="true"
+                        ng-click="categoryCtrl.saveCategory(categoryCtrl.newCategory)"
+                        ></ke-button>
+                <ke-button
+                        data-label="Cancel"
+                        data-full-width="true"
+                        ng-click="categoryCtrl.closeAddNew()"
+                        ></ke-button>
             </div>
         </div>
         <div class="gr-1 clear-left float-right">
             <ke-icon-button
                     data-icon="fa-plus"
-                    ng-click="categoryCtrl.openModal($event, null)" aria-label="Add Category">
+                    data-no-close="true"
+                    ng-click="categoryCtrl.addCategory()" titlel="Add Category">
             </ke-icon-button>
         </div>
     </div>

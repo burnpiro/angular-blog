@@ -7,31 +7,21 @@ angular.module('app.admin').
 function AdminCategoryListController(CategoryService, categories, toastr) {
     var self = this;
     self.categories = categories.data;
-
-    self.openModal = function(event, category) {
-        if(_.isNull(category)) {
-            category = {};
-        }
-        //$mdDialog.show({
-        //    controller: EditModalController,
-        //    controllerAs: 'modalCtrl',
-        //    templateUrl: 'components/admin-category/admin-category-edit.tmpl.html',
-        //    parent: angular.element(document.body),
-        //    targetEvent: event,
-        //    locals: {
-        //        category: category,
-        //        categories: self.categories
-        //    }
-        //})
-        //.then(function() {
-        //    CategoryService.saveCategory(category).then(function (response) {
-        //        toastr.success(response.message);
-        //        if(_.isEmpty(category._id)) {
-        //            self.categories.push(response.data);
-        //        }
-        //    });
-        //}, function() {
-        //    console.log('no');
-        //});
+    self.saveCategory = function(category) {
+        CategoryService.saveCategory(category).then(function (response) {
+            toastr.success(response.message);
+            if(_.isEmpty(category._id)) {
+                self.categories.push(response.data);
+            }
+            self.closeAddNew();
+        });
     };
+
+    self.addCategory = function() {
+        self.newCategory = {};
+    };
+
+    self.closeAddNew = function() {
+        self.newCategory = undefined;
+    }
 }
