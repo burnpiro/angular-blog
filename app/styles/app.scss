@@ -16,6 +16,7 @@
 @import "components/input-text";
 @import "components/button";
 @import "components/input-select";
+@import "components/textarea";
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
@@ -148,6 +149,10 @@ h6 {
 .mainContent {
     margin-left: 50px;
     margin-top: 0;
+
+    .admin {
+        margin-left: -50px;
+    }
 
     @media screen and (max-width: $mobileWidth) {
         margin-left: 0;

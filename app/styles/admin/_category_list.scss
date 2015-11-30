@@ -1,16 +1,19 @@
+@import "../settings";
+
 .AdminCategoriesList {
     .AdminCategoriesList--element {
         border: 1px solid black;
         @include border-radius(10px);
         margin-top: 5px;
-    }
-    .AdminCategoriesList--elementTitle {
-        padding: 10px;
-        font-size: $font-size-l;
 
-        i {
-            margin-left: 10px;
-            font-size: $font-size-xl;
+        .AdminCategoriesList--elementTitle {
+            padding: 10px;
+            font-size: $font-size-l;
+
+            i {
+                margin-left: 10px;
+                font-size: $font-size-xl;
+            }
         }
     }
 }

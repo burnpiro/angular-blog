@@ -12,9 +12,11 @@
            ng-required="ctrl.required"
            ng-model="ctrl.selectedValue"
            ng-focus="ctrl.isFocused = true"
+           ng-class="{'has-no-icon': !ctrl.icon}"
            />
     <span ng-if="ctrl.icon !== undefined"><i class="fa" ng-class="ctrl.icon"></i></span>
+    <i class="dropIcon fa fa-sort-desc" ng-click="ctrl.isFocused = !ctrl.isFocused"></i>
     <ul class="keSelect--list">
-       <li ng-repeat="row in ctrl.options | filter:ctrl.filterOptions" ng-click="ctrl.inputChange(row[ctrl.optionValue]); ctrl.isFocused = false;">{{row[ctrl.optionName]}}</li>
+       <li ng-repeat="row in ctrl.options | filter:ctrl.filterOptions" ng-click="ctrl.inputChange(ctrl.optionValue ? row[ctrl.optionValue] : row); ctrl.isFocused = false;">{{ctrl.optionName ? row[ctrl.optionName] : row}}</li>
     </ul>
 </div>

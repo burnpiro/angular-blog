@@ -1,9 +1,9 @@
 <section class="AdminCategoriesList container">
     <div class="row">
-        <div class="AdminCategoriesList--element gr-5 gr-12@tablet suffix-1 suffix-0@tablet" ng-repeat="category in categoryCtrl.categories" ng-init="categoryCtrl.isOpen[$index] = false">
-            <div class="gr-8 AdminCategoriesList--elementTitle"><span>{{category.name}}</span><i ng-if="category.icon" class="fa {{category.icon}}"></i></div>
+        <div class="AdminCategoriesList--element gr-6 gr-12@tablet" ng-repeat="category in categoryCtrl.categories" ng-init="categoryCtrl.isOpen[$index] = false">
+            <div class="gr-11 AdminCategoriesList--elementTitle"><span>{{category.name}}</span><i ng-if="category.icon" class="fa {{category.icon}}"></i></div>
             <ke-icon-button
-                    class="gr-4"
+                    class="gr-1"
                     data-icon="fa-pencil-square-o"
                     ng-click="categoryCtrl.isOpen[$index] = !categoryCtrl.isOpen[$index]"
                     data-title="Edit"

@@ -4,6 +4,7 @@
            ng-required="ctrl.required"
            ng-model="ctrl.ngModel"
            ng-change="ctrl.onChange(ctrl.ngModel)"
-            ng-model-options="{debounce: 300}"/>
+            ng-model-options="{debounce: 300}"
+            ng-class="{'has-no-icon': !ctrl.icon}"/>
     <span ng-if="ctrl.icon !== undefined"><i class="fa" ng-class="ctrl.icon"></i></span>
 </div>

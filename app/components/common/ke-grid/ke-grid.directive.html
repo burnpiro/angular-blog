@@ -1,5 +1,5 @@
 <div class="GridElement gr-4 gr-6@tablet gr-12@mobile" ng-repeat="row in ctrl.elements">
-    <div class="GridImageContainer" ui-sref="post({postId: row._id})" ng-if="ctrl.type === 'post'">
+    <div class="GridImageContainer" ng-click="ctrl.goToLink(row._id)" ng-if="ctrl.type === 'post'">
         <div class="GridBackgroundImage" ng-style="{'background-image':'url({{ctrl.getImageLink(row.image, 400)}})'}">
             <i class="bottomIcon fa" ng-class="::row.icon"></i>
         </div>
@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <div class="GridPostDescription" ui-sref="post({postId: row._id})" ng-if="ctrl.type === 'post'">
+    <div class="GridPostDescription" ng-click="ctrl.goToLink(row._id)" ng-if="ctrl.type === 'post'">
         <h2>{{::row.name}}</h2>
         <h6 class="PostDescription">{{::row._category}} / {{::row.author}} / {{::row.createdAt | date : 'mediumDate'}}</h6>
     </div>

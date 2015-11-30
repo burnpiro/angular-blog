@@ -24,12 +24,14 @@
         display: block;
         border: 2px solid $color-medium-gray;
         border-radius: 4px;
+        color: $color-gray;
         transition: 0.2s ease-out;
         font-size: $font-size-l;
 
         &:focus{
             padding-left: 10px;
             outline: 0;
+            color: $color-dark;
             border-color: $primary-color;
 
             + span {
@@ -39,6 +41,10 @@
 
         &.is-required {
             border-color: #FF7052;
+        }
+
+        &.has-no-icon {
+            padding-left: 10px;
         }
     }
 }

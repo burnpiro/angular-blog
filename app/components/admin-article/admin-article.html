@@ -1,38 +1,48 @@
-<section class="adminArticle">
+<section class="adminArticle container">
     <div class="bg-img"><img class="postImagePreview" ng-if="articleCtrl.post.image !== null" ng-src="{{articleCtrl.getImageLink(articleCtrl.post.image, 1920)}}"/></div>
-    <div layout-gt-lg="row" layout="column" layout-align="space-between center">
-        <div layout="row" layout-sm="column" layout-align="space-between center" flex>
-            <md-input-container md-no-float layout-padding>
-                <input required ng-model="articleCtrl.post.name" placeholder="Post name" class="color-grey-200">
-            </md-input-container>
-            <md-input-container md-no-float layout-padding>
-                <input required ng-model="articleCtrl.post.author" placeholder="Author" class="md-primary">
-            </md-input-container>
-            <md-input-container md-no-float layout-padding layout="row" layout-align="space-between center">
-                <span class="fa" ng-class="articleCtrl.post.icon"></span>
-                <input required ng-model="articleCtrl.post.icon" placeholder="Fa icon class" class="md-primary">
-            </md-input-container>
-            <md-input-container layout-padding layout="row" layout-align="start center">
-                <md-select ng-model="articleCtrl.post._category._id" placeholder="Category">
-                    <md-option ng-repeat="category in articleCtrl.categories" value="{{category._id}}">{{category.name}}</md-option>
-                </md-select>
-                <i class="fa fa-times" ng-click="articleCtrl.post._category._id = undefined"></i>
-            </md-input-container>
+
+    <div class="row gr-12">
+        <div class="gr-3">
+            <ke-input-text
+                    ng-model="articleCtrl.post.name"
+                    data-full-width="true"
+                    data-placeholder="Post name"
+                    ></ke-input-text>
         </div>
-
-        <div layout="row" layout-sm="column" layout-align="center center" flex>
-
-            <span>Post image:</span>
-            <md-input-container layout-padding layout="row" layout-align="start center">
-                <md-select ng-model="articleCtrl.post.image" placeholder="Image">
-                    <md-option ng-repeat="file in articleCtrl.files" value="{{file}}">{{file}}</md-option>
-                </md-select>
-                <i class="fa fa-times" ng-click="articleCtrl.post.image = undefined"></i>
-            </md-input-container>
+        <div class="gr-3">
+            <ke-input-text
+                    ng-model="articleCtrl.post.author"
+                    data-full-width="true"
+                    data-placeholder="Author"
+                    ></ke-input-text>
+        </div>
+        <div class="gr-3">
+            <ke-input-text
+                    ng-model="articleCtrl.post.name"
+                    data-full-width="true"
+                    data-placeholder="Fa icon class"
+                    ></ke-input-text>
+        </div>
+        <div class="gr-3">
+            <ke-select
+                    ng-model="articleCtrl.post._category._id"
+                    data-options="articleCtrl.categories"
+                    data-full-width="true"
+                    data-placeholder="Category"
+                    data-option-value="_id"
+                    data-option-name="name"
+                    ></ke-select>
+        </div>
+        <div class="gr-12">
+            <ke-select
+                    ng-model="articleCtrl.post.image"
+                    data-options="articleCtrl.files"
+                    data-placeholder="Main image"
+                    ></ke-select>
         </div>
     </div>
 
-    <md-content layout-padding class="articleContent">
+    <div class="row gr-12 articleContent">
         <md-content layout-margin hide show-gt-sm class="textContainer" id="desktopEditor">
             <div class="editor" id="editor"></div>
         </md-content>
@@ -40,10 +50,13 @@
             <label>Content</label>
             <textarea ng-model="articleCtrl.post.content" columns="1"></textarea>
         </md-input-container>
-        <md-input-container layout-margin flex class="textContainer">
-            <label>Short Description</label>
-            <textarea ng-model="articleCtrl.post.shortText" columns="1" md-maxlength="160"></textarea>
-        </md-input-container>
+        <ke-textarea
+                class="textContainer"
+                ng-model="articleCtrl.post.shortText"
+                data-full-width="true"
+                data-rows="5"
+                data-placeholder="Short Description"
+                ></ke-textarea>
         <div layout="row" layout-align="space-between center">
             <div>
                 <md-button class="md-raised md-primary" ng-click="articleCtrl.savePost()">Save</md-button>
@@ -53,6 +66,5 @@
                 Publish?
             </md-switch>
         </div>
-
-    </md-content>
+    </div>
 </section>

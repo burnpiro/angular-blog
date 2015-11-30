@@ -1,0 +1,11 @@
+<div class="keTextarea" ng-class="{'is-fullWidth': ctrl.fullWidth}">
+    <textarea type="{{ctrl.type}}"
+           placeholder="{{ctrl.placeholder}}"
+           ng-required="ctrl.required"
+           ng-model="ctrl.ngModel"
+              rows="{{ctrl.rows}}"
+           ng-change="ctrl.onChange(ctrl.ngModel)"
+           ng-model-options="{debounce: 300}">
+
+    </textarea>
+</div>

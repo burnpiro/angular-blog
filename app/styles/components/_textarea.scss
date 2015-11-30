@@ -1,0 +1,31 @@
+@import "../settings";
+
+.keTextarea{
+  position: relative;
+  width: 200px;
+  margin: 15px 0;
+
+  &.is-fullWidth {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px 5px 10px 10px;
+    display: block;
+    border: 2px solid $color-medium-gray;
+    border-radius: 4px;
+    transition: 0.2s ease-out;
+    font-size: $font-size-md;
+
+    &:focus{
+      outline: 0;
+      border-color: $primary-color;
+
+    }
+
+    &.is-required {
+      border-color: #FF7052;
+    }
+  }
+}
