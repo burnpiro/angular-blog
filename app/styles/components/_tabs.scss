@@ -7,6 +7,8 @@
     width: 100%;
     background-color: $color-light-gray;
     display: inline-flex;
+    @include transition(all 0.5s ease);
+
     .Tabs--navLink {
       padding: 20px 10px;
       background-color: $color-light-gray;
@@ -16,6 +18,7 @@
       border-right: 1px solid $color-medium-gray;
       font-size: $font-size-l;
       min-width: 80px;
+
       .Tabs--navLinkIcon {
         width: 100%;
         margin-bottom: 5px;
@@ -25,6 +28,7 @@
       &.is-active {
         background-color: $color-very-light-gray;
         border-bottom: none;
+
         .Tabs--navLinkIcon {
           color: $primary-color;
         }

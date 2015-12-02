@@ -1,26 +1,39 @@
-<section layout="column" class="contact">
+<section class="contact gr-8 gr-12@mobile gr-centered" ng-controller="ContactController as contact">
     <h1 class="md-title">Contact me</h1>
     <form ng-submit="contact.sendMessage()">
-        <md-content layout-padding class="autoScroll">
-            <md-input-container md-no-float>
-                <md-icon md-svg-src="" class="fa fa-at"></md-icon>
-                <input ng-model="contact.contactForm.email" type="email" placeholder="Email (required)" ng-required="true">
-            </md-input-container>
-            <md-input-container md-no-float>
-                <md-icon md-svg-src="" class="fa fa-user"></md-icon>
-                <input ng-model="contact.contactForm.author" type="text" placeholder="Name (required)" ng-required="true">
-            </md-input-container>
-            <md-input-container md-no-float>
-                <md-icon md-svg-src="" class="fa fa-header"></md-icon>
-                <input ng-model="contact.contactForm.title" type="text" placeholder="Subject (required)" ng-required="true">
-            </md-input-container>
-            <md-input-container layout-margin flex>
-                <label>Message</label>
-                <textarea ng-model="contact.contactForm.content" columns="1" md-maxlength="1600" ng-required="true"></textarea>
-            </md-input-container>
-            <button class="md-fab md-button md-primary" aria-label="Send it!" type="submit">
-                <i class="fa fa-arrow-right"></i>
-            </button>
-        </md-content>
+        <ke-input-text
+                data-placeholder="Email (required)"
+                data-type="email"
+                ng-model="contact.contactForm.email"
+                data-required="true"
+                data-icon="fa-at"
+                data-full-width="true"
+                ></ke-input-text>
+        <ke-input-text
+                data-placeholder="Name (required)"
+                ng-model="contact.contactForm.author"
+                data-required="true"
+                data-icon="fa-user"
+                data-full-width="true"
+                ></ke-input-text>
+        <ke-input-text
+                data-placeholder="Subject (required)"
+                ng-model="contact.contactForm.title"
+                data-required="true"
+                data-icon="fa-header"
+                data-full-width="true"
+                ></ke-input-text>
+        <ke-textarea
+                data-placeholder="Message"
+                ng-model="contact.contactForm.content"
+                data-required="true"
+                data-full-width="true"
+                ></ke-textarea>
+        <ke-button
+                data-label="Send it!"
+                data-icon="fa-arrow-right"
+                ng-click="contact.sendMessage()"
+                data-full-width="true"
+                ></ke-button>
     </form>
 </section>

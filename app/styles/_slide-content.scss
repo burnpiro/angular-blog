@@ -13,6 +13,11 @@
   &.is-open {
     @include transform(translate(0,0));
 
+    @media screen and (max-width: $mobileWidth) {
+      width: calc(100vw - 40px);
+      padding-top: 50px;
+    }
+
     @media screen and (min-width: $mobileWidth) {
       + div#bottomMenu > div{
         @include transition(all 0.5s ease);

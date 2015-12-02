@@ -1,13 +1,14 @@
 angular.module('app.common').
-    directive('keTab', [keTabDirective]);
+    directive('keTab', ['$templateRequest', '$compile', keTabDirective]);
 
-function keTabDirective() {
+function keTabDirective($templateRequest, $compile) {
     return {
         scope: true,
         require: '^keTabs',
         bindToController: {
             title: '@',
-            icon: '@'
+            icon: '@',
+            template: '@'
         },
         transclude: true,
         templateUrl: 'components/common/ke-tabs/ke-tab.directive.html',
@@ -18,6 +19,16 @@ function keTabDirective() {
         },
         link: function(scope, element, attr, tabsCtrl) {
             tabsCtrl.addTab(scope);
+
+            if(angular.isDefined(scope.ctrl.template)) {
+                var container = element.find('div div');
+                $templateRequest(scope.ctrl.template).then(function(html) {
+                    container.html('');
+                    var template = angular.element(html);
+                    container.append(template);
+                    $compile(template)(scope);
+                });
+            }
         }
     };
 }
