@@ -1,3 +1,9 @@
 <div class="Tabs">
+    <nav class="Tabs--nav">
+        <div class="Tabs--navLink" ng-repeat="tab in tabs.tabs" ng-class="{'is-active': tab.ctrl.active}" ng-click="tabs.showTab(tab)">
+            <span class="Tabs--navLinkIcon fa" ng-class="tab.ctrl.icon"></span>
+            <span class="Tabs--navLinkTitle">{{tab.ctrl.title}}</span>
+        </div>
+    </nav>
     <ng-transclude></ng-transclude>
 </div>

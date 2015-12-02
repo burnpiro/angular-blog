@@ -4,16 +4,20 @@ angular.module('app.common').
 function keTabDirective() {
     return {
         scope: true,
-        require: '^tabs',
+        require: '^keTabs',
         bindToController: {
-            title: '@'
+            title: '@',
+            icon: '@'
         },
         transclude: true,
         templateUrl: 'components/common/ke-tabs/ke-tab.directive.html',
         controllerAs: 'ctrl',
         controller: function() {
             var self = this;
-
+            self.active = false;
+        },
+        link: function(scope, element, attr, tabsCtrl) {
+            tabsCtrl.addTab(scope);
         }
     };
 }

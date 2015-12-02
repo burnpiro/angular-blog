@@ -59,7 +59,7 @@
         top: 0;
         left: 0;
         z-index: 2;
-        border: 2px solid $color-medium-gray;
+        border: 2px solid $color-light-gray;
         border-radius: 4px;
         transition: 0.2s ease-out;
         color: $color-gray;
@@ -95,7 +95,7 @@
         overflow-y: auto;
         overflow-x: hidden;
         li {
-            background-color: $color-light-gray;
+            background-color: $color-very-light-gray;
             padding: 10px 5px 10px 5px;
             display: block;
             border: 1px solid #EDEDED;

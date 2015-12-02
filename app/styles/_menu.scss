@@ -62,7 +62,7 @@
     left: 50px;
     position: fixed;
     top: 0;
-    background: $color-medium-gray;
+    background: $color-light-gray;
     box-shadow: 1px 1px rgba(27, 27, 27, .15);
 
     @include transform(translate(0, 0));
