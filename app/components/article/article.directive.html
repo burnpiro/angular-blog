@@ -1,14 +1,14 @@
-<section id="article-container" class="container article intro-effect-sidefixed" ng-class="{'notrans': status.notrans, 'modify': status.modify}">
-    <div class="header" ng-click="toggle(1)">
-        <div class="bg-img"><img ng-if="articleData.image !== null" ng-src="{{getImageLink(articleData.image, 1920)}}" alt="Background Image"
+<section id="article-container" class="container article intro-effect-sidefixed" ng-class="{'notrans': ctrl.status.notrans, 'modify': ctrl.status.modify}">
+    <div class="header" ng-click="ctrl.toggle(1)">
+        <div class="bg-img"><img ng-if="ctrl.articleData.image !== null" ng-src="{{ctrl.getImageLink(ctrl.articleData.image, 1920)}}" alt="Background Image"
                                  /></div>
         <article class="content">
             <header class="title" ng-class="">
-                <h1>{{::articleData.name}}</h1>
-                <p class="subline">{{::articleData.shortText}}</p>
-                <p>by <strong>{{::articleData.author}}</strong> &#8212; Posted in
-                    <a ui-sref="category({categoryId: articleData._category._id})">{{::articleData._category.name}}</a>
-                    on <strong>{{::articleData.createdAt | date : 'mediumDate'}}</strong></p>
+                <h1>{{::ctrl.articleData.name}}</h1>
+                <p class="subline">{{::ctrl.articleData.shortText}}</p>
+                <p>by <strong>{{::ctrl.articleData.author}}</strong> &#8212; Posted in
+                    <a ui-sref="category({categoryId: ctrl.articleData._category._id})">{{::ctrl.articleData._category.name}}</a>
+                    on <strong>{{::ctrl.articleData.createdAt | date : 'mediumDate'}}</strong></p>
             </header>
             <div>
                 <div id="articleContent"></div>
@@ -19,8 +19,14 @@
                                 ></ke-fb-button>
                     </div>
                     <div class="twButtonTweet">
-                        <ke-tweet-button data-name="{{::articleData.name}}"></ke-tweet-button>
+                        <ke-tweet-button data-name="{{::ctrl.articleData.name}}"></ke-tweet-button>
                     </div>
+                </div>
+                <div class="relatedArticles">
+                    <ke-related-selector
+                            data-options="ctrl.relatedArticles"
+                            data-title="Related Articles:"
+                            ></ke-related-selector>
                 </div>
                 <div class="fbComments"><ke-fb-comments></ke-fb-comments></div>
             </div>

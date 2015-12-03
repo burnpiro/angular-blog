@@ -5,20 +5,28 @@ function articleDirective() {
     return {
         restrict: 'E',
         templateUrl: 'components/article/article.directive.html',
-        scope: {
-            articleData: '=articleData'
+        scope: true,
+        bindToController: {
+            articleData: '=',
+            relatedArticles: '='
         },
+        controllerAs: 'ctrl',
         controller: function($scope, FileService) {
+            var self = this;
             // disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179
             // left: 37, up: 38, right: 39, down: 40,
             // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
             var keys = [32, 37, 38, 39, 40], wheelIter = 0;
 
-            $scope.getImageLink = FileService.getImageLink;
+            self.getImageLink = FileService.getImageLink;
 
-            $('#articleContent').html($scope.articleData.content);
+            _.forEach(self.relatedArticles, function(article) {
+                article.link = 'post({postId: \''+article._id+'\'})';
+            });
 
-            $scope.status = {
+            $('#articleContent').html(self.articleData.content);
+
+            self.status = {
                 notrans: false,
                 modify: false
             };
@@ -72,8 +80,8 @@ function articleDirective() {
                     window.scrollTo( 0, 0 );
                 }
 
-                if($scope.status.notrans) {
-                    $scope.status.notrans = false;
+                if(self.status.notrans) {
+                    self.status.notrans = false;
                     return false;
                 }
 
@@ -94,12 +102,12 @@ function articleDirective() {
                 isAnimating = true;
 
                 if( reveal ) {
-                    $scope.status.modify = true;
+                    self.status.modify = true;
                 }
                 else {
                     noscroll = true;
                     self.disable_scroll();
-                    $scope.status.modify = false;
+                    self.status.modify = false;
                 }
 
                 // simulating the end of the transition:
@@ -121,8 +129,8 @@ function articleDirective() {
 
             if( pageScroll ) {
                 isRevealed = true;
-                $scope.status.notrans = true;
-                $scope.status.modify = true;
+                self.status.notrans = true;
+                self.status.modify = true;
             }
 
             $(document).scroll(self.scrollPage);

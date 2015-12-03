@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('app.contact').
+angular.module('app.about').
     controller('ContactController', ['MessageService', 'toastr', ContactController]);
 
 function ContactController(MessageService, toastr) {

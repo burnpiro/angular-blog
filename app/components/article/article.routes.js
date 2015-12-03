@@ -14,6 +14,10 @@ angular.module('app.article', ['ui.router'])
                             post: ['$stateParams', 'PostService',
                                 function($stateParams, PostService) {
                                     return PostService.getOneById($stateParams.postId);
+                                }],
+                            relatedArticles: ['$stateParams', 'PostService',
+                                function($stateParams, PostService) {
+                                    return PostService.searchPosts({limit: 3});
                                 }]
                         },
                         controllerAs: 'article'

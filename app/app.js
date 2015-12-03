@@ -14,7 +14,6 @@ angular.module('app', [
     'app.login',
     'app.admin',
     'app.about',
-    'app.contact',
     'app.common',
 
     //services

@@ -1,0 +1,20 @@
+<section class="RelatedSelector">
+    <div class="RelatedSelector--title">{{ctrl.title}}</div>
+    <div class="RelatedSelector--elements">
+        <div ng-repeat="option in ctrl.options"
+             class="RelatedSelector--element"
+             ui-sref="{{option[ctrl.optionLink]}}"
+             ng-style="{width: (100/ctrl.options.length)+'%'}">
+            <div class="RelatedSelector--elementImageContainer">
+                <div class="RelatedSelector--elementImage">
+                    <img ng-src="{{ctrl.getImageLink(option[ctrl.optionImage], 160)}}"/>
+                </div>
+                <div class="RelatedSelector--elementOverlay"></div>
+            </div>
+
+            <div class="RelatedSelector--elementDescription">
+                <h2>{{option.name}}</h2>
+            </div>
+        </div>
+    </div>
+</section>
