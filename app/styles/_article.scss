@@ -209,7 +209,7 @@
         margin: 100px 0;
         color: $secondary-text-color;
 
-        div {
+        > div {
             &#articleContent {
                 margin-bottom: 20px;
             }
@@ -225,6 +225,10 @@
                 div {
                     margin-right: 2px;
                 }
+            }
+
+            &.relatedArticles {
+                margin-top: 0;
             }
         }
     }
