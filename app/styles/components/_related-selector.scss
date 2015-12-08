@@ -12,24 +12,69 @@
     overflow: hidden;
     height: 240px;
 
+    .RelatedSelector--Switch {
+      position: absolute;
+      height: 100%;
+      width: 10%;
+      background-color: rgba($color-dark, 0.3);
+      text-align: center;
+      cursor: pointer;
+      @include transition(all 0.25s ease-out);
+
+      i {
+        margin-top: 120px;
+        font-size: $font-size-xl;
+        color: $color-very-light-gray;
+        @include transform(translate(0,-50%));
+        @include transition(all 0.15s ease-out);
+      }
+
+      &:hover {
+        background-color: rgba($color-dark, 0.5);
+        i{
+          font-size: $font-size-xxl;
+        }
+      }
+
+      &.RelatedSelector--leftSwitch {
+        margin-left: 10px;
+        left: 0;
+        right: auto;
+      }
+
+      &.RelatedSelector--rightSwitch {
+        margin-right: 10px;
+        right: 0;
+        left: auto;
+      }
+    }
+
     .RelatedSelector--element {
       overflow: hidden;
 
       .RelatedSelector--elementImageContainer {
         .RelatedSelector--elementImage {
-          height: 240px;
           background-size: cover;
+          height: 240px;
           background-repeat: no-repeat;
-          padding-top: 50%;
+
+        }
+
+        .RelatedSelector--elementOverlay {
+          background-color: rgba($color-dark, 0.2);
+          height: 240px;
+          margin-top: -240px;
           text-align: center;
           cursor: pointer;
+
           h2 {
-            @include transform(translate(0, -50%));
+            width: 100%;
             @include transition(all 0.45s ease);
-            color: $color-light-gray;
+            color: $color-white;
             font-size: $font-size-xl;
             opacity: 0;
-
+            padding-top: 120px;
+            @include transform(translate(0,-10%));
           }
 
           &:hover {
@@ -43,12 +88,6 @@
               opacity: 1;
             }
           }
-
-        }
-
-        .RelatedSelector--elementOverlay {
-          background-color: $color-dark;
-          opacity: 0.1;
         }
       }
 
