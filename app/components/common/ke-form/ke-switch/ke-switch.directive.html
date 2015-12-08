@@ -1,0 +1,9 @@
+<div class="keSwitch" ng-class="{
+'is-fullWidth': ctrl.fullWidth
+}">
+    <span class="keSwitch-label">{{ctrl.label}}</span>
+    <div class="keSwitch-element">
+        <input type="checkbox" ng-model="ctrl.ngModel" id="{{ctrl.id}}" name="keCheckbox" ng-checked="ctrl.ngModel"/>
+        <label for="{{ctrl.id}}"></label>
+    </div>
+</div>

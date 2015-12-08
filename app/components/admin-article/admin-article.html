@@ -43,13 +43,17 @@
     </div>
 
     <div class="row gr-12 articleContent">
-        <md-content layout-margin hide show-gt-sm class="textContainer" id="desktopEditor">
+        <div class="textContainer show hide@mobile" id="desktopEditor">
             <div class="editor" id="editor"></div>
-        </md-content>
-        <md-input-container flex hide-gt-sm class="textContainer" id="mobileEditor">
-            <label>Content</label>
-            <textarea ng-model="articleCtrl.post.content" columns="1"></textarea>
-        </md-input-container>
+        </div>
+        <div class="textContainer gr-12 hide show@mobile" id="mobileEditor">
+            <ke-textarea
+                    data-label="Content"
+                    ng-model="articleCtrl.post.content"
+                    data-full-width="true"
+                    data-rows="5"
+                    ></ke-textarea>
+        </div>
         <ke-textarea
                 class="textContainer"
                 ng-model="articleCtrl.post.shortText"
@@ -57,14 +61,28 @@
                 data-rows="5"
                 data-placeholder="Short Description"
                 ></ke-textarea>
-        <div layout="row" layout-align="space-between center">
-            <div>
-                <md-button class="md-raised md-primary" ng-click="articleCtrl.savePost()">Save</md-button>
-                <md-button class="md-raised md-warn" ng-click="articleCtrl.deletePost()">Delete</md-button>
+
+        <ke-switch
+                ng-model="articleCtrl.post.display"
+                data-label="Publish?"
+                ></ke-switch>
+        <div class="gr-12">
+            <div class="gr-6 gr12@mobile">
+                <ke-button
+                        data-type="info"
+                        data-label="Save"
+                        data-full-width="true"
+                        ng-click="articleCtrl.savePost()"
+                        ></ke-button>
             </div>
-            <md-switch ng-model="articleCtrl.post.display " aria-label="Switch 1">
-                Publish?
-            </md-switch>
+            <div class="gr-6 gr-12@mobile">
+                <ke-button
+                        data-label="Delete"
+                        data-type="error"
+                        data-full-width="true"
+                        ng-click="articleCtrl.deletePost()"
+                        ></ke-button>
+            </div>
         </div>
     </div>
 </section>

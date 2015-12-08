@@ -72,7 +72,7 @@
             @include transition(all 0.45s ease);
             color: $color-white;
             font-size: $font-size-xl;
-            opacity: 0;
+            opacity: 0.4;
             padding-top: 120px;
             @include transform(translate(0,-10%));
           }

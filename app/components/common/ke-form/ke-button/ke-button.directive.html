@@ -1,4 +1,9 @@
-<div class="keButton" ng-class="{'is-fullWidth': ctrl.fullWidth}">
+<div class="keButton" ng-class="{
+'is-fullWidth': ctrl.fullWidth,
+'keButton--error': ctrl.type === 'error',
+'keButton--warning': ctrl.type === 'warning',
+'keButton--success': ctrl.type === 'success'
+}">
     <i class="fa" ng-if="ctrl.icon !== undefined" ng-class="ctrl.icon"></i>
     <span>{{ctrl.label}}</span>
 </div>
