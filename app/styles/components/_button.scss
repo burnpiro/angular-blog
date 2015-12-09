@@ -19,4 +19,16 @@
   i {
     font-size: 20px;
   }
+
+  &.keButton--warning {
+    background-color: $warning-color;
+  }
+
+  &.keButton--error {
+    background-color: $error-color;
+  }
+
+  &.keButton--success {
+    background-color: $success-color;
+  }
 }

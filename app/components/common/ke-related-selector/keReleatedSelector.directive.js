@@ -18,12 +18,19 @@ function keRelatedSelectorDirective(FileService) {
 
     function ctrl() {
         var self = this;
+
+        self.limit = 2;
+        self.offset = 0;
         self.selected = 0;
 
         self.getImageLink = FileService.getImageLink;
         self.optionImage = !angular.isDefined(self.optionImage)? 'image' : self.optionImage;
         self.optionLink = !angular.isDefined(self.optionLink) ? 'link' : self.optionLink;
 
-
+        self.changeOffset = function(offset) {
+            if(self.offset + offset >= 0 && self.offset + offset < self.options.length) {
+                self.offset += offset;
+            }
+        }
     }
 }
