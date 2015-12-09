@@ -8,11 +8,12 @@ function FileService(Restangular) {
         return Restangular.one('files').get();
     };
 
-    this.getAllImages = function(size) {
-        if(_.isUndefined(size)) {
-            size = '1920';
-        }
-        return Restangular.one('images').one(size).get('');
+    this.getAllImages = function() {
+        var request = {
+            limit: 12,
+            offset: 0
+        };
+        return Restangular.one('images').customPOST(request);
     };
 
     this.getOneByName = function(name) {

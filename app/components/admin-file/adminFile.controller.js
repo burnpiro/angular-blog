@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('app.admin').
-    controller('AdminFileController', ['FileService', 'files', '$mdDialog', 'toastr', 'FileUploader', '$window',
+    controller('AdminFileController', ['FileService', 'files', 'toastr', 'FileUploader', '$window',
         AdminFileController])
     .directive('ngThumb', ['$window', ngThumbDirective]);
 
-function AdminFileController(FileService, files, $mdDialog, toastr, FileUploader, $window) {
+function AdminFileController(FileService, files, toastr, FileUploader, $window) {
     var self = this;
     self.uploader = new FileUploader({
         url: config.host + '/files',
@@ -19,28 +19,13 @@ function AdminFileController(FileService, files, $mdDialog, toastr, FileUploader
         selectedAlignment: 'md-left'
     };
 
-    self.openModal = function(event) {
-        var file = {};
-        $mdDialog.show({
-            controller: EditFileModalController,
-            controllerAs: 'modalCtrl',
-            templateUrl: 'components/admin-file/admin-file-add.tmpl.html',
-            parent: angular.element(document.body),
-            targetEvent: event,
-            locals: {
-                file: file
+    self.uploadFile = function(file) {
+        FileService.saveFile(file).then(function (response) {
+            toastr.success(response.message);
+            if(_.isEmpty(response.name)) {
+                self.files.push(response.name);
             }
-        })
-            .then(function() {
-                FileService.saveFile(file).then(function (response) {
-                    toastr.success(response.message);
-                    if(_.isEmpty(response.name)) {
-                        self.files.push(response.name);
-                    }
-                });
-            }, function() {
-                console.log('no');
-            });
+        });
     };
 
     // CALLBACKS
@@ -51,23 +36,6 @@ function AdminFileController(FileService, files, $mdDialog, toastr, FileUploader
         toastr.success(response.message);
         self.files.push(response.fileName);
         self.uploader.clearQueue();
-    };
-}
-
-function EditFileModalController($mdDialog, file) {
-    var self = this;
-    self.file = file;
-
-    self.hide = function() {
-        $mdDialog.hide();
-    };
-
-    self.cancel = function() {
-        $mdDialog.cancel();
-    };
-
-    self.answer = function(answer) {
-        $mdDialog.hide(answer);
     };
 }
 

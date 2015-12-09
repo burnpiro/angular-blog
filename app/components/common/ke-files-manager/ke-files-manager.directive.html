@@ -1,0 +1,18 @@
+<section class="FilesManager">
+    <div ng-if="ctrl.selectedFile" class="FilesManager--selectedFile gr-12">
+        <div class="FilesManager--selectedFileInfo gr-6">
+            File name: <strong>{{ctrl.selectedFile.name}}</strong>
+            <ke-button
+                    data-label="Remove"
+                    ></ke-button>
+        </div>
+
+        <div class="FilesManager--selectedFilePreview gr-6">
+            <img ng-if="ctrl.selectedFile.type === 'image'" ng-src="{{ctrl.getImageLink(ctrl.selectedFile.name, 160)}}" />
+        </div>
+    </div>
+    <div class="FilesManager--file gr-2" ng-repeat="file in ctrl.files | orderBy: 'type'" ng-click="ctrl.selectedFile = file">
+        <img ng-if="file.type === 'image'" ng-src="{{ctrl.getImageLink(file.name, 160)}}" />
+        {{file.name}}
+    </div>
+</section>
