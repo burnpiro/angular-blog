@@ -43,30 +43,34 @@
     </div>
 
     <div class="row gr-12 articleContent">
-        <div class="textContainer show hide@mobile" id="desktopEditor">
-            <div class="editor" id="editor"></div>
-        </div>
-        <div class="textContainer gr-12 hide show@mobile" id="mobileEditor">
+        <div class="gr-12">
+            <div class="textContainer hide hide@mobile" id="desktopEditor">
+                <div class="editor" id="editor"></div>
+            </div>
+            <div class="textContainer gr-12 hide show@mobile" id="mobileEditor">
+                <ke-textarea
+                        data-label="Content"
+                        ng-model="articleCtrl.post.content"
+                        data-full-width="true"
+                        data-rows="5"
+                        ></ke-textarea>
+            </div>
+            <ke-text-editor ng-model="articleCtrl.post.content"></ke-text-editor>
             <ke-textarea
-                    data-label="Content"
-                    ng-model="articleCtrl.post.content"
+                    class="textContainer"
+                    ng-model="articleCtrl.post.shortText"
                     data-full-width="true"
                     data-rows="5"
+                    data-placeholder="Short Description"
                     ></ke-textarea>
-        </div>
-        <ke-text-editor ng-model="articleCtrl.post.content"></ke-text-editor>
-        <ke-textarea
-                class="textContainer"
-                ng-model="articleCtrl.post.shortText"
-                data-full-width="true"
-                data-rows="5"
-                data-placeholder="Short Description"
-                ></ke-textarea>
 
-        <ke-switch
-                ng-model="articleCtrl.post.display"
-                data-label="Publish?"
-                ></ke-switch>
+        </div>
+        <div class="gr-12">
+            <ke-switch
+                    ng-model="articleCtrl.post.display"
+                    data-label="Publish?"
+                    ></ke-switch>
+        </div>
         <div class="gr-12">
             <div class="gr-6 gr12@mobile">
                 <ke-button
