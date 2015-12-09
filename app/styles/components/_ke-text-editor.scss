@@ -1,0 +1,18 @@
+@import "../settings";
+
+.KeTextEditor {
+
+  .KeTextEditor-Header {
+
+  }
+
+  .KeTextEditor-Body {
+    iframe {
+      overflow-y: scroll;
+    }
+  }
+
+  .KeTextEditor-Footer {
+
+  }
+}
