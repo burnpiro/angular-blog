@@ -21,16 +21,16 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
             display: true
         };
     }
-    var editor = ckeditorEditorFactory;
-    editor.addFileRequestHeader({ name: 'Authorization', value: 'Bearer '+$window.localStorage.token});
-    editor.initEditor('editor');
-    editor.setValue(self.post.content);
-    editor.addPlugin('mathjax');
-    editor.addPlugin('codesnippet');
-    editor.addPlugin('iframedialog');
-    editor.addConfig('mathJaxLib', '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML');
-    editor.addPlugin('uploadimage');
-    editor.addConfig('uploadUrl', config.host+config.filePath);
+    //var editor = ckeditorEditorFactory;
+    //editor.addFileRequestHeader({ name: 'Authorization', value: 'Bearer '+$window.localStorage.token});
+    //editor.initEditor('editor');
+    //editor.setValue(self.post.content);
+    //editor.addPlugin('mathjax');
+    //editor.addPlugin('codesnippet');
+    //editor.addPlugin('iframedialog');
+    //editor.addConfig('mathJaxLib', '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML');
+    //editor.addPlugin('uploadimage');
+    //editor.addConfig('uploadUrl', config.host+config.filePath);
     self.categories = categories.data;
     self.files = files.data;
     self.getImageLink = FileService.getImageLink;
