@@ -1,15 +1,23 @@
 <div class="KeTextEditor">
-    <div class="KeTextEditor-Header"></div>
-    <div class="KeTextEditor-Body">
-        <div ng-show="!ctrl.editMode" >
-            <iframe data-ng-model="ctrl.ngModel" ke-frame></iframe>
+    <div class="KeTextEditor-Header">
+        <div class="KeTextEditor-Toolbar" ng-repeat="toolbar in keTextEditor.toolbars" ng-show="!keTextEditor.editMode">
+            <div class="KeTextEditor-Button"
+                 ng-repeat="button in toolbar.items"
+                 title="{{keTextEditor.availableButtons[button].label}}">
+                <i class="fa" ng-class="keTextEditor.availableButtons[button].icon"></i>
+            </div>
         </div>
-        <textarea ng-show="ctrl.editMode" class="KeTextEditor-Textarea" ng-model="ctrl.ngModel"></textarea>
+    </div>
+    <div class="KeTextEditor-Body">
+        <div ng-show="!keTextEditor.editMode" >
+            <iframe data-ng-model="keTextEditor.ngModel" ke-frame></iframe>
+        </div>
+        <textarea ng-show="keTextEditor.editMode" class="KeTextEditor-Textarea" ng-model="keTextEditor.ngModel"></textarea>
     </div>
     <div class="KeTextEditor-Footer">
-        <span class="KeTextEditor-Button" ng-click="ctrl.editMode = !ctrl.editMode">
-            <span ng-show="!ctrl.editMode"><i class="fa fa-code"></i>Source</span>
-            <span ng-show="ctrl.editMode"><i class="fa fa-eye"></i>WYSIWYG</span>
+        <span class="KeTextEditor-Button" ng-click="keTextEditor.editMode = !keTextEditor.editMode">
+            <span ng-show="!keTextEditor.editMode"><i class="fa fa-code"></i>Source</span>
+            <span ng-show="keTextEditor.editMode"><i class="fa fa-eye"></i>WYSIWYG</span>
         </span>
     </div>
 </div>
