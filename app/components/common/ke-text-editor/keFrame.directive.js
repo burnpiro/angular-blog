@@ -4,6 +4,7 @@ angular.module('app.common').
 function keFrameDirective() {
     return {
         scope: true,
+        require: '^keTextEditor',
         bindToController: {
             id: '@',
             ngModel: '=',
@@ -19,9 +20,9 @@ function keFrameDirective() {
     }
 
     function linkFn(scope, $element, attrs, ctrl) {
+        ctrl.iframeCtrl = scope.ctrl;
 
         // Get iframe and put new HTML document inside
-        console.log($element[0].clientWidth);
         var editor = $element[0].contentDocument;
         editor.open();
         editor.write('<!DOCTYPE html><html><head><style>img{ max-width: '+($element[0].clientWidth)+'px; }</style></head><body contenteditable="true"></body></html>');
@@ -35,6 +36,10 @@ function keFrameDirective() {
         // Put ngModel into iframe body
         ctrl.render = function() {
             body[0].innerHTML = ctrl.ngModel;
+        };
+
+        ctrl.executeCommand = function(cmd) {
+            body.focus();
         };
 
         ctrl.render();
