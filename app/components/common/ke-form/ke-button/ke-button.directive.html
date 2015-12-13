@@ -3,7 +3,8 @@
 'keButton--error': ctrl.type === 'error',
 'keButton--warning': ctrl.type === 'warning',
 'keButton--success': ctrl.type === 'success'
-}">
+}"
+        ng-click="ctrl.actionClick()">
     <i class="fa" ng-if="ctrl.icon !== undefined" ng-class="ctrl.icon"></i>
     <span>{{ctrl.label}}</span>
 </div>

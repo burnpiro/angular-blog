@@ -15,6 +15,14 @@ function keFbCommentsDirective(FileService) {
             var self = this;
 
             self.getImageLink = FileService.getImageLink;
+            self.selectionClosed = false;
+            self.selectedFile = undefined;
+
+            self.closeSelection = function() {
+                delete self.selectedFile;
+            }
+        },
+        link: function(scope) {
         }
     };
 }

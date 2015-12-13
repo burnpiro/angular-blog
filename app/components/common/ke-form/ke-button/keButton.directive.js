@@ -9,6 +9,7 @@ function keButtonDirective() {
             icon: '@',
             label: '@',
             fullWidth: '=',
+            onClick: '=',
             type: '@'
         },
         controllerAs: 'ctrl',
@@ -21,6 +22,12 @@ function keButtonDirective() {
 
         if(allowedTypes.indexOf(self.type) === -1) {
             self.type = 'info';
+        }
+
+        self.actionClick = function() {
+            if(angular.isDefined(self.onClick)) {
+                self.onClick();
+            }
         }
     }
 }

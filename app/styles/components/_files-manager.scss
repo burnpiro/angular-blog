@@ -1,0 +1,58 @@
+@import "../settings";
+
+.FilesManager {
+    .FilesManager-SelectedFile {
+        @include transition(all 0.5s ease);
+        background-color: $color-medium-gray;
+        display: none;
+        padding: 10px 0;
+        margin: 0;
+
+        &.is-open {
+            display: block;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .FilesManager-SelectedFileInfo-Action {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        @media screen and (max-width: $mobileWidth) {
+            text-align: center;
+
+            img {
+                width: 90vw;
+            }
+
+            .FilesManager-File {
+                width: 100%;
+            }
+        }
+    }
+
+    .FilesManager-Files {
+        text-align: center;
+        .FilesManager-File {
+            float: left;
+            padding: 10px;
+            width: 160px;
+            height: 160px;
+            overflow: hidden;
+            border: 1px solid $color-light-gray;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $color-light-gray;
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+}

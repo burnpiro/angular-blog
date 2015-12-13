@@ -1,18 +1,30 @@
 <section class="FilesManager">
-    <div ng-if="ctrl.selectedFile" class="FilesManager--selectedFile gr-12">
-        <div class="FilesManager--selectedFileInfo gr-6">
-            File name: <strong>{{ctrl.selectedFile.name}}</strong>
-            <ke-button
-                    data-label="Remove"
-                    ></ke-button>
+    <div ng-class="{'is-open' :ctrl.selectedFile}" class="FilesManager-SelectedFile gr-12">
+        <div class="FilesManager-SelectedFilePreview gr-6 gr-12@mobile">
+            <img ng-if="ctrl.selectedFile.type === 'image'" ng-src="{{ctrl.getImageLink(ctrl.selectedFile.name, 400)}}" />
         </div>
-
-        <div class="FilesManager--selectedFilePreview gr-6">
-            <img ng-if="ctrl.selectedFile.type === 'image'" ng-src="{{ctrl.getImageLink(ctrl.selectedFile.name, 160)}}" />
+        <div class="FilesManager-SelectedFileInfo gr-6 gr-12@mobile">
+            <div class="gr-12">
+                File name: <strong>{{ctrl.selectedFile.name}}</strong>
+            </div>
+            <div class="gr-12">
+                <ke-button
+                        data-label="Remove"
+                        data-type="error"
+                        data-full-width="true"
+                        ></ke-button>
+                <ke-button
+                        data-label="Close"
+                        data-full-width="true"
+                        data-on-click="ctrl.closeSelection"
+                        ></ke-button>
+            </div>
         </div>
     </div>
-    <div class="FilesManager--file gr-2" ng-repeat="file in ctrl.files | orderBy: 'type'" ng-click="ctrl.selectedFile = file">
-        <img ng-if="file.type === 'image'" ng-src="{{ctrl.getImageLink(file.name, 160)}}" />
-        {{file.name}}
+    <div class="gr-12 FilesManager-Files">
+        <div class="FilesManager-File" ng-repeat="file in ctrl.files | orderBy: 'type'" ng-click="ctrl.selectedFile = file">
+            <img ng-if="file.type === 'image'" ng-src="{{ctrl.getImageLink(file.name, 160)}}" />
+            {{file.name}}
+    </div>
     </div>
 </section>
