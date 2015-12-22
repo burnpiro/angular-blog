@@ -1,0 +1,40 @@
+<div>
+    <ke-select
+            data-placeholder="Font color"
+            data-options="[{
+                name: '<span style=\'color: #689F38\'>#689F38</span>',
+                value: '#689F38'
+            },{
+                name: '<span style=\'color: #8BC34A\'>#8BC34A</span>',
+                value: '#8BC34A'
+            },{
+                name: '<span style=\'color: #FF9800\'>#FF9800</span>',
+                value: '#FF9800'
+            }]"
+            data-option-value="value"
+            data-option-name="name"
+            data-display-html="true"
+            data-ng-model="ctrl.color"
+            ></ke-select>
+    <ke-select
+            data-placeholder="Background color"
+            data-options="[{
+                name: '<span style=\'color: #FAFAFA; background-color: #689F38\'>#689F38</span>',
+                value: '#689F38'
+            },{
+                name: '<span style=\'color: #FAFAFA; background-color: #8BC34A\'>#8BC34A</span>',
+                value: '#8BC34A'
+            },{
+                name: '<span style=\'color: #FAFAFA; background-color: #FF9800\'>#FF9800</span>',
+                value: '#FF9800'
+            }]"
+            data-option-value="value"
+            data-option-name="name"
+            data-display-html="true"
+            data-ng-model="ctrl.background"
+            ></ke-select>
+    <ke-button
+            data-ng-click="setValue('scope.ctrl.color', 'foreColor'); setValue('scope.ctrl.background', 'hiliteColor')"
+            data-label="Set"
+            ></ke-button>
+</div>

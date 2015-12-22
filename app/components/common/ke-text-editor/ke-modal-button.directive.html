@@ -1,0 +1,10 @@
+<div class="KeTextEditor-Button"
+     ng-click="ctrl.openModal()"
+     title="{{ctrl.label}}">
+    <i class="fa" ng-class="ctrl.icon"></i>
+</div>
+<div class="KeTestEditor-Button--List-Overlay" ng-class="{'is-open': ctrl.isOpen}" ng-click="ctrl.isOpen = false;"></div>
+<div class="KeTestEditor-Button--Modal" ng-class="{'is-open': ctrl.isOpen}">
+    <div class="KeTestEditor-Button--Modal-Content">
+    </div>
+</div>

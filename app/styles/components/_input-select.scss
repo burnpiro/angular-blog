@@ -31,7 +31,7 @@
         }
     }
 
-    span{
+    >span {
         position: absolute;
         display: block;
         color: $secondary-text-color;
@@ -85,13 +85,37 @@
         }
     }
 
+    .keSelect--placeholder{
+        width: 100%;
+        padding: 10px 5px 10px 10px;
+        height: 50px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        border: 2px solid $color-light-gray;
+        border-radius: 4px;
+        transition: 0.2s ease-out;
+        color: $color-gray;
+        font-size: $font-size-l;
+
+        &.is-required {
+            border-color: #FF7052;
+        }
+
+        &.has-no-icon {
+            padding-left: 10px;
+        }
+    }
+
     ul {
         position: absolute;
         top: 50px;
         display: none;
         height: 200px;
         width: 100%;
-        z-index: 2;
+        z-index: 3;
         overflow-y: auto;
         overflow-x: hidden;
         li {

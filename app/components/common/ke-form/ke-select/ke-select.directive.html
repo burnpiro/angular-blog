@@ -13,10 +13,19 @@
            ng-model="ctrl.selectedValue"
            ng-focus="ctrl.isFocused = true"
            ng-class="{'has-no-icon': !ctrl.icon}"
+           ng-if="!ctrl.displayHtml"
            />
+    <span
+            ng-if="ctrl.displayHtml"
+            ng-click="ctrl.isFocused = !ctrl.isFocused"
+            class="keSelect--placeholder"
+            ng-bind-html="ctrl.selectedValue != '' ? ctrl.selectedValue : ctrl.placeholder | sanitize"
+            >{{ctrl.placeholder}}</span>
     <span ng-if="ctrl.icon !== undefined"><i class="fa" ng-class="ctrl.icon"></i></span>
     <i class="dropIcon fa fa-sort-desc" ng-click="ctrl.isFocused = !ctrl.isFocused"></i>
     <ul class="keSelect--list">
-       <li ng-repeat="row in ctrl.options | filter:ctrl.filterOptions" ng-click="ctrl.inputChange(ctrl.optionValue ? row[ctrl.optionValue] : row); ctrl.isFocused = false;">{{ctrl.optionName ? row[ctrl.optionName] : row}}</li>
+       <li ng-repeat="row in ctrl.options | filter: (ctrl.displayHtml? '' :ctrl.filterOptions)"
+           ng-click="ctrl.inputChange(ctrl.optionValue ? row[ctrl.optionValue] : row); ctrl.isFocused = false;"
+           ng-bind-html="ctrl.optionName ? row[ctrl.optionName] : row | sanitize"></li>
     </ul>
 </div>
