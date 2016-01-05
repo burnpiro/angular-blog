@@ -1,0 +1,10 @@
+<div>
+    <ke-input-text
+            data-placeholder="Youtube link"
+            data-ng-model="ctrl.link"
+            ></ke-input-text>
+    <ke-button
+            data-ng-click="setHTML('\'<iframe width=\'+560+\' height=\'+315+\' src=\'+scope.ctrl.link+\' frameborder=\'+0+\' allowfullscreen></iframe>\'')"
+            data-label="Insert"
+            ></ke-button>
+</div>

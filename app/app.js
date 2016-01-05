@@ -122,7 +122,12 @@ angular.module('app', [
                 $rootScope.url = document.location.href;
             });
 
-    });
+    })
+    .filter('sanitize', ['$sce', function($sce) {
+        return function(htmlCode){
+            return $sce.trustAsHtml(htmlCode);
+        }
+    }]);
 
 function authInterceptor($window) {
     return {

@@ -3,9 +3,27 @@
         <div class="KeTextEditor-Toolbar" ng-repeat="toolbar in keTextEditor.toolbars" ng-show="!keTextEditor.editMode">
             <div class="KeTextEditor-Button"
                  ng-repeat="button in toolbar.items"
+                 ng-if="keTextEditor.availableButtons[button].type === 'button'"
+                 ng-click="keTextEditor.buttonAction(keTextEditor.availableButtons[button].action)"
                  title="{{keTextEditor.availableButtons[button].label}}">
                 <i class="fa" ng-class="keTextEditor.availableButtons[button].icon"></i>
             </div>
+            <ke-list-button
+                    ng-repeat="button in toolbar.items"
+                    ng-if="keTextEditor.availableButtons[button].type === 'list'"
+                    data-icon="{{keTextEditor.availableButtons[button].icon}}"
+                    data-label="{{keTextEditor.availableButtons[button].label}}"
+                    data-action="{{keTextEditor.availableButtons[button].action}}"
+                    data-options="keTextEditor.availableButtons[button].options"
+                    ></ke-list-button>
+            <ke-modal-button
+                    ng-repeat="button in toolbar.items"
+                    ng-if="keTextEditor.availableButtons[button].type === 'modal'"
+                    data-icon="{{keTextEditor.availableButtons[button].icon}}"
+                    data-label="{{keTextEditor.availableButtons[button].label}}"
+                    data-action="{{keTextEditor.availableButtons[button].action}}"
+                    data-template="{{keTextEditor.availableButtons[button].template}}"
+                    ></ke-modal-button>
         </div>
     </div>
     <div class="KeTextEditor-Body">

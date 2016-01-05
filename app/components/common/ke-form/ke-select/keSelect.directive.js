@@ -15,7 +15,8 @@ function keSelectDirective() {
             options: '=',
             optionName: '@',
             optionValue: '@',
-            onChange: '='
+            onChange: '=',
+            displayHtml: '='
         },
         controllerAs: 'ctrl',
         templateUrl: 'components/common/ke-form/ke-select/ke-select.directive.html',
@@ -33,7 +34,7 @@ function keSelectDirective() {
         self.inputChange = function(value) {
             _.find(self.options, function(option) {
                 if(angular.isDefined(self.optionValue)) {
-                    if (option[self.optionName] === value) {
+                    if (option[self.optionValue] === value) {
                         self.selectedValue = option[self.optionName];
                         self.ngModel = value;
                     }
