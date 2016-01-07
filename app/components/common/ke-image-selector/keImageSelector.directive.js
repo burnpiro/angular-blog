@@ -29,7 +29,12 @@
                         self.action(file);
                     }
                 }
-
+            },
+            link: function(scope, $element) {
+                var element = $element.find('ul')[0];
+                scope.ctrl.moveHorizontal = function(value) {
+                    element.scrollLeft += value;
+                };
             }
         };
     }

@@ -2,12 +2,13 @@
 
 .ImageSelector {
     margin-bottom: 10px;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
-    height: 160px;
+    position: relative;
 
     .ImageSelector-Container {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        height: 160px;
         .ImageSelector-Image {
             display: inline-block;
             width: 160px;
@@ -17,6 +18,60 @@
 
             img {
                 width: 100%;
+            }
+        }
+    }
+
+    .ImageSelector-Left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 160px;
+        width: 10%;
+        text-align: center;
+        cursor: pointer;
+        background-color: rgba($color-dark, 0.4);
+        font-size: $font-size-xxl;
+
+        i {
+            margin-top: 80px;
+            font-size: $font-size-xl;
+            color: $color-very-light-gray;
+            @include transform(translate(0,-50%));
+            @include transition(all 0.15s ease-out);
+        }
+
+        &:hover {
+            background-color: rgba($color-dark, 0.5);
+            i{
+                font-size: $font-size-xxl;
+            }
+        }
+    }
+
+    .ImageSelector-Right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 160px;
+        width: 10%;
+        text-align: center;
+        cursor: pointer;
+        background-color: rgba($color-dark, 0.4);
+        font-size: $font-size-xxl;
+
+        i {
+            margin-top: 80px;
+            font-size: $font-size-xl;
+            color: $color-very-light-gray;
+            @include transform(translate(0,-50%));
+            @include transition(all 0.15s ease-out);
+        }
+
+        &:hover {
+            background-color: rgba($color-dark, 0.5);
+            i{
+                font-size: $font-size-xxl;
             }
         }
     }
