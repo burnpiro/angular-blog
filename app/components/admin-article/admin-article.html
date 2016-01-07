@@ -1,7 +1,7 @@
 <section class="adminArticle container">
     <div class="bg-img"><img class="postImagePreview" ng-if="articleCtrl.post.image !== null" ng-src="{{articleCtrl.getImageLink(articleCtrl.post.image, 1920)}}"/></div>
 
-    <div class="row gr-12">
+    <div class="gr-12">
         <div class="gr-3">
             <ke-input-text
                     ng-model="articleCtrl.post.name"
@@ -34,17 +34,16 @@
                     ></ke-select>
         </div>
         <div class="gr-12">
-            <ke-select
-                    ng-model="articleCtrl.post.image"
-                    data-options="articleCtrl.files"
-                    data-placeholder="Main image"
-                    data-option-value="name"
-                    data-option-name="name"
-                    ></ke-select>
+            <ke-image-selector
+                    data-ng-model="articleCtrl.post.image"
+                    data-images="articleCtrl.files"
+                    data-value-name="name"
+                    data-title="Main image"
+                    ></ke-image-selector>
         </div>
     </div>
 
-    <div class="row gr-12 articleContent">
+    <div class="gr-12 articleContent">
         <div class="gr-12">
             <div class="textContainer hide hide@mobile" id="desktopEditor">
                 <div class="editor" id="editor"></div>

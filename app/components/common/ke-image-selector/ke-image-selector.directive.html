@@ -1,0 +1,7 @@
+<section class="ImageSelector">
+    <ul class="ImageSelector-Container">
+        <li class="ImageSelector-Image" ng-repeat="file in ctrl.images" ng-click="ctrl.select(file)">
+            <img ng-src="{{ctrl.getImageLink(file.name, 160)}}" >
+        </li>
+    </ul>
+</section>

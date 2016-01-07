@@ -1,0 +1,23 @@
+@import "../settings";
+
+.ImageSelector {
+    margin-bottom: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    height: 160px;
+
+    .ImageSelector-Container {
+        .ImageSelector-Image {
+            display: inline-block;
+            width: 160px;
+            height: 160px;
+            overflow: hidden;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
