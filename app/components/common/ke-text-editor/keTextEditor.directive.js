@@ -136,6 +136,14 @@ function keTextEditorDirective() {
                 type: 'modal',
                 template: 'components/common/ke-text-editor/ke-font-modal.tpl.html'
             },
+            image: {
+                class: 'keTextEditor-Button--Image',
+                action: 'image',
+                label: 'insertHTML',
+                icon: 'fa-picture-o',
+                type: 'modal',
+                template: 'components/common/ke-text-editor/ke-image-modal.tpl.html'
+            },
             heading: {
                 class: 'keTextEditor-Button--Heading',
                 action: 'heading',
@@ -195,7 +203,7 @@ function keTextEditorDirective() {
             {
                 name: 'advanced',
                 items: [
-                    'alignLeft', 'alignCenter', 'alignRight', 'alignJustify', 'listOrdered', 'listUnordered', 'font', 'youtube', 'html'
+                    'alignLeft', 'alignCenter', 'alignRight', 'alignJustify', 'listOrdered', 'listUnordered', 'font', 'youtube', 'html', 'image'
                 ]
             }
         ];

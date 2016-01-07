@@ -22,6 +22,7 @@
         function ctrl() {
             var self = this;
             self.isOpen = false;
+            self.test = 'testVal';
         }
 
         function linkFn(scope, element, attr, editorCtrl) {
@@ -37,7 +38,6 @@
                     console.log(right);
                     newValue += scope.ctrl.selectedValue + right;
                 }
-                console.log(newValue);
                 editorCtrl.buttonAction('insertHTML', {begin: eval(newValue)});
                 scope.ctrl.isOpen = false;
             };
