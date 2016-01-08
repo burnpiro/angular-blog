@@ -1,9 +1,13 @@
 (function() {
     angular.module('app.common').
-        controller('keImageModalController', ['FileService', Controller]);
+        controller('keImageModalController', ['$scope', 'FileService', Controller]);
 
-    function Controller(FileService) {
+    function Controller($scope, FileService) {
         var self = this;
         self.images = FileService.getAllImages();
+
+        self.addImage = function(image) {
+            $scope.$parent.setHTML('\'<img srt="'+image.name+'">\'');
+        }
     }
 })();

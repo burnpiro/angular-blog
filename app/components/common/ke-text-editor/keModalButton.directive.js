@@ -27,7 +27,6 @@
 
         function linkFn(scope, element, attr, editorCtrl) {
             scope.setValue = function(value, action) {
-                console.log(value, eval(value), scope.ctrl);
                 editorCtrl.buttonAction(angular.isDefined(action) ? action : scope.ctrl.action, eval(value));
                 scope.ctrl.isOpen = false;
             };
