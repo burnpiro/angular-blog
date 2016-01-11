@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('app.admin').
-    controller('AdminArticleController', ['PostService', 'ckeditorEditorFactory', 'post', 'categories', 'files', 'toastr', 'FileService', '$window',
+    controller('AdminArticleController', ['PostService', 'post', 'categories', 'files', 'tags', 'toastr', 'FileService', 'TagService', '$window',
         AdminArticleController]);
 
-function AdminArticleController(PostService, ckeditorEditorFactory, post, categories, files, toastr, FileService, $window) {
+function AdminArticleController(PostService, post, categories, files, tags, toastr, FileService, TagService, $window) {
     var self = this;
 
     if(!_.isEmpty(post)) {
@@ -33,6 +33,7 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
     //editor.addConfig('uploadUrl', config.host+config.filePath);
     self.categories = categories.data;
     self.files = files.data;
+    self.tags = tags.data;
     self.getImageLink = FileService.getImageLink;
 
     self.savePost = function() {
@@ -53,4 +54,11 @@ function AdminArticleController(PostService, ckeditorEditorFactory, post, catego
             self.post = {}
         });
     };
+
+    self.addNewTag = function(tag) {
+        TagService.createTag(tag).then(function(response) {
+            console.log(response);
+            self.tags.push(tag);
+        })
+    }
 }

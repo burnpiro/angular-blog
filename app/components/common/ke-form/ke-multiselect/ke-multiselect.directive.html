@@ -1,0 +1,29 @@
+<div class="keMultiselect" ng-class="{'is-fullWidth': ctrl.fullWidth,'is-open': ctrl.isFocused}">
+    <input
+            type="hidden"
+            ng-model="ctrl.ngModel"
+            ng-change="ctrl.onChange(ngModel)"
+            ng-model-options="{debounce: 300}"
+            >
+    <div class="keMultiselect-Overlay" ng-click="ctrl.isFocused = false;"></div>
+    <div class="keMultiselect-Container">
+        <span
+            class="keMultiselect-Item"
+            ng-repeat="item in ctrl.ngModel"
+            ng-bind-html="ctrl.optionName ? item[ctrl.optionName] : item | sanitize"></span>
+        <input class="keMultiselect-Input"
+            type="text"
+            placeholder="{{ctrl.placeholder}}"
+            ng-required="ctrl.required"
+            ng-model="ctrl.selectedValue"
+            ng-focus="ctrl.isFocused = true"
+                />
+    </div>
+    <ul class="keMultiselect-List">
+        <li ng-if="ctrl.selectedValue"
+            ng-click="ctrl.addValue(ctrl.selectedValue); ctrl.isFocused = false;">{{ctrl.selectedValue}} - create new</li>
+        <li ng-repeat="row in ctrl.options | filter: ctrl.filterOptions"
+            ng-click="ctrl.addValue(ctrl.optionValue ? row[ctrl.optionValue] : row); ctrl.isFocused = false;"
+            ng-bind-html="ctrl.optionName ? row[ctrl.optionName] : row | sanitize"></li>
+    </ul>
+</div>

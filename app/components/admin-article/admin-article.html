@@ -67,6 +67,17 @@
 
         </div>
         <div class="gr-12">
+            <ke-multiselect
+                    ng-model="articleCtrl.post.tags"
+                    data-full-width="true"
+                    data-placeholder="Enter tag"
+                    data-options="articleCtrl.tags"
+                    data-option-name="name"
+                    data-option-value="name"
+                    data-on-add-new="articleCtrl.addNewTag"
+                    ></ke-multiselect>
+        </div>
+        <div class="gr-12">
             <ke-switch
                     ng-model="articleCtrl.post.display"
                     data-label="Publish?"

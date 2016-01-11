@@ -67,6 +67,10 @@ angular.module('app.admin', ['ui.router', 'ng-ckeditor', 'angularFileUpload'])
                             files: ['$stateParams', 'FileService',
                                 function($stateParams, FileService) {
                                     return FileService.getAllImages();
+                                }],
+                            tags: ['$stateParams', 'TagService',
+                                function($stateParams, TagService) {
+                                    return TagService.getAll();
                                 }]
                         },
                         data: {
@@ -107,6 +111,10 @@ angular.module('app.admin', ['ui.router', 'ng-ckeditor', 'angularFileUpload'])
                             files: ['$stateParams', 'FileService',
                                 function($stateParams, FileService) {
                                     return FileService.getAllImages();
+                                }],
+                            tags: ['$stateParams', 'TagService',
+                                function($stateParams, TagService) {
+                                    return TagService.getAll();
                                 }]
                         },
                         controller: 'AdminArticleController',

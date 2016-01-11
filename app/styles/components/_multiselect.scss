@@ -1,0 +1,135 @@
+@import "../settings";
+
+.keMultiselect {
+  position: relative;
+  width: 200px;
+  min-height: 50px;
+  margin: 15px 0;
+
+  &.is-fullWidth {
+    width: 100%;
+  }
+
+  &.is-open {
+    .keMultiselect-Overlay {
+      z-index: 1;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    ul {
+      display: block;
+    }
+    span {
+      z-index: 2;
+    }
+
+    input.keMultiselect-Input {
+      z-index: 2
+    }
+  }
+
+  .keMultiselect-Container {
+    position: absolute;
+    display: block;
+    color: $secondary-text-color;
+    left: 10px;
+    top: 8px;
+    font-size: $font-size-xl;
+  }
+
+  i.dropIcon {
+    position: absolute;
+    display: block;
+    color: $color-dark;
+    right: 20px;
+    top: 12px;
+    font-size: $font-size-md;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  input.keMultiselect-Input{
+    width: 30px;
+    padding: 10px 5px 10px 40px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border: 2px solid $color-light-gray;
+    border-radius: 4px;
+    transition: 0.2s ease-out;
+    color: $color-gray;
+    font-size: $font-size-l;
+
+    &:focus{
+      padding-left: 10px;
+      outline: 0;
+      border-color: $primary-color;
+      color: $color-dark;
+
+      + span {
+        display: none;
+      }
+    }
+
+    &.is-required {
+      border-color: #FF7052;
+    }
+
+    &.has-no-icon {
+      padding-left: 10px;
+    }
+  }
+
+  .keMultiselect-Placeholder{
+    width: 100%;
+    padding: 10px 5px 10px 10px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border: 2px solid $color-light-gray;
+    border-radius: 4px;
+    transition: 0.2s ease-out;
+    color: $color-gray;
+    font-size: $font-size-l;
+
+    &.is-required {
+      border-color: #FF7052;
+    }
+
+    &.has-no-icon {
+      padding-left: 10px;
+    }
+  }
+
+  ul {
+    position: absolute;
+    top: 50px;
+    display: none;
+    height: 200px;
+    width: 100%;
+    z-index: 3;
+    overflow-y: auto;
+    overflow-x: hidden;
+    li {
+      background-color: $color-very-light-gray;
+      padding: 10px 5px 10px 5px;
+      display: block;
+      border: 1px solid #EDEDED;
+      width: 100%;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary-color-light;
+      }
+    }
+
+  }
+}
