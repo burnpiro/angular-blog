@@ -71,12 +71,20 @@
     height: 0;
 
     .KeTestEditor-Button--Modal-Content {
+      position: fixed;
+      width: 95vw;
+      padding: 10px 20px;
+      left:2.5vw;
       background-color: $color-very-light-gray;
       border: 2px solid $color-medium-gray;
       @include border-radius(4px);
       box-shadow: 1px 1px 2px 1px rgba($color-dark, 0.1);
-      padding: 10px 20px;
 
+      > div {
+        margin-left: 50%;
+        width: 100%;
+        @include transform(translate(-50%,0));
+      }
     }
 
     &.is-open {

@@ -52,7 +52,6 @@
             }
 
             scope.ctrl.openModal = function() {
-                console.log(editorCtrl);
                 scope.ctrl.selectedValue = editorCtrl.getSelection().toString();
                 scope.ctrl.isOpen = true;
             };
