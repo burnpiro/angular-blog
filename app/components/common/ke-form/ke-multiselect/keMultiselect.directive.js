@@ -18,6 +18,7 @@
                 optionValue: '@',
                 onChange: '=',
                 onAddNew: '=',
+                onRemove: '=',
                 displayHtml: '='
             },
             controllerAs: 'ctrl',
@@ -52,10 +53,26 @@
                 });
                 if(isNewValue) {
                     if(!_.includes(self.ngModel, value)) {
-                        self.selectedValue.push(value);
+                        self.selectedValues.push(value);
+                        self.selectedValue = '';
                         self.ngModel.push(value);
                         self.onAddNew(value);
                     }
+                }
+            };
+
+
+            self.removeValue = function(value) {
+                if(angular.isDefined(self.optionValue)) {
+                    _.forEach(self.options, function(option) {
+                        if (option[self.optionName] === value) {
+                            delete self.selectedValues[value];
+                            delete self.ngModel[option[self.optionValue]];
+                        }
+                    });
+                } else {
+                    delete self.selectedValue[value];
+                    delete self.ngModel[value];
                 }
             };
 

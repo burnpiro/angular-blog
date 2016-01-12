@@ -19,7 +19,7 @@ require('./devServer/routes')(app, staticdir); // configure our routes
 
 // This route deals enables HTML5Mode by forwarding missing files to the index.html
 app.all('/*', function(req, res) {
-    res.sendfile(__dirname + '/' +staticdir+'/index.html');
+    res.sendFile(__dirname + '/' +staticdir+'/index.html');
 });
 // start app ===============================================
 app.listen(port);                   // startup our app at http://localhost:8080

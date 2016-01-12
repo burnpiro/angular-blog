@@ -7,25 +7,27 @@
             >
     <div class="keMultiselect-Overlay" ng-click="ctrl.isFocused = false;"></div>
     <div class="keMultiselect-Container">
-        {{ctrl.ngModel}}
-        {{ctrl.selectedValues}}
-        <span
-            class="keMultiselect-Item"
-            ng-repeat="item in ctrl.selectedValues"
-            ng-bind-html="ctrl.optionName ? item[ctrl.optionName] : item | sanitize"></span>
-        <input class="keMultiselect-Input"
-            type="text"
-            placeholder="{{ctrl.placeholder}}"
-            ng-required="ctrl.required"
-            ng-model="ctrl.selectedValue"
-            ng-focus="ctrl.isFocused = true"
-                />
+        <div class="keMultiselect-Items">
+            <span
+                class="keMultiselect-Item"
+                ng-repeat="item in ctrl.selectedValues"
+                ng-click="ctrl.removeValue(item)"
+                ng-bind-html="item | sanitize">{{item}} <i class="fa fa-times"></i></span>
+        </div>
+        <div>
+            <input class="keMultiselect-Input"
+                   type="text"
+                   ng-required="ctrl.required"
+                   ng-model="ctrl.selectedValue"
+                   ng-focus="ctrl.isFocused = true"
+                    />
+        </div>
+        <ul class="keMultiselect-List">
+            <li ng-if="ctrl.selectedValue"
+                ng-click="ctrl.addValue(ctrl.selectedValue); ctrl.isFocused = false;">{{ctrl.selectedValue}} - create new</li>
+            <li ng-repeat="row in ctrl.options | filter: ctrl.filterOptions"
+                ng-click="ctrl.addValue(ctrl.optionValue ? row[ctrl.optionValue] : row); ctrl.isFocused = false;"
+                ng-bind-html="ctrl.optionName ? row[ctrl.optionName] : row | sanitize"></li>
+        </ul>
     </div>
-    <ul class="keMultiselect-List">
-        <li ng-if="ctrl.selectedValue"
-            ng-click="ctrl.addValue(ctrl.selectedValue); ctrl.isFocused = false;">{{ctrl.selectedValue}} - create new</li>
-        <li ng-repeat="row in ctrl.options | filter: ctrl.filterOptions"
-            ng-click="ctrl.addValue(ctrl.optionValue ? row[ctrl.optionValue] : row); ctrl.isFocused = false;"
-            ng-bind-html="ctrl.optionName ? row[ctrl.optionName] : row | sanitize"></li>
-    </ul>
 </div>
