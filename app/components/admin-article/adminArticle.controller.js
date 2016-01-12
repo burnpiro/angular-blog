@@ -40,6 +40,7 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
         if($('#desktopEditor').is(':visible')) {
             self.post.content = editor.getData();
         }
+        self.post.tags = _.uniq(self.post.tags);
         PostService.savePost(self.post).then(function(response) {
             toastr.success(response.message);
             if(_.isEmpty(self.post._id)) {

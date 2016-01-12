@@ -34,22 +34,28 @@
             self.selectedValues = [];
 
             self.addValue = function(value) {
-                var selected = _.find(self.options, function(option) {
+                var isNewValue = true;
+                _.forEach(self.options, function(option) {
                     if(angular.isDefined(self.optionValue)) {
-                        if (option[self.optionValue] === value) {
+                        if (option[self.optionValue] === value && !_.includes(self.ngModel, option[self.optionValue])) {
                             self.selectedValues.push(option[self.optionName]);
-                            self.ngModel.push(value);
+                            self.ngModel.push(option[self.optionValue]);
+                            isNewValue = false;
                         }
                     } else {
-                        if (option === value) {
+                        if (option === value && !_.includes(self.ngModel, option)) {
                             self.selectedValue.push(option);
-                            self.ngModel.push(value);
+                            self.ngModel.push(option);
+                            isNewValue = false;
                         }
                     }
                 });
-                if(angular.isUndefined(selected)) {
-                    self.ngModel.push(value);
-                    self.onAddNew(value);
+                if(isNewValue) {
+                    if(!_.includes(self.ngModel, value)) {
+                        self.selectedValue.push(value);
+                        self.ngModel.push(value);
+                        self.onAddNew(value);
+                    }
                 }
             };
 
@@ -62,16 +68,18 @@
                 }
             };
 
-            _.find(self.options, function(option) {
-                if(angular.isDefined(self.optionValue)) {
-                    if (option[self.optionValue] === self.ngModel) {
-                        self.selectedValues.push(option[self.optionName]);
+            _.forEach(self.ngModel, function(element) {
+                _.forEach(self.options, function(option) {
+                    if(angular.isDefined(self.optionValue)) {
+                        if (option[self.optionValue] === element) {
+                            self.selectedValues.push(option[self.optionName]);
+                        }
+                    } else {
+                        if (option === element) {
+                            self.selectedValues.push(option);
+                        }
                     }
-                } else {
-                    if (option === self.ngModel) {
-                        self.selectedValues.push(option);
-                    }
-                }
+                });
             });
         }
     }

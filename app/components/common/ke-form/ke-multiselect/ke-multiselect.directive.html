@@ -7,9 +7,11 @@
             >
     <div class="keMultiselect-Overlay" ng-click="ctrl.isFocused = false;"></div>
     <div class="keMultiselect-Container">
+        {{ctrl.ngModel}}
+        {{ctrl.selectedValues}}
         <span
             class="keMultiselect-Item"
-            ng-repeat="item in ctrl.ngModel"
+            ng-repeat="item in ctrl.selectedValues"
             ng-bind-html="ctrl.optionName ? item[ctrl.optionName] : item | sanitize"></span>
         <input class="keMultiselect-Input"
             type="text"
