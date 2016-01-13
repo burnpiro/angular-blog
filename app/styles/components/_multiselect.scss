@@ -18,6 +18,7 @@
     .keMultiselect-Overlay {
       z-index: 1;
       position: fixed;
+      display: block;
       top: 0;
       left: 0;
       width: 100%;
@@ -36,22 +37,16 @@
   }
 
   .keMultiselect-Container {
-    position: absolute;
+    position: relative;
     width: 100%;
     padding: 10px 5px 10px 10px;
     display: block;
     color: $secondary-text-color;
-    left: 10px;
-    top: 8px;
     font-size: $font-size-xl;
     border: 2px solid $color-light-gray;
     border-radius: 4px;
     background-color: $color-white;
 
-    > div {
-      display: inline-flex;
-      float: left;
-    }
     .keMultiselect-Items {
       float: left;
 
@@ -62,6 +57,9 @@
         padding-right: 10px;
         border-radius: 10px;
         cursor: pointer;
+        white-space: nowrap;
+        float: left;
+        margin-top: 10px;
       }
     }
   }
@@ -117,6 +115,7 @@
     z-index: 3;
     overflow-y: auto;
     overflow-x: hidden;
+    margin-left: -10px;
     //@include transform(translate(0,50%));
     li {
       background-color: $color-very-light-gray;

@@ -22,7 +22,8 @@ function Directive() {
         },
         controllerAs: 'ctrl',
         templateUrl: 'components/common/ke-form/ke-multiselect/ke-multiselect.directive.html',
-        controller: ctrl
+        controller: ctrl,
+        link: linkFn
     };
 
     function ctrl() {
@@ -111,5 +112,14 @@ function Directive() {
                 }
             });
         });
+    }
+
+    function linkFn(scope, element) {
+        scope.ctrl.focus = function() {
+            if(!scope.ctrl.isFocused) {
+                element.find('input').focus();
+                scope.ctrl.isFocused = true;
+            }
+        }
     }
 }
