@@ -17,7 +17,7 @@ angular.module('app.article', ['ui.router'])
                                 }],
                             relatedArticles: ['$stateParams', 'PostService',
                                 function($stateParams, PostService) {
-                                    return PostService.searchPosts({limit: 3});
+                                    return PostService.getRelated({post: $stateParams.postId, limit: 3});
                                 }]
                         },
                         controllerAs: 'article'

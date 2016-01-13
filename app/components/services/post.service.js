@@ -24,6 +24,10 @@ function PostService(Restangular) {
         return Restangular.one('posts').post('search', request);
     };
 
+    this.getRelated = function(request) {
+        return Restangular.one('posts').post('related', request);
+    };
+
     this.getRecentPosts = function() {
         return Restangular.one('posts').post('search', {limit: 11});
     };
