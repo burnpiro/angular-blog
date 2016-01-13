@@ -12,7 +12,7 @@
                 class="keMultiselect-Item"
                 ng-repeat="item in ctrl.selectedValues"
                 ng-click="ctrl.removeValue(item)"
-                ng-bind-html="item | sanitize">{{item}} <i class="fa fa-times"></i></span>
+                ng-bind-html="item+' <i class=\'fa fa-times\'></i>' | sanitize"></span>
         </div>
         <div>
             <input class="keMultiselect-Input"

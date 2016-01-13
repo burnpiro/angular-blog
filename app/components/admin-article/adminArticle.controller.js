@@ -61,5 +61,5 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
             console.log(response);
             self.tags.push(tag);
         })
-    }
+    };
 }
