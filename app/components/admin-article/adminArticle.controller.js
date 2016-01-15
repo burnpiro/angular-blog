@@ -18,7 +18,8 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
             shortText: '',
             image: '',
             author: 'Kemal Erdem',
-            display: true
+            display: true,
+            tags: []
         };
     }
     //var editor = ckeditorEditorFactory;
@@ -58,8 +59,7 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
 
     self.addNewTag = function(tag) {
         TagService.createTag(tag).then(function(response) {
-            console.log(response);
-            self.tags.push(tag);
+            self.tags.push(response.data);
         })
     };
 }

@@ -40,7 +40,8 @@ function PostService(Restangular) {
             shortText: post.shortText,
             image: post.image ? post.image : null,
             content: post.content,
-            display: post.display
+            display: post.display,
+            tags: post.tags
         };
         if(_.isObject(post._category)) {
             request._category = post._category._id;

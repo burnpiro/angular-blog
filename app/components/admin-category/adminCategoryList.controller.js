@@ -10,7 +10,9 @@ function AdminCategoryListController(CategoryService, categories, toastr) {
     self.saveCategory = function(category) {
         CategoryService.saveCategory(category).then(function (response) {
             toastr.success(response.message);
-            if(_.isEmpty(category._id)) {
+            if(!_.find(self.categories, function(category) {
+                    return category._id === response.data._id;
+                })) {
                 self.categories.push(response.data);
             }
             self.closeAddNew();
