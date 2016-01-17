@@ -20,4 +20,10 @@ section.contact {
             color: $color-very-light-gray;
         }
     }
+
+    @media screen and (max-width: $mobileWidth) {
+        h1 {
+            margin-top: 10px;
+        }
+    }
 }

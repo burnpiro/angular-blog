@@ -63,7 +63,6 @@
 
     .title {
         z-index: 0;
-        margin: 0 auto;
         padding: 0 1.25em;
         width: 100%;
         text-align: left;
@@ -211,7 +210,7 @@
 
         > div {
             &#articleContent {
-                margin-bottom: 20px;
+                margin: 20px 0;
             }
 
             &.fbComments {
@@ -270,7 +269,6 @@
     /* Media Queries */
     @media screen and (max-width: $tabletWidth) {
         .title, .content {
-            font-size: 90%;
             width: 75%;
             padding: 0 1em 0 1em;
         }
@@ -282,8 +280,12 @@
 
     @media screen and (max-width: $mobileWidth) {
 
-        .title, .content {
-            font-size: 80%;
+        .title {
+            font-size: $font-size-md;
+        }
+
+        #articleContent {
+            font-size: $font-size-l;
         }
 
         .content {

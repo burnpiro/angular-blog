@@ -29,14 +29,14 @@
                 class="gr-12"
                 ui-sref="home"
                 data-icon="fa-home"
-                ng-if="!menu.prevState"
+                ng-if="!menu.prevState || menu.prevState.stateName === 'home'"
                 data-no-close="true"
                 ></ke-icon-button>
         <ke-icon-button
                 class="gr-12"
                 ng-click="menu.goToPrevState()"
-                data-icon="fa-arrow-left"
-                ng-if="menu.prevState"
+                data-icon="fa-arrow-up"
+                ng-if="menu.prevState && menu.prevState.stateName !== 'home'"
                 data-no-close="true"
                 ></ke-icon-button>
     </div>

@@ -7,7 +7,9 @@ function keIconButtonDirective(FileService, $state) {
         bindToController: {
             elements: '=',
             type: '@',
-            link: '@'
+            link: '@',
+            dataName: '@',
+            dataValue: '@'
         },
         templateUrl: 'components/common/ke-grid/ke-grid.directive.html',
         controllerAs: 'ctrl',
@@ -15,9 +17,13 @@ function keIconButtonDirective(FileService, $state) {
             var self = this;
             self.getImageLink = FileService.getImageLink;
             self.link = angular.isDefined(self.link) ? self.link : 'post';
+            self.dataName = angular.isDefined(self.dataName) ? self.dataName : 'postId';
+            self.dataValue = angular.isDefined(self.dataValue) ? self.dataValue : '_id';
 
-            self.goToLink = function(postId) {
-                $state.go(self.link, {postId: postId});
+            self.goToLink = function(dataId) {
+                var data = {};
+                data[self.dataName] = dataId;
+                $state.go(self.link, data);
             }
         }
     };

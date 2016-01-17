@@ -7,6 +7,7 @@ ke-icon-button {
         color: $color-gray;
         cursor: pointer;
         text-align: center;
+        white-space: nowrap;
         @include transition(all 0.5s ease);
         &:hover {
             color: $primary-color;
@@ -73,6 +74,7 @@ ke-icon-button {
     font-weight: 600;
     border-radius: 3px;
     box-sizing: border-box;
+    white-space: nowrap;
     i {
         position: relative;
         top: 1px;

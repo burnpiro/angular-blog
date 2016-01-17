@@ -25,7 +25,9 @@
             <ke-icon-button
                     ng-if="item.link"
                     data-icon="{{item.icon}}"
+                    data-alt-icon="{{item.icon}}"
                     ui-sref="{{item.link}}"
+                    ng-click="admin.bottomMenuOpen = false"
                     data-color="color-dark"
                     data-title="{{::item.name}}"
                     ></ke-icon-button>
@@ -33,7 +35,8 @@
             <ke-icon-button
                     ng-if="item.click"
                     data-icon="{{item.icon}}"
-                    ng-click="admin.callFunction(item.click)"
+                    data-alt-icon="{{item.icon}}"
+                    ng-click="admin.callFunction(item.click); admin.bottomMenuOpen = false"
                     data-color="color-dark"
                     data-title="{{::item.name}}"
                     ></ke-icon-button>

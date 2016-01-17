@@ -16,6 +16,10 @@
         top: 0;
         left: 0;
 
+        h1 {
+            padding-top: 50px;
+        }
+
         background-size: cover;
         background-repeat: no-repeat;
         @include transition(all 0.45s ease);

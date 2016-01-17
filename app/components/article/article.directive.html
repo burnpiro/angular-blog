@@ -22,7 +22,7 @@
                         <ke-tweet-button data-name="{{::ctrl.articleData.name}}"></ke-tweet-button>
                     </div>
                 </div>
-                <div class="relatedArticles">
+                <div class="relatedArticles" ng-if="ctrl.relatedArticles.length > 0">
                     <ke-related-selector
                             data-options="ctrl.relatedArticles"
                             data-title="Related Articles:"

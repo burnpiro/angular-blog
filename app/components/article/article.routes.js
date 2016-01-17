@@ -13,6 +13,7 @@ angular.module('app.article', ['ui.router'])
                         resolve: {
                             post: ['$stateParams', 'PostService',
                                 function($stateParams, PostService) {
+                                    console.log($stateParams);
                                     return PostService.getOneById($stateParams.postId);
                                 }],
                             relatedArticles: ['$stateParams', 'PostService',
