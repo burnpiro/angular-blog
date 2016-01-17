@@ -25,7 +25,7 @@ angular.module('app', [
         RestangularProvider.addFullRequestInterceptor(interceptor.request);
     })
     .config(["$locationProvider", function($locationProvider) {
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true);
     }])
     .config(function($stateProvider, $urlRouterProvider){
 
