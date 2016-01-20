@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.admin').
@@ -27,3 +28,4 @@ function AdminCategoryListController(CategoryService, categories, toastr) {
         self.newCategory = undefined;
     }
 }
+})(angular);

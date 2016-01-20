@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keInputText', [keInputTextDirective]);
 
@@ -23,3 +24,4 @@ function keInputTextDirective() {
 
     }
 }
+})(angular);

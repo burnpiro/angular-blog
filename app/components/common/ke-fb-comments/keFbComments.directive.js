@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keFbComments', [keFbCommentsDirective]);
 
@@ -40,3 +41,4 @@ function keFbCommentsDirective() {
         }
     };
 }
+})(angular);

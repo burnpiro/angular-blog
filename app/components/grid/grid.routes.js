@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.grid', ['ui.router'])
@@ -66,3 +67,4 @@ angular.module('app.grid', ['ui.router'])
                 }
             })
     });
+})(angular);

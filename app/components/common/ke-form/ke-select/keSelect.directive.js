@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keSelect', [keSelectDirective]);
 
@@ -69,3 +70,4 @@ function keSelectDirective() {
         });
     }
 }
+})(angular);

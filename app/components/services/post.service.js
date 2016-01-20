@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.services').
@@ -57,3 +58,4 @@ function PostService(Restangular) {
         return Restangular.one('posts', postId).remove();
     }
 }
+})(angular);

@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.menu', [])
@@ -58,3 +59,4 @@ function MenuController(PostService, CategoryService, LeftSliderService, $rootSc
         });
     };
 }
+})(angular);

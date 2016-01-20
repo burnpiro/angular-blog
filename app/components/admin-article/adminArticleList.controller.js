@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.admin').
@@ -19,3 +20,4 @@ function AdminArticleListController($window, UserService, PostService, posts) {
         post.background = _.sample(classes);
     });
 }
+})(angular);

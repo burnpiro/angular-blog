@@ -1,4 +1,4 @@
-(function() {
+(function (angular) {
     angular.module('app.common').
         directive('keListButton', [directive]);
 
@@ -22,4 +22,4 @@
             self.isOpen = false;
         }
     }
-})();
+})(angular);

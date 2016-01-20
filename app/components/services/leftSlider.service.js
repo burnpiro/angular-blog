@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.services').
@@ -29,3 +30,4 @@ function LeftSliderService($rootScope, $templateRequest, $compile) {
         });
     }
 }
+})(angular);

@@ -1,4 +1,4 @@
-(function() {
+(function (angular) {
     angular.module('app.common').
         directive('keModalButton', ['$templateRequest', '$compile', directive]);
 
@@ -58,4 +58,4 @@
 
         }
     }
-})();
+})(angular);

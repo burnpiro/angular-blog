@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keTweetButton', [keTweetButtonDirective]);
 
@@ -32,3 +33,4 @@ function keTweetButtonDirective() {
         }
     };
 }
+})(angular);

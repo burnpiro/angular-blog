@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.admin').
@@ -35,3 +36,4 @@ function AdminController(UserService, $state) {
 AdminController.prototype.canActivate = function(UserService) {
     return UserService.isUserLoggedIn();
 };
+})(angular);

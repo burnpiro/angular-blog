@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app', [
@@ -144,3 +145,4 @@ function authInterceptor($window) {
         }
     }
 }
+})(angular);

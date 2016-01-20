@@ -1,4 +1,4 @@
-(function() {
+(function (angular) {
     angular.module('app.common').
         controller('keImageModalController', ['$scope', 'FileService', Controller]);
 
@@ -14,4 +14,4 @@
             $scope.$parent.setHTML('\'<img src="'+FileService.getImageLink(image.name, '1024')+'">\'');
         }
     }
-})();
+})(angular);

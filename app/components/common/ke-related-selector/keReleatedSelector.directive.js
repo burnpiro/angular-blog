@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keRelatedSelector', ['FileService', keRelatedSelectorDirective]);
 
@@ -34,3 +35,4 @@ function keRelatedSelectorDirective(FileService) {
         }
     }
 }
+})(angular);

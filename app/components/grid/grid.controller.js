@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.grid').
@@ -38,3 +39,4 @@ function GridController(categories, posts, FileService, $rootScope, $state) {
         };
     }
 }
+})(angular);

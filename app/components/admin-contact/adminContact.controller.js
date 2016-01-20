@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.admin').
@@ -35,3 +36,4 @@ function AdminContactController(MessageService, messages, $mdDialog, toastr) {
         });
     };
 }
+})(angular);

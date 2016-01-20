@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.admin').
@@ -88,3 +89,4 @@ function ngThumbDirective($window) {
         }
     };
 }
+})(angular);

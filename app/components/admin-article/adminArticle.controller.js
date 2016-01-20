@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.admin').
@@ -63,3 +64,4 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
         })
     };
 }
+})(angular);

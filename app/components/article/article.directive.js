@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.article').
     directive('articleDirective', ['FileService', articleDirective]);
 
@@ -140,3 +141,4 @@ function articleDirective() {
         }
     };
 }
+})(angular);

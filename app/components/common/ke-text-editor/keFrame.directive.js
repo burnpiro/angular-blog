@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keFrame', ['$timeout', keFrameDirective]);
 
@@ -90,3 +91,4 @@ function keFrameDirective($timeout) {
         ctrl.render();
     }
 }
+})(angular);

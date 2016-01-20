@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.article').
@@ -13,3 +14,4 @@ function ArticleController(post, relatedArticles, $rootScope, PostService) {
     };
 
 }
+})(angular);

@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.services').
@@ -12,3 +13,4 @@ function TagService(Restangular) {
         return Restangular.one('tags').post('', { name: tag});
     };
 }
+})(angular);

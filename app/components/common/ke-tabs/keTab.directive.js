@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keTab', ['$templateRequest', '$compile', keTabDirective]);
 
@@ -32,3 +33,4 @@ function keTabDirective($templateRequest, $compile) {
         }
     };
 }
+})(angular);

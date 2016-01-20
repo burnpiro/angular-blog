@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keTextarea', [keTextareaDirective]);
 
@@ -23,3 +24,4 @@ function keTextareaDirective() {
         self.rows = angular.isDefined(self.rows) ? self.rows : 3;
     }
 }
+})(angular);

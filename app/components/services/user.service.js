@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.services').
@@ -45,3 +46,4 @@ function UserService(Restangular, $window, jwtHelper) {
         delete $window.localStorage.token;
     }
 }
+})(angular);

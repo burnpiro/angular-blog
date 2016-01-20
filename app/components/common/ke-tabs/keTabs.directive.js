@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keTabs', [keTabsDirective]);
 
@@ -31,3 +32,4 @@ function keTabsDirective() {
         }
     };
 }
+})(angular);

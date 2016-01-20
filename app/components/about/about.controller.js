@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.about', []).
@@ -6,3 +7,4 @@ angular.module('app.about', []).
 function AboutController() {
     this.startAnimate = false;
 }
+})(angular);

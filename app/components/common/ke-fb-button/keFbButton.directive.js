@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keFbButton', [keFbButtonDirective]);
 
@@ -57,3 +58,4 @@ function keFbButtonDirective() {
         }
     };
 }
+})(angular);

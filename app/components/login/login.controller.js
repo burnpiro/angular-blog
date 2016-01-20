@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.login')
@@ -18,3 +19,4 @@ function LoginController($window, $state, UserService) {
             });
     }
 }
+})(angular);

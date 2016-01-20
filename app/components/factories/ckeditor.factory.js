@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('ng-ckeditor', []).
     factory('ckeditorEditorFactory', [ckeditorEditorFactory]);
 
@@ -94,3 +95,4 @@ function ckeditorEditorFactory() {
 
     return service;
 }
+})(angular);

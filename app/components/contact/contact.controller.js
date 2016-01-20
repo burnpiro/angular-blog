@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.about').
@@ -15,3 +16,4 @@ function ContactController(MessageService, toastr) {
         });
     }
 }
+})(angular);

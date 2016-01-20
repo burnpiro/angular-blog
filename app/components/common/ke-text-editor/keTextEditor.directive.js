@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keTextEditor', [keTextEditorDirective]);
 
@@ -216,3 +217,4 @@ function keTextEditorDirective() {
         };
     }
 }
+})(angular);

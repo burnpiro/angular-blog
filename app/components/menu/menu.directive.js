@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.menu').
     directive('menuDirective', ['$timeout', 'PostService', 'CategoryService', menuDirective]);
 
@@ -46,3 +47,4 @@ function menuDirective() {
         }
     };
 }
+})(angular);

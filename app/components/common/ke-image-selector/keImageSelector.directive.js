@@ -1,4 +1,4 @@
-(function() {
+(function (angular) {
     angular.module('app.common').
         directive('keImageSelector', ['FileService', Directive]);
 
@@ -38,4 +38,4 @@
             }
         };
     }
-})();
+})(angular);

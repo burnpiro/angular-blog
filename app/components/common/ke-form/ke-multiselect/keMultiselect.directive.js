@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keMultiselect', [Directive]);
 
@@ -123,3 +124,4 @@ function Directive() {
         }
     }
 }
+})(angular);

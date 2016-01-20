@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.services').
@@ -16,3 +17,4 @@ function MessageService(Restangular) {
         return Restangular.one('messages', messageId).remove();
     }
 }
+})(angular);

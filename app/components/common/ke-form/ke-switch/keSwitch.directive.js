@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keSwitch', [keSwitchDirective]);
 
@@ -23,3 +24,4 @@ function keSwitchDirective() {
         self.id = angular.isDefined(self.id) ? self.id : 'keCheckbox';
     }
 }
+})(angular);

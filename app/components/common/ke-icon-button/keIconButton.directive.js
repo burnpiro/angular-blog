@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keIconButton', [keIconButtonDirective]);
 
@@ -29,3 +30,4 @@ function keIconButtonDirective() {
         }
     };
 }
+})(angular);

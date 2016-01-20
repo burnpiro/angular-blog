@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keFilesManager', ['FileService', keFbCommentsDirective]);
 
@@ -26,3 +27,4 @@ function keFbCommentsDirective(FileService) {
         }
     };
 }
+})(angular);

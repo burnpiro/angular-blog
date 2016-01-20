@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.article', ['ui.router'])
@@ -37,3 +38,4 @@ angular.module('app.article', ['ui.router'])
                 }
             })
     });
+})(angular);

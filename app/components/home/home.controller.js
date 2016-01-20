@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.home', []).
@@ -28,3 +29,4 @@ function HomeController(posts, FileService, $rootScope) {
 
     $rootScope.prevState = undefined;
 }
+})(angular);

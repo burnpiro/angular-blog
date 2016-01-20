@@ -1,3 +1,4 @@
+(function (angular) {
 angular.module('app.common').
     directive('keGrid', ['FileService', '$state', keIconButtonDirective]);
 
@@ -28,3 +29,4 @@ function keIconButtonDirective(FileService, $state) {
         }
     };
 }
+})(angular);

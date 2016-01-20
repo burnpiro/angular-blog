@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.admin', ['ui.router', 'ng-ckeditor', 'angularFileUpload'])
@@ -189,3 +190,4 @@ angular.module('app.admin', ['ui.router', 'ng-ckeditor', 'angularFileUpload'])
                 }
             })
     });
+})(angular);

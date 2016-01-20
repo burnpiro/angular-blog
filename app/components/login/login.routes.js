@@ -1,3 +1,4 @@
+(function (angular) {
 'use strict';
 
 angular.module('app.login', ['ui.router'])
@@ -24,3 +25,4 @@ angular.module('app.login', ['ui.router'])
                 }
             })
     });
+})(angular);
