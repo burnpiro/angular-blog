@@ -8,11 +8,11 @@ function keIconButtonDirective() {
         bindToController: {
             icon: '@',
             altIcon: '@',
-            close: '=',
+            close: '=?',
             bordered: '@',
             title: '@',
-            noClose: '=',
-            noAction: '=',
+            noClose: '=?',
+            noAction: '=?',
             color: '@'
         },
         templateUrl: 'components/common/ke-icon-button/ke-icon-button.directive.html',
