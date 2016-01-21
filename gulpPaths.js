@@ -16,7 +16,7 @@ module.exports  = {
     ],
     bowerComponents: [
         './bower_components/jquery/dist/jquery.js',
-        './bower_components/lodash/lodash.js',
+        './bower_components/underscore/underscore.js',
         './bower_components/angular/angular.js',
         './bower_components/angular-animate/angular-animate.js',
         './bower_components/angular-file-upload/angular-file-upload.js',

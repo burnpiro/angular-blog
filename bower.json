@@ -10,7 +10,8 @@
     "angular-toastr": "~1.4.1",
     "angular-ui-router": "~0.2.15",
     "foundation": "~5.5.1",
-    "restangular": "~1.5.1"
+    "restangular": "~1.5.1",
+    "underscore": "~1.8.3"
   },
   "overrides": {
     "foundation": {
