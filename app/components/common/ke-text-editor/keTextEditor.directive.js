@@ -210,7 +210,6 @@ function keTextEditorDirective() {
         ];
 
         self.buttonAction = function(cmd, args) {
-            console.log(cmd, args);
             if(angular.isDefined(args) && angular.isDefined(args.begin)) {
                 cmd = 'insertHTML';
             }
