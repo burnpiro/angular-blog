@@ -17,6 +17,14 @@ function FileService(Restangular) {
         return Restangular.one('images').customPOST(request);
     };
 
+    this.getImages = function(limit, offset) {
+        var request = {
+            limit: limit,
+            offset: offset
+        };
+        return Restangular.one('images').customPOST(request);
+    };
+
     this.getOneByName = function(name) {
         if(_.isEmpty(name)) {
             return '/images/logo1920x1280.png';

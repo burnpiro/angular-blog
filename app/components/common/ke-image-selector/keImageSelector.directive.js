@@ -11,7 +11,9 @@
                 action: '=',
                 ngModel: '=',
                 title: '@',
-                valueName: '@'
+                valueName: '@',
+                loadMoreFunction: '=',
+                noMoreImages: '='
             },
             templateUrl: 'components/common/ke-image-selector/ke-image-selector.directive.html',
             controllerAs: 'ctrl',

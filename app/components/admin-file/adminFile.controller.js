@@ -20,6 +20,9 @@ function AdminFileController(FileService, files, toastr, FileUploader, $window) 
         count: 0,
         selectedAlignment: 'md-left'
     };
+    self.limit = 12;
+    self.offset = 12;
+    self.noMoreImages = false;
 
     self.uploadFile = function(file) {
         if(self.busy) {
@@ -44,6 +47,25 @@ function AdminFileController(FileService, files, toastr, FileUploader, $window) 
         self.files.push(response.fileName);
         self.uploader.clearQueue();
     };
+    self.loadMoreImages = function() {
+        if(self.busy || self.noMoreImages === true) {
+            return false;
+        }
+        self.busy = true;
+        FileService.getImages(self.limit, self.offset)
+            .then(function(response) {
+                if( response.data.length < self.limit ) {
+                    self.noMoreImages = true;
+                }
+                self.offset += self.limit;
+                _.forEach(response.data, function(image) {
+                    self.files.push(image);
+                });
+                self.busy = false;
+            }, function() {
+                self.busy = false;
+            })
+    }
 }
 
 /**

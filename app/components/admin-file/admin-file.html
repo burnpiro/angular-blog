@@ -1,8 +1,4 @@
 <div class="adminFilesList">
-    <ke-files-manager
-        data-files="fileCtrl.files"
-        ></ke-files-manager>
-
     <div class="adminFilesUpload gr-12" ng-show="!fileCtrl.busy">
         <input type="file" nv-file-select uploader="fileCtrl.uploader"/><br/>
         <ul>
@@ -19,4 +15,16 @@
             </li>
         </ul>
     </div>
+    <ke-files-manager
+        data-files="fileCtrl.files"
+        ></ke-files-manager>
+    <div class="gr-12"
+            ng-if="!fileCtrl.noMoreImages">
+        <ke-button
+                data-label="Load more images"
+                data-full-width="true"
+                ng-click="fileCtrl.loadMoreImages()"
+                ></ke-button>
+    </div>
+
 </div>
