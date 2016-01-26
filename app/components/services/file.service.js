@@ -18,10 +18,16 @@ function FileService(Restangular) {
     };
 
     this.getOneByName = function(name) {
+        if(_.isEmpty(name)) {
+            return '/images/logo1920x1280.png';
+        }
         return Restangular.one('files').get('', name);
     };
 
     this.getOneImageByName = function(name, size) {
+        if(_.isEmpty(name)) {
+            return '/images/logo1920x1280.png';
+        }
         return Restangular.one('images').get('', name+'.'+size);
     };
 
@@ -39,7 +45,7 @@ function FileService(Restangular) {
         if(_.isUndefined(size)) {
             size = '400';
         }
-        if(imageName === null) {
+        if(_.isEmpty(imageName)) {
             return '/images/logo1920x1280.png';
         } else {
             return config.host+config.imagePath+'/'+imageName+'/'+size;

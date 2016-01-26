@@ -8,7 +8,6 @@ function keSwitchDirective() {
         bindToController: {
             label: '@',
             id: '@',
-            value: '=',
             ngModel: '=',
             fullWidth: '='
         },
@@ -20,7 +19,6 @@ function keSwitchDirective() {
     function ctrl() {
         var self = this;
 
-        self.value = angular.isDefined(self.value) ? self.value : true;
         self.id = angular.isDefined(self.id) ? self.id : 'keCheckbox';
     }
 }

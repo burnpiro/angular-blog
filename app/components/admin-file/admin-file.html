@@ -3,7 +3,7 @@
         data-files="fileCtrl.files"
         ></ke-files-manager>
 
-    <div class="adminFilesUpload gr-12">
+    <div class="adminFilesUpload gr-12" ng-show="!fileCtrl.busy">
         <input type="file" nv-file-select uploader="fileCtrl.uploader"/><br/>
         <ul>
             <li ng-repeat="item in fileCtrl.uploader.queue">

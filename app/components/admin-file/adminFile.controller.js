@@ -8,6 +8,7 @@ angular.module('app.admin').
 
 function AdminFileController(FileService, files, toastr, FileUploader, $window) {
     var self = this;
+    self.busy = false;
     self.uploader = new FileUploader({
         url: config.host + '/files',
         headers: {'Authorization': 'Bearer '+$window.localStorage.token}
@@ -21,7 +22,12 @@ function AdminFileController(FileService, files, toastr, FileUploader, $window) 
     };
 
     self.uploadFile = function(file) {
+        if(self.busy) {
+            return false;
+        }
+        self.busy = true;
         FileService.saveFile(file).then(function (response) {
+            self.busy = false;
             toastr.success(response.message);
             if(_.isEmpty(response.name)) {
                 self.files.push(response.name);
