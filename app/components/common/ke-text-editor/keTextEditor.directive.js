@@ -147,32 +147,32 @@ function keTextEditorDirective() {
             },
             heading: {
                 class: 'keTextEditor-Button--Heading',
-                action: 'heading',
+                action: 'formatBlock',
                 label: 'Heading',
                 icon: 'fa-header',
                 options: [
                     {
-                        action: 'H1',
+                        action: '<h1>',
                         label: '<h1>Heading 1</h1>'
                     },
                     {
-                        action: 'H2',
+                        action: '<h2>',
                         label: '<h2>Heading 2</h2>'
                     },
                     {
-                        action: 'H3',
+                        action: '<h3>',
                         label: '<h3>Heading 3</h3>'
                     },
                     {
-                        action: 'H4',
+                        action: '<h4>',
                         label: '<h4>Heading 4</h4>'
                     },
                     {
-                        action: 'H5',
+                        action: '<h5>',
                         label: '<h5>Heading 5</h5>'
                     },
                     {
-                        action: 'H6',
+                        action: '<h6>',
                         label: '<h6>Heading 6</h6>'
                     }
                 ],
@@ -210,6 +210,7 @@ function keTextEditorDirective() {
         ];
 
         self.buttonAction = function(cmd, args) {
+            console.log(cmd, args);
             if(angular.isDefined(args) && angular.isDefined(args.begin)) {
                 cmd = 'insertHTML';
             }
