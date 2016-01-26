@@ -7,7 +7,7 @@
 <div class="KeTestEditor-Button--List-Options" ng-class="{'is-open': ctrl.isOpen}">
     <ul>
         <li ng-repeat="option in ctrl.options" ng-click="keTextEditor.buttonAction(ctrl.action, option.action); ctrl.isOpen = false;">
-            <span ng-bind-html="option.label | sanitize"></span>a
+            <span ng-bind-html="option.label | sanitize"></span>
         </li>
     </ul>
 </div>
