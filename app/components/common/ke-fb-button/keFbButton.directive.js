@@ -34,7 +34,7 @@ function keFbButtonDirective() {
                 self.type = 'fb-like';
             }
             if(self.type === 'fb-follow') {
-                self.link = 'http://www.facebook.com/erdempl'
+                self.link = config.fbFollowLink;
             }
             if(angular.isUndefined(self.link)) {
                 self.link = document.location.href;
