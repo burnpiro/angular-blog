@@ -34,7 +34,6 @@
             scope.setHTML = function(left, right) {
                 var newValue = left;
                 if(!_.isEmpty(right)) {
-                    console.log(right);
                     newValue += scope.ctrl.selectedValue + right;
                 }
                 editorCtrl.buttonAction('insertHTML', {begin: eval(newValue)});
