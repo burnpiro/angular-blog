@@ -46,6 +46,7 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
             self.post.content = editor.getData();
         }
         self.post.tags = _.uniq(self.post.tags);
+        filterAllowedTags();
         PostService.savePost(self.post).then(function(response) {
             toastr.success(response.message);
             if(_.isEmpty(self.post._id)) {
@@ -64,6 +65,7 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
     self.addNewTag = function(tag) {
         TagService.createTag(tag).then(function(response) {
             self.tags.push(response.data);
+            self.post.tags.push(response.data._id);
         })
     };
 
@@ -85,6 +87,13 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
             }, function() {
                 self.busy = false;
             })
+    };
+
+    function filterAllowedTags() {
+        self.post.tags = _.filter(self.post.tags, function(tag) {
+            console.log(tag, _.find(self.tags, { _id: tag}), angular.isDefined(_.find(self.tags, { _id: tag})));
+            return angular.isDefined(_.find(self.tags, { _id: tag}));
+        });
     }
 }
 })(angular);

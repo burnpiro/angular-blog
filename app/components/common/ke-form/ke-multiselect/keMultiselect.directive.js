@@ -54,9 +54,7 @@ function Directive() {
             });
             if(isNewValue) {
                 if(!_.includes(self.ngModel, value) && angular.isDefined(self.onAddNew)) {
-                    self.selectedValues.push(value);
                     self.selectedValue = '';
-                    self.ngModel.push(value);
                     self.onAddNew(value);
                 }
             }
