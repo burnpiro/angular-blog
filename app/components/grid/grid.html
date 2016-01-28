@@ -1,5 +1,25 @@
 <section class="container">
     <div class="Grid">
+        <div ng-if="(grid.postsData.length + grid.categoriesData.length) === 0">
+            <div id="catInfo">
+                <h3>Sorry but there are no articles here :(</h3>
+                <h5>Instead I give you a "Pixel Cat"</h5>
+            </div>
+            <div id="catContainer">
+                <div id="cat">
+                    <div>
+
+                    </div>
+                </div>
+
+                <div id="speech">meow
+                    <li></li>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <ke-grid
             data-elements="grid.postsData"
             data-type="post"

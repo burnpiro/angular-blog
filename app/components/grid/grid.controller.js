@@ -17,6 +17,7 @@ function GridController(categories, posts, FileService, $rootScope, $state) {
     if(!_.isEmpty(posts.data)) {
         self.postsData = self.postsData.concat(posts.data);
     }
+    console.log(self.categoriesData, self.postsData);
     var saturation = 600;
     var classes = [
         'bg-color-red-'+saturation, 'bg-color-pink-'+saturation, 'bg-color-purple-'+saturation, 'bg-color-deep-purple-'+saturation, 'bg-color-indigo-'+saturation,

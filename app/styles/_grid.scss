@@ -137,3 +137,45 @@
         }
     }
 }
+
+#catInfo {
+    width: 100vw;
+    padding-top: 50px;
+    text-align: center;
+
+    h5 {
+        margin-top: 40px;
+    }
+}
+
+#catContainer {
+    margin:0 auto;
+    width:85px;
+
+    
+    #cat div{
+        width: 6px;
+        height: 6px;
+        background: none;
+        box-shadow: 36px 54px $cat-color,42px 48px $cat-color,48px 42px $cat-color,36px 66px $cat-color,36px 60px $cat-color,36px 72px $cat-color,36px 78px $cat-color,54px 48px $cat-color,54px 54px $cat-color,60px 54px $cat-color,72px 54px $cat-color,66px 54px $cat-color,78px 54px $cat-color,84px 54px $cat-color,90px 54px $cat-color,96px 54px $cat-color,36px 84px $cat-color,36px 90px $cat-color,102px 54px $cat-color,102px 48px $cat-color,108px 42px $cat-color,114px 48px $cat-color,120px 54px $cat-color,120px 60px $cat-color,120px 66px $cat-color,120px 78px $cat-color,120px 72px $cat-color,120px 84px $cat-color,120px 90px $cat-color,42px 96px $cat-color,48px 102px $cat-color,54px 102px $cat-color,60px 108px $cat-color,114px 90px $cat-color,108px 96px $cat-color,102px 96px $cat-color,66px 114px $cat-color,66px 120px $cat-color,66px 126px $cat-color,66px 132px $cat-color,72px 120px $cat-color,78px 120px $cat-color,90px 120px $cat-color,84px 120px $cat-color,96px 120px $cat-color,102px 120px $cat-color,108px 120px $cat-color,114px 120px $cat-color,114px 126px $cat-color,114px 132px $cat-color,120px 114px $cat-color,126px 114px $cat-color,126px 120px $cat-color,132px 108px $cat-color,132px 102px $cat-color,132px 96px $cat-color,132px 90px $cat-color,132px 84px $cat-color,126px 78px $cat-color,138px 78px $cat-color,138px 72px $cat-color,138px 66px $cat-color,132px 60px $cat-color,54px 72px $cat-color,96px 72px $cat-color,72px 84px $cat-color,78px 84px $cat-color,96px 78px $cat-color,54px 78px $cat-color;}
+
+
+    #speech {
+        position:relative;
+        width:100px;
+        height:40px;
+        margin:10px -80px;
+        text-align:center;
+        background:#8bae21;
+        font-size:30px;
+        font-family: 'Geo', sans-serif;
+        color:#fff;
+    }
+
+    li {
+        list-style-type:none;
+        border-style: solid;
+        border-width: 0 20px 20px 0;
+        border-color: transparent #8bae21 transparent transparent;
+    }
+}
