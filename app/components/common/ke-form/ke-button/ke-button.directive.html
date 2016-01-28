@@ -1,10 +1,12 @@
 <div class="keButton" ng-class="{
+'keButton--reverseLayout': ctrl.reverseLayout,
 'is-fullWidth': ctrl.fullWidth,
 'keButton--error': ctrl.type === 'error',
 'keButton--warning': ctrl.type === 'warning',
 'keButton--success': ctrl.type === 'success'
 }"
         ng-click="ctrl.actionClick()">
-    <i class="fa" ng-if="ctrl.icon !== undefined" ng-class="ctrl.icon"></i>
-    <span>{{ctrl.label}}</span>
+    <i class="fa" ng-if="ctrl.icon !== undefined && !ctrl.loading" ng-class="ctrl.icon"></i>
+    <i class="fa fa-spinner fa-pulse" ng-if="ctrl.loading"></i>
+    <span ng-if="!ctrl.loading">{{ctrl.label}}</span>
 </div>

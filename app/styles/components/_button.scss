@@ -12,6 +12,18 @@
   cursor: pointer;
   @include border-radius(5px);
 
+  &.keButton--reverseLayout {
+    background-color: $color-white;
+    color: $info-color;
+    @include border-radius(0);
+    border: 2px solid $info-color;
+
+    &:hover {
+      background-color: $info-color;
+      color: $color-white;
+    }
+  }
+
   &.is-fullWidth {
     width: 100%;
   }

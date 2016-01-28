@@ -10,11 +10,21 @@
             <h6><strong>{{::home.topPost.createdAt | date : 'mediumDate'}}</strong> by <strong>{{::home.topPost.author}}</strong></h6>
         </div>
     </div>
-    <div class="Grid row">
+    <div class="Grid">
         <ke-grid
                 data-elements="home.posts"
                 data-type="post"
                 data-link="post"
                 ></ke-grid>
+    </div>
+    <div class="gr-12"
+         ng-if="!home.noMoreImages">
+        <ke-button
+                data-label="Load more articles"
+                data-full-width="true"
+                ng-click="home.loadMoreImages()"
+                data-reverse-layout="true"
+                data-loading="home.busy"
+                ></ke-button>
     </div>
 </section>

@@ -11,7 +11,9 @@ function keButtonDirective() {
             label: '@',
             fullWidth: '=',
             onClick: '=',
-            type: '@'
+            type: '@',
+            reverseLayout: '=',
+            loading: '='
         },
         controllerAs: 'ctrl',
         templateUrl: 'components/common/ke-form/ke-button/ke-button.directive.html',
