@@ -67,7 +67,7 @@
           text-align: center;
           cursor: pointer;
 
-          h2 {
+          h4 {
             width: 100%;
             @include transition(all 0.45s ease);
             color: $color-white;
@@ -78,13 +78,13 @@
           }
 
           &:hover {
-            h2 {
+            h4 {
               opacity: 1;
             }
           }
 
           @media screen and (max-width: $tabletWidth) {
-            h2 {
+            h4 {
               opacity: 1;
             }
           }

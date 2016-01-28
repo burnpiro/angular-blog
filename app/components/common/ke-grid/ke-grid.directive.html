@@ -8,6 +8,7 @@
     <div class="GridImageContainer" ui-sref="category({categoryId: row._id})" ng-if="ctrl.type === 'category'">
         <div class="GridBackgroundImage" ng-class="row.background">
             <h4>{{::row.name}}</h4>
+            <i class="bottomIcon fa" ng-if="::row.icon" ng-class="::row.icon"></i>
         </div>
     </div>
 
