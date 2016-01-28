@@ -138,6 +138,9 @@ function articleDirective() {
             $('pre code').each(function(i, block) {
                 hljs.highlightBlock(block);
             });
+        },
+        link: function() {
+            window.scrollTo( 0, 0 );
         }
     };
 }
