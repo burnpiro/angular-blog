@@ -7,12 +7,12 @@
     </div>
     <div class="GridImageContainer" ui-sref="category({categoryId: row._id})" ng-if="ctrl.type === 'category'">
         <div class="GridBackgroundImage" ng-class="row.background">
-            <h2>{{::row.name}}</h2>
+            <h4>{{::row.name}}</h4>
         </div>
     </div>
 
     <div class="GridPostDescription" ng-click="ctrl.goToLink(row[ctrl.dataValue])" ng-if="ctrl.type === 'post'">
-        <h2>{{::row.name}}</h2>
+        <h4>{{::row.name}}</h4>
         <h6 class="PostDescription">{{::row._category}} / {{::row.author}} / {{::row.createdAt | date : 'mediumDate'}}</h6>
     </div>
 </div>

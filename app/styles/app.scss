@@ -126,14 +126,14 @@ h5 {
     font-family: sans-serif;
     font-size: 20px;
     line-height: 28px;
+    font-weight: 600;
+    color: $accent-color;
 }
 
 h6 {
     font-family: sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 600;
-    color: $accent-color;
+    font-size: 12px;
+    line-height: 20px;
 }
 
 .loader {
