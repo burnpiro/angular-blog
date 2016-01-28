@@ -36,21 +36,21 @@
             top: 0;
 
             &.topLinks {
-                left: 0
+                left: 0;
+                width: 100px;
             }
 
             &.middleLinks {
                 text-align: center;
                 position: fixed;
                 top: 0;
-                left: 50%;
+                right: 0;
                 width: 200px;
-                @include transform(translate(-50%, 0));
+                @include transform(translate(0, 0));
             }
 
             &.bottomLinks {
-                position: fixed;
-                right: 0;
+                display: none;
             }
         }
     }
@@ -60,9 +60,6 @@
 
         div {
             &.topLinks {
-                display: none;
-            }
-            &.bottomLinks {
                 display: none;
             }
         }
