@@ -43,7 +43,7 @@ function GridController(categories, posts, FileService, PostService, $rootScope,
         };
     }
 
-    if(self.postsData < 12) {
+    if(self.postsData.length < 12) {
         self.noMorePosts = true;
     }
 

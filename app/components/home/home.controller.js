@@ -31,7 +31,7 @@ function HomeController(posts, FileService, PostService, $rootScope) {
         self.topPost.background = 'bg-color-light-green-600';
     }
 
-    if(self.posts < 9) {
+    if(self.posts.length < 9) {
         self.noMoreImages = true;
     }
 
