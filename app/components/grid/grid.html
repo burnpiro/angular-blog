@@ -29,5 +29,16 @@
             data-elements="grid.categoriesData"
             data-type="category"
             ></ke-grid>
+
+        <div class="gr-12"
+             ng-if="!grid.noMorePosts">
+            <ke-button
+                    data-label="Load more articles"
+                    data-full-width="true"
+                    ng-click="grid.loadMorePosts()"
+                    data-reverse-layout="true"
+                    data-loading="grid.busy"
+                    ></ke-button>
+        </div>
     </div>
 </section>

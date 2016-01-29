@@ -30,7 +30,7 @@ function PostService(Restangular) {
     };
 
     this.getRecentPosts = function() {
-        return Restangular.one('posts').post('search', {limit: 11});
+        return Restangular.one('posts').post('search', {limit: 10});
     };
 
     this.savePost = function(post) {

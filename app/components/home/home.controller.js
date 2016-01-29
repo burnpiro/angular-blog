@@ -12,7 +12,7 @@ function HomeController(posts, FileService, PostService, $rootScope) {
     self.getImageLink = FileService.getImageLink;
     self.limit = 6;
     self.offset = 10;
-    self.noMoreImages = false;
+    self.noMorePosts = false;
     self.busy = false;
 
     var saturation = 600;
@@ -35,19 +35,19 @@ function HomeController(posts, FileService, PostService, $rootScope) {
         self.noMoreImages = true;
     }
 
-    self.loadMoreImages = function() {
-        if(self.busy || self.noMoreImages === true) {
+    self.loadMorePosts = function() {
+        if(self.busy || self.noMorePosts === true) {
             return false;
         }
         self.busy = true;
         PostService.searchPosts({ limit: self.limit, offset: self.offset })
             .then(function(response) {
                 if( response.data.length < self.limit ) {
-                    self.noMoreImages = true;
+                    self.noMorePosts = true;
                 }
                 self.offset += self.limit;
-                _.forEach(response.data, function(image) {
-                    self.posts.push(image);
+                _.forEach(response.data, function(post) {
+                    self.posts.push(post);
                 });
                 self.busy = false;
             }, function() {

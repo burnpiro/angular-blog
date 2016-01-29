@@ -135,6 +135,19 @@
                 margin: 5px 0;
             }
         }
+
+        &.ng-enter, &.ng-leave, &.ng-move {
+            @include transition(all linear 0.5s);
+        }
+        &.ng-enter, &.ng-leave.ng-leave-active, &.ng-move {
+            opacity: 0;
+            @include transform(translate(0, 50%));
+        }
+        &.ng-enter.ng-enter-active, &.ng-leave, &.ng-move.ng-move-active {
+            opacity: 1;
+            @include transform(translate(0, 0));
+        }
+
     }
 }
 

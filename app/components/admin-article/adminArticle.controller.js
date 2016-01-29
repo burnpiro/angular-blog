@@ -91,7 +91,6 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
 
     function filterAllowedTags() {
         self.post.tags = _.filter(self.post.tags, function(tag) {
-            console.log(tag, _.find(self.tags, { _id: tag}), angular.isDefined(_.find(self.tags, { _id: tag})));
             return angular.isDefined(_.find(self.tags, { _id: tag}));
         });
     }

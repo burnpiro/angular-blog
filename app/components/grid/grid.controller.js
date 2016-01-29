@@ -2,14 +2,18 @@
 'use strict';
 
 angular.module('app.grid').
-    controller('GridController', ['categories', 'posts', 'FileService', '$rootScope', '$state', GridController]);
+    controller('GridController', ['categories', 'posts', 'FileService', 'PostService', '$rootScope', '$state', GridController]);
 
-function GridController(categories, posts, FileService, $rootScope, $state) {
+function GridController(categories, posts, FileService, PostService, $rootScope, $state) {
     var self = this;
     self.gridData = [];
     self.categoriesData = [];
     self.postsData = [];
     self.getImageLink = FileService.getImageLink;
+    self.limit = 6;
+    self.offset = 10;
+    self.noMorePosts = false;
+    self.busy = false;
 
     if(!_.isEmpty(categories.data)) {
         self.categoriesData = self.categoriesData.concat(categories.data);
@@ -17,7 +21,6 @@ function GridController(categories, posts, FileService, $rootScope, $state) {
     if(!_.isEmpty(posts.data)) {
         self.postsData = self.postsData.concat(posts.data);
     }
-    console.log(self.categoriesData, self.postsData);
     var saturation = 600;
     var classes = [
         'bg-color-red-'+saturation, 'bg-color-pink-'+saturation, 'bg-color-purple-'+saturation, 'bg-color-deep-purple-'+saturation, 'bg-color-indigo-'+saturation,
@@ -39,5 +42,29 @@ function GridController(categories, posts, FileService, $rootScope, $state) {
             stateName: 'categories'
         };
     }
+
+    if(self.postsData < 12) {
+        self.noMorePosts = true;
+    }
+
+    self.loadMorePosts = function() {
+        if(self.busy || self.noMorePosts === true) {
+            return false;
+        }
+        self.busy = true;
+        PostService.searchPosts({ limit: self.limit, offset: self.offset })
+            .then(function(response) {
+                if( response.data.length < self.limit ) {
+                    self.noMorePosts = true;
+                }
+                self.offset += self.limit;
+                _.forEach(response.data, function(post) {
+                    self.postsData.push(post);
+                });
+                self.busy = false;
+            }, function() {
+                self.busy = false;
+            })
+    };
 }
 })(angular);
