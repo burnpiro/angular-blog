@@ -11,7 +11,7 @@ function GridController(categories, posts, FileService, PostService, $rootScope,
     self.postsData = [];
     self.getImageLink = FileService.getImageLink;
     self.limit = 6;
-    self.offset = 10;
+    self.offset = 12;
     self.noMorePosts = false;
     self.busy = false;
 
