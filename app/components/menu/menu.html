@@ -14,6 +14,12 @@
             ></ke-input-text>
     </div>
 
+    <div class="NoArticles" ng-if="!menu.busy && menu.posts.length == 0 && menu.searchText != ''">
+        Sorry, no matches found :(
+    </div>
+    <div class="SearchLoader">
+        <i class="fa fa-spinner fa-pulse" ng-if="ctrl.busy"></i>
+    </div>
     <div class="SearchContainer">
         <div class="Grid">
             <ke-grid

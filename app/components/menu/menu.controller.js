@@ -24,9 +24,14 @@ function MenuController(PostService, CategoryService, LeftSliderService, $rootSc
 
     self.search = function(text) {
         if(text.length > 0) {
+            if(self.busy === true) {
+                return false;
+            }
+            self.busy = true;
             PostService.getAllByName(text)
                 .then(function(response) {
                     self.posts = response.data;
+                    self.busy = false;
                 });
         } else {
             self.posts = [];
