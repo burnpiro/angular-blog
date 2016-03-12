@@ -43,6 +43,10 @@
         .description {
             margin-bottom: 10px;
         }
+
+        h4 {
+            display: none;
+        }
     }
 
     &:hover {
@@ -54,6 +58,27 @@
     @media screen and (max-width: $mobileWidth) {
         padding: 0;
         margin: 0;
+
+        .mainGridImage {
+            h1 {
+                display: none;
+            }
+        }
+
+        .mainGridDescription {
+            .description {
+                display: none;
+            }
+
+            h4 {
+                display: block;
+            }
+
+            h6 {
+                padding-top: 20px;
+                font-style: italic;
+            }
+        }
     }
 }
 
