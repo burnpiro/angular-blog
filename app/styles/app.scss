@@ -67,14 +67,19 @@ blockquote, q {
     padding: 0.5em 10px;
     quotes: "\201C""\201D""\2018""\2019";
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+q:before {
     color: $color-light-gray;
     content: open-quote;
     font-size: 4em;
     line-height: 0.1em;
     margin-right: 0.25em;
     vertical-align: -0.4em;
+}
+blockquote:after,
+q:after {
+    content: '';
+    content: none;
 }
 table {
     border-collapse: collapse;
