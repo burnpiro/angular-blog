@@ -80,10 +80,20 @@
 
         </div>
         <div class="gr-12">
-            <ke-switch
-                    data-ng-model="articleCtrl.post.display"
-                    data-label="Publish?"
-                    ></ke-switch>
+            <div class="gr-3 gr12@mobile">
+                <ke-switch
+                        data-ng-model="articleCtrl.post.display"
+                        data-label="Publish?"
+                        ></ke-switch>
+            </div>
+
+            <div class="gr-3 gr12@mobile">
+                <ke-input-text
+                        ng-model="articleCtrl.post.publishedAt"
+                        data-full-width="true"
+                        data-placeholder="Publication Date"
+                        ></ke-input-text>
+            </div>
         </div>
         <div class="gr-12">
             <div class="gr-6 gr12@mobile">

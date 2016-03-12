@@ -20,6 +20,7 @@ function AdminArticleController(PostService, post, categories, files, tags, toas
             image: '',
             author: 'Kemal Erdem',
             display: true,
+            publishedAt: new Date('now'),
             tags: []
         };
     }

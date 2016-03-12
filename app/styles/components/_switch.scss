@@ -2,6 +2,7 @@
 
 .keSwitch {
   display: inline-flex;
+  line-height: 75px;
 
   &.is-fullWidth {
     width: 100%;
@@ -18,7 +19,7 @@
     width: 80px;
     height: 26px;
     background: $color-very-light-gray;
-    margin: 0;
+    margin: 25px 0 0 0;
     position: relative;
     border-radius: 50px;
     box-shadow: inset 0px 1px 1px rgba($color-light-gray,0.5), 0px 1px 0px rgba($color-light-gray,0.2);

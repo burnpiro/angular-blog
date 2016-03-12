@@ -42,6 +42,7 @@ function PostService(Restangular) {
             image: post.image ? post.image : null,
             content: post.content,
             display: post.display,
+            publishedAt: post.publishedAt,
             tags: post.tags
         };
         if(_.isObject(post._category)) {
