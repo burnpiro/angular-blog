@@ -16,10 +16,11 @@
         bottom: 0;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
+        width: 100vw;
     }
 
     .bg-img img {
-        width: 100vh;
+        width: 100vw;
         position: absolute;
         top: 0;
         left: auto;
@@ -172,27 +173,6 @@
         font-size: 1.35em;
     }
 
-    .content h3 {
-        margin: 0;
-        font-size: 1.4em;
-    }
-
-    .content blockquote {
-        padding: 0.25em;
-        font-style: italic;
-        font-size: 1.65em;
-        font-family: 'Lora', serif;
-        line-height: 1.4;
-    }
-
-    .content blockquote::before {
-        content: '\201C';
-    }
-
-    .content blockquote::after {
-        content: '\201D';
-    }
-
     /***** Individual effects *****/
 
     /* -------------------------- */
@@ -307,6 +287,18 @@
 
         .title {
             font-size: $font-size-md;
+        }
+
+        .title h1 {
+            font-size: 32px;
+        }
+
+        .title p.subline {
+            font-size: 20px;
+        }
+
+        .title p {
+            font-size: 0.75em;
         }
 
         #articleContent {
