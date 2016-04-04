@@ -33,3 +33,20 @@ if you want do enable autorebuild please run
 ## How about structure
 
 Whole project structure is based on new styleguide from angular team (component based app). It is required (it can be changed) be New Router. See angular website to learn more
+
+##To production build:
+
+Accidently production build was broken (if someone want to fix it feel free to do it :) ) To generate production build please do as follow:
+
+    
+    gulp clean-build-app-prod
+    gulp build-app-views-prod
+    gulp build-app-index-prod
+    gulp build-app-scripts-prod
+    gulp build-vendor-scripts-prod
+    
+Then just change config in serverConfig.js and call
+
+    
+    node server.js
+    
