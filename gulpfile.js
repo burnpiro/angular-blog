@@ -6,6 +6,7 @@ var bowerFiles = require('main-bower-files');
 var browserSync = require('browser-sync').create();
 var print = require('gulp-print');
 var Q = require('q');
+var strip = require('gulp-strip-comments');
 
 // == PATH STRINGS ========
 
@@ -41,16 +42,20 @@ pipes.builtAppScriptsDev = function() {
 };
 
 pipes.builtAppScriptsProd = function() {
-    var scriptedPartials = pipes.scriptedPartials();
-    var validatedAppScripts = pipes.validatedAppScripts();
-
-    return es.merge(scriptedPartials, validatedAppScripts)
-        .pipe(pipes.orderedAppScripts())
+    return gulp.src(paths.components)
         .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.concat('app.min.js'))
-        .pipe(plugins.uglify())
+        .pipe(plugins.concat('components.min.js'))
+        .pipe(strip())
+        .pipe(plugins.compressor())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(paths.distScriptsProd));
+};
+
+pipes.builtAppViewsProd = function() {
+    return gulp.src(paths.views)
+        .pipe(strip())
+        .pipe(plugins.compressor())
+        .pipe(gulp.dest(paths.distViewsProd));
 };
 
 pipes.builtVendorScriptsDev = function() {
@@ -59,8 +64,7 @@ pipes.builtVendorScriptsDev = function() {
 };
 
 pipes.builtVendorScriptsProd = function() {
-    return gulp.src(bowerFiles())
-        .pipe(pipes.orderedVendorScripts())
+    return gulp.src(paths.bowerComponents)
         .pipe(plugins.concat('vendor.min.js'))
         .pipe(plugins.uglify())
         .pipe(gulp.dest(paths.distScriptsProd));
@@ -135,12 +139,12 @@ pipes.processedImagesProd = function() {
 
 pipes.processedFoldersDev = function() {
     return gulp.src(paths.folders)
-        .pipe(gulp.dest(paths.distDev + '/js/'));
+        .pipe(gulp.dest(paths.distDev + '/plugins/'));
 };
 
 pipes.processedFoldersProd = function() {
     return gulp.src(paths.folders)
-        .pipe(gulp.dest(paths.distProd + '/js/'));
+        .pipe(gulp.dest(paths.distProd + '/plugins/'));
 };
 
 pipes.processedFontsDev = function() {
@@ -151,6 +155,20 @@ pipes.processedFontsDev = function() {
 pipes.processedFontsProd = function() {
     return gulp.src(paths.fonts)
         .pipe(gulp.dest(paths.distProd + '/fonts/'));
+};
+
+pipes.processedAppJSProd = function() {
+    return gulp.src(paths.indexFile)
+        .pipe(plugins.sourcemaps.init())
+        .pipe(strip())
+        .pipe(plugins.compressor())
+        .pipe(plugins.sourcemaps.write())
+        .pipe(gulp.dest(paths.distProd));
+};
+
+pipes.processedAppJSDev = function() {
+    return gulp.src(paths.indexFile)
+        .pipe(gulp.dest(paths.distDev));
 };
 
 pipes.validatedIndex = function() {
@@ -194,12 +212,11 @@ pipes.builtIndexProd = function() {
         .pipe(plugins.inject(vendorNodeScripts, {relative: true, name: 'node'}))
         .pipe(plugins.inject(appScripts, {relative: true}))
         .pipe(plugins.inject(appStyles, {relative: true}))
-        .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulp.dest(paths.distProd));
 };
 
 pipes.builtAppDev = function() {
-    return es.merge(pipes.builtIndexDev(), pipes.builtPartialsDev(), pipes.processedImagesDev(), pipes.processedFoldersDev(), pipes.processedFontsDev());
+    return es.merge(pipes.builtIndexDev(), pipes.builtPartialsDev(), pipes.processedImagesDev(), pipes.processedFoldersDev(), pipes.processedFontsDev(), pipes.processedAppJSDev());
 };
 
 pipes.builtAppProd = function() {
@@ -250,6 +267,12 @@ gulp.task('build-app-scripts-dev', pipes.builtAppScriptsDev);
 // concatenates, uglifies, and moves app scripts and partials into the prod environment
 gulp.task('build-app-scripts-prod', pipes.builtAppScriptsProd);
 
+// concatenates, uglifies, and moves app scripts and partials into the prod environment
+gulp.task('build-app-views-prod', pipes.builtAppViewsProd);
+
+// concatenates, uglifies, and moves app scripts and partials into the prod environment
+gulp.task('build-app-index-prod', pipes.processedAppJSProd);
+
 // compiles app sass and moves to the dev environment
 gulp.task('build-styles-dev', pipes.builtStylesDev);
 
@@ -278,7 +301,7 @@ gulp.task('build-app-prod', pipes.builtAppProd);
 gulp.task('clean-build-app-dev', ['clean-dev'], pipes.builtAppDev);
 
 // cleans and builds a complete prod environment
-gulp.task('clean-build-app-prod', ['clean-prod'], pipes.builtAppProd);
+gulp.task('clean-build-app-prod', ['clean-prod', 'build-app-index-prod', 'build-app-views-prod', 'build-app-scripts-prod'], pipes.builtAppProd);
 
 // clean, build, and watch live changes to the dev environment
 gulp.task('watch-dev', ['clean-build-app-dev', 'validate-devserver-scripts'], function() {
@@ -341,12 +364,6 @@ gulp.task('watch-prod', ['clean-build-app-prod', 'validate-devserver-scripts'], 
 
     // watch app scripts
     gulp.watch(paths.scripts, function() {
-        return pipes.builtAppScriptsProd()
-            .pipe(plugins.livereload());
-    });
-
-    // watch hhtml partials
-    gulp.watch(paths.partials, function() {
         return pipes.builtAppScriptsProd()
             .pipe(plugins.livereload());
     });

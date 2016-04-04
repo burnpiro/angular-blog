@@ -4,7 +4,7 @@ module.exports = {
     },
     server: {
         host: 'localhost',
-        port: 3000
+        port: 3007
     },
-    staticDir: 'dist.dev'
+    staticDir: 'dist.prod'
 };
