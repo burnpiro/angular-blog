@@ -23,7 +23,7 @@ module.exports  = {
         './bower_components/angular-animate/angular-animate.min.js',
         './bower_components/angular-file-upload/angular-file-upload.min.js',
         './bower_components/angular-jwt/dist/angular-jwt.min.js',
-        './bower_components/angular-toastr/dist/angular-toastr.min.js',
+        './bower_components/angular-toastr/dist/angular-toastr.tpls.min.js',
         './bower_components/angular-ui-router/release/angular-ui-router.min.js',
         './bower_components/restangular/dist/restangular.min.js',
         './bower_components/jquery.cookie/jquery.cookie.js',
